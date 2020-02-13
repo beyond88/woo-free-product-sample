@@ -39,6 +39,7 @@ define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
 function activate_wfp_sample() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wfp-sample-activator.php';
 	Wfp_Sample_Activator::activate();
+	
 }
 
 /**
