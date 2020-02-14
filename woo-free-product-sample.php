@@ -2,7 +2,7 @@
 /**
  * @link              https://profiles.wordpress.org/hossain88
  * @since             1.0.0
- * @package           Wfp_Sample
+ * @package           Woo_Free_Product_Sample
  *
  * @wordpress-plugin
  * Plugin Name:       WooCommerce Free Product Sample
@@ -13,7 +13,7 @@
  * Author URI:        https://profiles.wordpress.org/hossain88
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wfp-sample
+ * Text Domain:       woo-free-product-sample
  * Domain Path:       /languages
  */
 
@@ -34,31 +34,31 @@ define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-wfp-sample-activator.php
+ * This action is documented in includes/class-woo-free-product-sample-activator.php
  */
-function activate_wfp_sample() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wfp-sample-activator.php';
-	Wfp_Sample_Activator::activate();
+function activate_woo_free_product_sample() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-woo-free-product-sample-activator.php';
+	Woo_Free_Product_Sample_Activator::activate();
 	
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-wfp-sample-deactivator.php
+ * This action is documented in includes/class-woo-free-product-sample-deactivator.php
  */
-function deactivate_wfp_sample() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wfp-sample-deactivator.php';
-	Wfp_Sample_Deactivator::deactivate();
+function deactivate_woo_free_product_sample() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-woo-free-product-sample-deactivator.php';
+	Woo_Free_Product_Sample_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_wfp_sample' );
-register_deactivation_hook( __FILE__, 'deactivate_wfp_sample' );
+register_activation_hook( __FILE__, 'activate_woo_free_product_sample' );
+register_deactivation_hook( __FILE__, 'deactivate_woo_free_product_sample' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wfp-sample.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-woo-free-product-sample.php';
 
 
 /**
@@ -66,12 +66,12 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wfp-sample.php';
  *
  * @since    1.0.0
  */
-if ( ! function_exists( 'run_wfp_sample' ) ) { 
-	function run_wfp_sample() {
+if ( ! function_exists( 'run_woo_free_product_sample' ) ) { 
+	function run_woo_free_product_sample() {
 
-		$plugin = new Wfp_Sample();
+		$plugin = new Woo_Free_Product_Sample();
 		$plugin->run();
 
 	}
-	run_wfp_sample();
+	run_woo_free_product_sample();
 }

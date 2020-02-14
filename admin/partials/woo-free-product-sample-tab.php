@@ -21,14 +21,14 @@
 <div id="wfp-sample-tab" class="panel wc-metaboxes-wrapper woocommerce_options_panel">
     <div class="options_group">
         <p class="form-field comment_status_field">
-            <label for="enable_freesample"><?php esc_html_e( 'Enable Free Sample', 'wfp-sample' ); ?></label>
+            <label for="enable_freesample"><?php esc_html_e( 'Enable Free Sample', 'woo-free-product-sample' ); ?></label>
             <input type="checkbox" class="checkbox enable_freesample" name="enable_freesample" id="enable_freesample" value="<?php echo esc_attr( $wcfps_enable_freesample ); ?>" <?php checked( "open", $wcfps_enable_freesample, true ); ?>> 
         </p>
     </div>
     <div class="enabled-area">
     <div class="options_group">
             <p class="form-field menu_order_field ">
-                <label for="wfp-sample-timezone"><?php esc_html_e( 'Time Zone', 'wfp-sample' ); ?></label>
+                <label for="wfp-sample-timezone"><?php esc_html_e( 'Time Zone', 'woo-free-product-sample' ); ?></label>
                 <select name="wfp_sample_timezone" id="wfp_sample_timezone" class="short">
                     <option value=""><?php esc_html_e("Select Timzone", "wfp-sample"); ?></option>
                     <option value="Etc/GMT+12" <?php selected( $wfp_sample_timezone, "Etc/GMT+12" ); ?>>(GMT-12:00) International Date Line West</option>
@@ -114,38 +114,38 @@
                     <option value="Pacific/Fiji" <?php selected( $wfp_sample_timezone, "Pacific/Fiji" ); ?>>(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
                     <option value="Pacific/Tongatapu" <?php selected( $wfp_sample_timezone, "Pacific/Tongatapu" ); ?>>(GMT+13:00) Nuku'alofa</option>
                 </select>
-                <?php esc_html_e( 'Ex.: If don\'t select than server timezone will be set as default', 'wfp-sample' ); ?> </span> 
+                <?php esc_html_e( 'Ex.: If don\'t select than server timezone will be set as default', 'woo-free-product-sample' ); ?> </span> 
             </p>	
         </div>           
         <div class="options_group">
             <p class="form-field menu_order_field ">
-                <label for="sample_limits"><?php esc_html_e( 'Stock Quantity', 'wfp-sample' ); ?></label>
+                <label for="sample_limits"><?php esc_html_e( 'Stock Quantity', 'woo-free-product-sample' ); ?></label>
                 <input type="number" class="short" name="sample_limits" id="sample_limits" value="<?php echo esc_attr( $wcfps_limits );  ?>" step="1"> 
             </p>	
         </div>       
         <div class="options_group">
             <p class="form-field menu_order_field ">
-                <label for="max_qty_per_order"><?php esc_html_e( 'Max. quantity for per order', 'wfp-sample' ); ?></label>
+                <label for="max_qty_per_order"><?php esc_html_e( 'Max. quantity for per order', 'woo-free-product-sample' ); ?></label>
                 <input type="number" class="short" name="max_qty_per_order" id="max_qty_per_order" value="<?php echo esc_attr( $wcfps_mt_per_order );  ?>" step="1"> 
             </p>	
         </div>         
         <div class="options_group">
             <p class="form-field menu_order_field">
-                <label for="wfp_from_date"><?php esc_html_e( 'Promotion Start Date', 'wfp-sample' ); ?></label>
-                <input type="text" class="short" autocomplete="off" name="wfp_from_date" id="wfp_from_date" value="<?php echo esc_attr( $wcfps_from_date ); ?>" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'wfp-sample' ); ?>" maxlength="10">
+                <label for="wfp_from_date"><?php esc_html_e( 'Promotion Start Date', 'woo-free-product-sample' ); ?></label>
+                <input type="text" class="short" autocomplete="off" name="wfp_from_date" id="wfp_from_date" value="<?php echo esc_attr( $wcfps_from_date ); ?>" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'woo-free-product-sample' ); ?>" maxlength="10">
             </p>	
         </div>   
         <div class="options_group">
             <p class="form-field menu_order_field">
-                <label for="wfp_to_date"><?php esc_html_e( 'Promotion End Date', 'wfp-sample' ); ?></label>
-                <input type="text" class="short" autocomplete="off"  name="wfp_to_date" id="wfp_to_date" value="<?php echo esc_attr( $wcfps_to_date ); ?>" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'wfp-sample' ); ?>" maxlength="10">
+                <label for="wfp_to_date"><?php esc_html_e( 'Promotion End Date', 'woo-free-product-sample' ); ?></label>
+                <input type="text" class="short" autocomplete="off"  name="wfp_to_date" id="wfp_to_date" value="<?php echo esc_attr( $wcfps_to_date ); ?>" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'woo-free-product-sample' ); ?>" maxlength="10">
             </p>	
         </div>  
         <div class="options_group">
             <p class="form-field menu_order_field">
-                <label for="button_text"><?php esc_html_e( 'Button Text', 'wfp-sample' ); ?></label>
-                <input type="text" class="short" name="button_text" id="button_text" value="<?php echo esc_attr( $wcfps_button_text ); ?>" placeholder="<?php esc_attr_e( 'Order a Free Sample', 'wfp-sample' ); ?>" maxlength="50">
-                <span class="wfp-help-text"> <?php esc_html_e( 'Ex.: Order a Free Sample', 'wfp-sample' ); ?> </span>
+                <label for="button_text"><?php esc_html_e( 'Button Text', 'woo-free-product-sample' ); ?></label>
+                <input type="text" class="short" name="button_text" id="button_text" value="<?php echo esc_attr( $wcfps_button_text ); ?>" placeholder="<?php esc_attr_e( 'Order a Free Sample', 'woo-free-product-sample' ); ?>" maxlength="50">
+                <span class="wfp-help-text"> <?php esc_html_e( 'Ex.: Order a Free Sample', 'woo-free-product-sample' ); ?> </span>
             </p>	
         </div>             
     </div>         

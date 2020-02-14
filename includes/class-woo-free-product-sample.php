@@ -7,12 +7,12 @@
  * @link       https://profiles.wordpress.org/hossain88
  * @since      1.0.0
  *
- * @package    Wfp_Sample
- * @subpackage Wfp_Sample/includes
+ * @package    Woo_Free_Product_Sample
+ * @subpackage Woo_Free_Product_Sample/includes
  * @author     hossain88 <muhin.cse.diu@gmail.com> 
  */
 
-class Wfp_Sample {
+class Woo_Free_Product_Sample {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -47,12 +47,12 @@ class Wfp_Sample {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'WFPS_VERSION' ) ) {
+			$this->version = WFPS_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.1.5';
 		}
-		$this->plugin_name = 'wfp-sample';
+		$this->plugin_name = 'woo-free-product-sample';
 
 		$this->load_dependencies();
 		$this->set_locale();

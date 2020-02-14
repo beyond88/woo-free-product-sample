@@ -6,8 +6,8 @@
  * @link       https://jouleslabs.com/
  * @since      1.1.0
  *
- * @package    Wfp_Sample
- * @subpackage Wfp_Sample/includes
+ * @package    Woo_Free_Product_Sample
+ * @subpackage Woo_Free_Product_Sample/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.1.0
- * @package    Wfp_Sample
- * @subpackage Wfp_Sample/includes
+ * @package    Woo_Free_Product_Sample
+ * @subpackage Woo_Free_Product_Sample/includes
  * @author     Jouleslabs <hello@jouleslabs.com>
  */
-class Wfp_Sample_Deactivator {
+class Woo_Free_Product_Sample_Deactivator {
 
 	/**
 	 * Short Description. (use period)

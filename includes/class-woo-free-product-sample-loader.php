@@ -6,12 +6,12 @@
  * @link       https://profiles.wordpress.org/hossain88
  * @since      1.0.0
  *
- * @package    Wfp_Sample
- * @subpackage Wfp_Sample/includes
+ * @package    Woo_Free_Product_Sample
+ * @subpackage Woo_Free_Product_Sample/includes
  * @author     max-themes <muhin.cse.diu@gmail.com> 
  */
 
-class Wfp_Sample_Loader {
+class Woo_Free_Product_Sample_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
