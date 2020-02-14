@@ -15,7 +15,16 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woo-free-product-sample
  * Domain Path:       /languages
- */
+ * Requires PHP:      5.6
+ * Requires at least: 4.4
+ * Tested up to:      5.3
+ *
+ * WC requires at least: 3.1
+ * WC tested up to:   3.8* 
+ * Copyright: © 2017-2020.
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -38,8 +47,7 @@ define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
  */
 function activate_woo_free_product_sample() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-woo-free-product-sample-activator.php';
-	Woo_Free_Product_Sample_Activator::activate();
-	
+	Woo_Free_Product_Sample_Activator::activate();	
 }
 
 /**
