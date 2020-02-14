@@ -20,7 +20,7 @@ class Woo_Free_Product_Sample {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Wfp_Sample_Loader $loader
+	 * @var      Woo_Free_Product_Sample_Loader $loader
 	 */
 	protected $loader;
 
@@ -72,26 +72,26 @@ class Woo_Free_Product_Sample {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wfp-sample-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-free-product-sample-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wfp-sample-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-free-product-sample-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wfp-sample-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-free-product-sample-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wfp-sample-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-free-product-sample-public.php';
 
-		$this->loader = new Wfp_Sample_Loader();
+		$this->loader = new Woo_Free_Product_Sample_Loader();
 
 	}
 
@@ -102,7 +102,7 @@ class Woo_Free_Product_Sample {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Wfp_Sample_i18n();
+		$plugin_i18n = new Woo_Free_Product_Sample_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -115,7 +115,7 @@ class Woo_Free_Product_Sample {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Wfp_Sample_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Woo_Free_Product_Sample_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'woocommerce_init', $plugin_admin, 'init' );
@@ -129,7 +129,7 @@ class Woo_Free_Product_Sample {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Wfp_Sample_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Woo_Free_Product_Sample_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );		
@@ -166,7 +166,7 @@ class Woo_Free_Product_Sample {
 	/**
 	 *
 	 * @since     1.0.0
-	 * @return    Wfp_Sample_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Woo_Free_Product_Sample_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

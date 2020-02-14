@@ -18,12 +18,12 @@
  * @since      1.0.0
  * @package    Woo_Free_Product_Sample
  * @subpackage Woo_Free_Product_Sample/includes
- * @author     Jouleslabs <hello@jouleslabs.com>
+ * @author     Jouleslabs <muhin.cse.diu@gmail.com>
  */
 class Woo_Free_Product_Sample_Activator {
 
 	/**
-	 * Short Description. (use period)
+	 * Check WooCommerce is exist when the plugin installing
 	 *
 	 * Long Description.
 	 *
