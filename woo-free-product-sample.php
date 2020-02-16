@@ -8,7 +8,7 @@
  * Plugin Name:       WooCommerce Free Product Sample
  * Plugin URI:        https://wordpress.org/plugins/woo-free-product-sample
  * Description:       WooCommerce Free Product Sample is a WordPress plugin. Display an add to cart button in product detail page to order product as free sample. Shop owner can be offered to customer to order product as free sample to promote his product or business.  
- * Version:           1.1.5
+ * Version:           1.1.6
  * Author:            Mohiuddin Abdul Kader
  * Author URI:        https://profiles.wordpress.org/hossain88
  * License:           GPL-2.0+
@@ -31,12 +31,15 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// Required functions
+require_once( plugin_dir_path( __FILE__ ) . 'woo-includes/woo-functions.php' );
+
 // WC active check
 if ( ! is_woocommerce_active() ) {
 	return;
 }
 
-define( 'WFPS_VERSION', '1.1.5' );
+define( 'WFPS_VERSION', '1.1.6' );
 define( 'MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'MINIMUM_WP_VERSION', '4.4' );
 define( 'MINIMUM_WC_VERSION', '3.0.9' );
@@ -47,106 +50,25 @@ define( 'WFPS_FILE', __FILE__ );
 define( 'WFPS_ROOT_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WFPS_ADMIN_DIR_PATH', WFPS_ROOT_DIR_PATH . 'admin/' );
 define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
+define( 'PLUGIN_NAME', 'WooCommerce Free Product Sample' );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-woo-free-product-sample-activator.php
- */
-function activate_woo_free_product_sample() {
-	require_once WFPS_ROOT_DIR_PATH . 'includes/class-woo-free-product-sample-activator.php';
-	Woo_Free_Product_Sample_Activator::activate();	
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-woo-free-product-sample-deactivator.php
- */
-function deactivate_woo_free_product_sample() {
-	require_once WFPS_ROOT_DIR_PATH . 'includes/class-woo-free-product-sample-deactivator.php';
-	Woo_Free_Product_Sample_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_woo_free_product_sample' );
-register_deactivation_hook( __FILE__, 'deactivate_woo_free_product_sample' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require WFPS_ROOT_DIR_PATH . 'includes/class-woo-free-product-sample.php';
-
-
-/**
- * Begins execution of the plugin.
+ * WooCommerce Free Product Sample Start.
  *
- * @since    1.0.0
+ * @since 1.1.6
  */
-if ( ! function_exists( 'run_woo_free_product_sample' ) ) { 
-	function run_woo_free_product_sample() {
+class Woo_Free_Product_Sample_Start {	
 
-		$plugin = new Woo_Free_Product_Sample();
-		$plugin->run();
-
-	}
-	run_woo_free_product_sample();
-}
-
-
-/**
- * WooCommerce Measurement Price Calculator loader.
- *
- * @since 3.14.0
- */
-class Woo_Free_Product_Sample_Start {
-
-
-	/** minimum PHP version required by this plugin */
-	const WFPS_VERSION = '5.6.0';
-
-	/** minimum PHP version required by this plugin */
-	const MINIMUM_PHP_VERSION = '5.6.0';	
-
-	/** minimum WordPress version required by this plugin */
-	const MINIMUM_WP_VERSION = '4.4';
-
-	/** minimum WooCommerce version required by this plugin */
-	const MINIMUM_WC_VERSION = '3.0.9';
-
-	/** SkyVerge plugin framework version used by this plugin */
-	// const WFPS_URL = plugins_url( '/', __FILE__ );
-
-	/** the plugin name, for displaying notices */
-	// const WFPS_ADMIN_URL = plugins_url( "/", __FILE__ ) . "admin/";
-
-	// /** minimum PHP version required by this plugin */
-	// const WFPS_PUBLIC_URL = plugins_url( '/', __FILE__ ) . 'public/';
-
-	/** minimum WordPress version required by this plugin */
-	const WFPS_FILE = __FILE__;
-
-	/** minimum WooCommerce version required by this plugin */
-	// const WFPS_ROOT_DIR_PATH = plugin_dir_path( __FILE__ );
-
-	/** SkyVerge plugin framework version used by this plugin */
-	const WFPS_ADMIN_DIR_PATH = WFPS_ROOT_DIR_PATH . 'admin/';
-
-	/** the plugin name, for displaying notices */
-	const WFPS_PUBLIC_PATH = WFPS_ROOT_DIR_PATH . 'public/';
-
-	/** the plugin name, for displaying notices */
-	const PLUGIN_NAME = 'Woo Free Product Sample';	
-
-
-	/** @var \Woo_Free_Product_Sample_Loader single instance of this class */
+	/** @var \Woo_Free_Product_Sample_Start single instance of this class */
 	private static $instance;
 
 	/** @var array the admin notices to add */
 	private $notices = array();
 
 	/**
-	 * Loads Measurement Price Calculator.
+	 * Loads WooCommerce Free Product Sample Start.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	protected function __construct() {
 
@@ -167,22 +89,22 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Cloning instances is forbidden due to singleton pattern.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	public function __clone() {
 
-		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot clone instances of %s.', get_class( $this ) ), '3.14.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot clone instances of %s.', get_class( $this ) ), '1.1.6' );
 	}
 
 
 	/**
 	 * Unserializing instances is forbidden due to singleton pattern.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	public function __wakeup() {
 
-		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot unserialize instances of %s.', get_class( $this ) ), '3.14.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot unserialize instances of %s.', get_class( $this ) ), '1.1.6' );
 	}
 
 
@@ -191,7 +113,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	public function init_plugin() {
 
@@ -200,9 +122,10 @@ class Woo_Free_Product_Sample_Start {
 		}
 
 		// load the main plugin class
-		require_once( plugin_dir_path( __FILE__ ) . 'class-wc-measurement-price-calculator.php' );
+		require_once( WFPS_ROOT_DIR_PATH . 'includes/class-woo-free-product-sample.php' );
 
-		wc_measurement_price_calculator();
+		$plugin = new Woo_Free_Product_Sample();
+		$plugin->run();
 	}
 
 	/**
@@ -212,7 +135,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	public function activation_check() {
 
@@ -220,7 +143,7 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->deactivate_plugin();
 
-			wp_die( self::PLUGIN_NAME . ' could not be activated. ' . $this->get_environment_message() );
+			wp_die( PLUGIN_NAME . ' could not be activated. ' . $this->get_environment_message() );
 		}
 	}
 
@@ -229,7 +152,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	public function check_environment() {
 
@@ -237,7 +160,7 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->deactivate_plugin();
 
-			$this->add_admin_notice( 'bad_environment', 'error', self::PLUGIN_NAME . ' has been deactivated. ' . $this->get_environment_message() );
+			$this->add_admin_notice( 'bad_environment', 'error', PLUGIN_NAME . ' has been deactivated. ' . $this->get_environment_message() );
 		}
 	}
 
@@ -247,7 +170,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	public function add_plugin_notices() {
 
@@ -255,8 +178,8 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->add_admin_notice( 'update_wordpress', 'error', sprintf(
 				'%s requires WordPress version %s or higher. Please %supdate WordPress &raquo;%s',
-				'<strong>' . self::PLUGIN_NAME . '</strong>',
-				self::MINIMUM_WP_VERSION,
+				'<strong>' . PLUGIN_NAME . '</strong>',
+				MINIMUM_WP_VERSION,
 				'<a href="' . esc_url( admin_url( 'update-core.php' ) ) . '">', '</a>'
 			) );
 		}
@@ -265,10 +188,10 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->add_admin_notice( 'update_woocommerce', 'error', sprintf(
 				'%1$s requires WooCommerce version %2$s or higher. Please %3$supdate WooCommerce%4$s to the latest version, or %5$sdownload the minimum required version &raquo;%6$s',
-				'<strong>' . self::PLUGIN_NAME . '</strong>',
-				self::MINIMUM_WC_VERSION,
+				'<strong>' . PLUGIN_NAME . '</strong>',
+				MINIMUM_WC_VERSION,
 				'<a href="' . esc_url( admin_url( 'update-core.php' ) ) . '">', '</a>',
-				'<a href="' . esc_url( 'https://downloads.wordpress.org/plugin/woocommerce.' . self::MINIMUM_WC_VERSION . '.zip' ) . '">', '</a>'
+				'<a href="' . esc_url( 'https://downloads.wordpress.org/plugin/woocommerce.' . MINIMUM_WC_VERSION . '.zip' ) . '">', '</a>'
 			) );
 		}
 	}
@@ -277,7 +200,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Determines if the required plugins are compatible.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 *
 	 * @return bool
 	 */
@@ -290,33 +213,33 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Determines if the WordPress compatible.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 *
 	 * @return bool
 	 */
 	private function is_wp_compatible() {
 
-		return version_compare( get_bloginfo( 'version' ), self::MINIMUM_WP_VERSION, '>=' );
+		return version_compare( get_bloginfo( 'version' ), MINIMUM_WP_VERSION, '>=' );
 	}
 
 
 	/**
 	 * Determines if the WooCommerce compatible.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 *
 	 * @return bool
 	 */
 	private function is_wc_compatible() {
 
-		return defined( 'WC_VERSION' ) && version_compare( WC_VERSION, self::MINIMUM_WC_VERSION, '>=' );
+		return defined( 'WC_VERSION' ) && version_compare( WC_VERSION, MINIMUM_WC_VERSION, '>=' );
 	}
 
 
 	/**
 	 * Deactivates the plugin.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	private function deactivate_plugin() {
 
@@ -333,7 +256,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 *
 	 * @param string $slug the slug for the notice
 	 * @param string $class the css class for the notice
@@ -351,7 +274,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Displays admin notices.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 */
 	public function admin_notices() {
 
@@ -372,26 +295,26 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * Override this method to add checks for more than just the PHP version.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 *
 	 * @return bool
 	 */
 	private function is_environment_compatible() {
 
-		return version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '>=' );
+		return version_compare( PHP_VERSION, MINIMUM_PHP_VERSION, '>=' );
 	}
 
 
 	/**
 	 * Gets the message for display when the environment is incompatible with this plugin.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 *
 	 * @return string
 	 */
 	protected function get_environment_message() {
 
-		return sprintf( 'The minimum PHP version required for this plugin is %1$s. You are running %2$s.', self::MINIMUM_PHP_VERSION, PHP_VERSION );
+		return sprintf( 'The minimum PHP version required for this plugin is %1$s. You are running %2$s.', MINIMUM_PHP_VERSION, PHP_VERSION );
 	}
 
 
@@ -400,7 +323,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * Ensures only one instance can be loaded.
 	 *
-	 * @since 3.14.0
+	 * @since 1.1.6
 	 *
 	 * @return \Woo_Free_Product_Sample_Start
 	 */
