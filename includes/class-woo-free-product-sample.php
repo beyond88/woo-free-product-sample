@@ -58,8 +58,6 @@ class Woo_Free_Product_Sample {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-		add_filter( 'plugin_action_links_woo-free-product-sample', array( $this, 'plugin_action_links' ) );
-
 	}
 
 	/**
@@ -117,10 +115,13 @@ class Woo_Free_Product_Sample {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Woo_Free_Product_Sample_Admin( $this->get_plugin_name(), $this->get_version() );
-		// $this->loader->add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), $plugin_admin, 'plugin_action_links' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'woocommerce_init', $plugin_admin, 'init' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'woo_free_product_sample_settings_menu' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'woo_free_product_sample_menu_register_settings' );
+		
+		
 
 	}
 
@@ -181,18 +182,6 @@ class Woo_Free_Product_Sample {
 	 */
 	public function get_version() {
 		return $this->version;
-	}
-
-	/**
-	 *
-	 * @since    1.1.6
-	 */
-    public function plugin_action_links( $links ) {
-
-        $links[] = '<a href="' . admin_url( 'admin.php?page=dokan#/settings' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
-        $links[] = '<a href="#" target="_blank">' . __( 'Documentation', 'woo-free-product-sample' ) . '</a>';
-
-        return $links;
-    }	
+	}	
 
 }

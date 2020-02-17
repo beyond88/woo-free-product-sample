@@ -31,6 +31,35 @@ class Woo_Free_Product_Sample_Admin {
 	 */
 	private $version;
 
+
+	/**
+	 * The option of this plugin.
+	 *
+	 * @since    1.6.0
+	 * @param    string 
+	 */
+	public $_optionName  = 'woo_free_product_sample_settings';
+		
+	/**
+	 * The option group of this plugin.
+	 *
+	 * @since    1.6.0
+	 * @param    string 
+	 */	
+	public $_optionGroup = 'woo-free-product-sample-options-group';
+	
+	/**
+	 * The option group of this plugin.
+	 *
+	 * @since    1.6.0
+	 * @param    array 
+	 */	
+	public $_defaultOptions = array(
+        'sample_price'             			=>  0,
+        'max_qty'                     		=>  '',
+        'button_label'                    	=>  '',
+	);
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -106,7 +135,6 @@ class Woo_Free_Product_Sample_Admin {
 
 	}
 	
-	
 	/**
 	 *
 	 * @since    1.0.0
@@ -136,6 +164,44 @@ class Woo_Free_Product_Sample_Admin {
 		$woo_free_product_sample_button_text = $_POST['button_text'];
 		update_post_meta( $post_id, 'button_text', sanitize_text_field( $woo_free_product_sample_button_text ) );				
 			
-	}		
+	}
+	
+	/**
+	 *
+	 * @since    1.6.0
+	 * @param    array
+	 */
+	public function woo_free_product_sample_menu_register_settings() {
+		register_setting( $this->_optionGroup, $this->_optionName );
+	}
+	
+	/**
+	 *
+	 * @since    1.6.0
+	 * @param    array 
+	 */
+    public function woo_free_product_sample_settings_menu() {
+		
+        add_submenu_page(
+            'woocommerce',
+            __('Woo Free Product Sample','wfp-sample'),
+            __('Woo Free Product Sample','wfp-sample'),
+            'manage_woocommerce',
+            'wfp-sample-settings',
+            array(
+                $this,
+                'woo_free_product_sample_settings_page'
+            )
+        );		
+	}
+	
+	/**
+	 *
+	 * @since    1.6.0
+	 * @param    array
+	 */	
+	public function woo_free_product_sample_settings_page() {
+		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-settings.php';
+	}	
 
 }
