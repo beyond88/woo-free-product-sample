@@ -31,7 +31,6 @@ class Woo_Free_Product_Sample_Admin {
 	 */
 	private $version;
 
-
 	/**
 	 * The option of this plugin.
 	 *

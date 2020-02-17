@@ -120,9 +120,6 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_action( 'woocommerce_init', $plugin_admin, 'init' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'woo_free_product_sample_settings_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'woo_free_product_sample_menu_register_settings' );
-		
-		
-
 	}
 
 	/**
@@ -135,17 +132,18 @@ class Woo_Free_Product_Sample {
 		$plugin_public = new Woo_Free_Product_Sample_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );		
-		$this->loader->add_action( 'woocommerce_single_product_summary', $plugin_public, 'wcfps_add_to_cart_btn', 35 );
-		$this->loader->add_filter( 'woocommerce_add_cart_item_data', $plugin_public, 'wcfps_store_id', 10, 2 );
-		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'wcfps_get_cart_items_from_session', 10, 2 );
-		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public,'wcfps_alter_cart_item_name', 10, 3 );
-		// $this->loader->add_filter( 'woocommerce_add_to_cart_validation', $plugin_public, 'wcfps_set_limit_per_order', 10, 2 );						
-		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'wcfps_save_posted_data_into_order', 10, 2 );
-		$this->loader->add_action( 'woocommerce_checkout_order_processed', $plugin_public, 'wcfps_update_stock_on_checkout' );			
-		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public,'wcfps_variable_btn', 72 );
-		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_woocommerce_locate_template', 10, 3 );
-		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'wcfps_apply_custom_price_to_cart_item', 99 );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public, 'woo_free_product_sample_add_to_cart_btn', 5 );	
+		$this->loader->add_action( 'wp_loaded', $plugin_public, 'add_to_cart_action', 20 );				
+		$this->loader->add_filter( 'woocommerce_add_cart_item_data', $plugin_public, 'woo_free_product_sample_store_id', 10, 2 );
+		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'add_to_cart_message', 10, 2 );
+		$this->loader->add_filter( 'woocommerce_add_to_cart_validation', $plugin_public, 'woo_free_product_sample_set_limit_per_order', 10, 2 );
+		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'woo_free_product_sample_get_cart_items_from_session', 10, 2 );
+		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'woo_free_product_sample_save_posted_data_into_order', 10, 2 );
+		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_woocommerce_locate_template', 10, 3 );	
+		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'set_free_sample_item_name', 10, 3 );	
+		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public,'woocommerce_cart_item_price_filter', 10, 3 );
+		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'woo_free_product_sample_apply_custom_price_to_cart_item', 20 );		
 
 	}
 
