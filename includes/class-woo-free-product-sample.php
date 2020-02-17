@@ -50,7 +50,7 @@ class Woo_Free_Product_Sample {
 		if ( defined( 'WFPS_VERSION' ) ) {
 			$this->version = WFPS_VERSION;
 		} else {
-			$this->version = '1.1.5';
+			$this->version = '1.1.6';
 		}
 		$this->plugin_name = 'woo-free-product-sample';
 
@@ -58,6 +58,7 @@ class Woo_Free_Product_Sample {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		add_filter( 'plugin_action_links_woo-free-product-sample', array( $this, 'plugin_action_links' ) );
 
 	}
 
@@ -116,6 +117,7 @@ class Woo_Free_Product_Sample {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Woo_Free_Product_Sample_Admin( $this->get_plugin_name(), $this->get_version() );
+		// $this->loader->add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), $plugin_admin, 'plugin_action_links' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'woocommerce_init', $plugin_admin, 'init' );
@@ -141,7 +143,7 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'wcfps_save_posted_data_into_order', 10, 2 );
 		$this->loader->add_action( 'woocommerce_checkout_order_processed', $plugin_public, 'wcfps_update_stock_on_checkout' );			
 		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public,'wcfps_variable_btn', 72 );
-		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'wcfps_set_woocommerce_locate_template', 10, 3 );
+		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_woocommerce_locate_template', 10, 3 );
 		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'wcfps_apply_custom_price_to_cart_item', 99 );
 
 	}
@@ -180,5 +182,17 @@ class Woo_Free_Product_Sample {
 	public function get_version() {
 		return $this->version;
 	}
+
+	/**
+	 *
+	 * @since    1.1.6
+	 */
+    public function plugin_action_links( $links ) {
+
+        $links[] = '<a href="' . admin_url( 'admin.php?page=dokan#/settings' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
+        $links[] = '<a href="#" target="_blank">' . __( 'Documentation', 'woo-free-product-sample' ) . '</a>';
+
+        return $links;
+    }	
 
 }

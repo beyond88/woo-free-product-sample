@@ -68,7 +68,6 @@ class Woo_Free_Product_Sample_Admin {
 
 	}
 
-
 	/**
 	 *
 	 * @since    1.0.0
@@ -103,7 +102,7 @@ class Woo_Free_Product_Sample_Admin {
 	public function woo_free_product_sample_tabs_panel() {
 
 		global $woocommerce, $post;
-		return include 'partials/woo-free-product-sample-tab.php';
+		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-tab.php';
 
 	}
 	

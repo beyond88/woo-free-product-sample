@@ -16,9 +16,8 @@
     $wcfps_from_date                = get_post_meta( $post->ID, 'wfp_from_date', true );
     $wcfps_to_date                  = get_post_meta( $post->ID, 'wfp_to_date', true );
     $wcfps_button_text              = get_post_meta( $post->ID, 'button_text', true );
-  
 ?>
-<div id="wfp-sample-tab" class="panel wc-metaboxes-wrapper woocommerce_options_panel">
+<div id="woo-free-product-sample-tab" class="panel wc-metaboxes-wrapper woocommerce_options_panel">
     <div class="options_group">
         <p class="form-field comment_status_field">
             <label for="enable_freesample"><?php esc_html_e( 'Enable Free Sample', 'woo-free-product-sample' ); ?></label>
