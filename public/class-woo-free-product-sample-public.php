@@ -355,13 +355,6 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	public function wcfps_set_woocommerce_locate_template( $template, $template_name, $template_path ) {
 
-		// if ( 'cart.php' === basename( $template ) ) {
-		// 	$template = self::wcfps_get_plugin_path() . '/partials/woocommerce/cart/cart.php';
-		// } else if ( 'mini-cart.php' === basename( $template ) ) {
-		// 	$template = self::wcfps_get_plugin_path() . '/partials/woocommerce/cart/mini-cart.php';
-		// }	
-		
-		// return $template;
 		global $woocommerce;
 		$_template = $template;
 		if ( ! $template_path ) {
@@ -399,18 +392,14 @@ class Woo_Free_Product_Sample_Public {
 		// Avoiding hook repetition (when using price calculations for example)
 		if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 )
 		return;	
+	
+		foreach ( $cart->get_cart() as $key => $value ) {
+			if( isset( $value["custom_price"] ) ) {
+				//$value['data']->set_price($value["custom_price"]);
+				$value['data']->price = $value["custom_price"];
+			}				
 
-		//if( !WC()->session->__isset( "reload_checkout" ) ) {
-			
-			foreach ( $cart->get_cart() as $key => $value ) {
-				if( isset( $value["custom_price"] ) ) {
-					//$value['data']->set_price($value["custom_price"]);
-					$value['data']->price = $value["custom_price"];
-				}				
-
-			}   
-		//}
-
+		}   
 	}
 
 	/**
@@ -448,13 +437,17 @@ class Woo_Free_Product_Sample_Public {
 
 		$titles = '';
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
+			
 			foreach ( $products as $product_id => $qty ) {
 				$titles =	get_the_title( $product_id );
 			}	
 			$message = sprintf(esc_html__('Free Sample - "%s" have been added to your cart.','wfp-sample'), $titles ); 
 			return $message; 
+
 		} else {
-			return $message; 
+
+			return $message;
+
 		}
 
 	}
