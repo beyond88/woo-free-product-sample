@@ -142,24 +142,10 @@ class Woo_Free_Product_Sample_Admin {
 
 		$woo_free_product_sample_enable 	= isset( $_POST['enable_freesample'] ) ? 'open' : '';		
 		update_post_meta( $post_id, 'enable_freesample', $woo_free_product_sample_enable );
-		
-		$woo_free_product_sample_timezone = $_POST['wfp_sample_timezone'];
-		if( !empty($woo_free_product_sample_timezone) ) {
-			update_post_meta( $post_id, 'wfp_sample_timezone', sanitize_text_field( $woo_free_product_sample_timezone ) );		
-		}
-				
-		$woo_free_product_sample_limits = $_POST['sample_limits'];
-		update_post_meta( $post_id, 'sample_limits', sanitize_text_field( $woo_free_product_sample_limits ) );
 
 		$woo_free_product_sample_mt_per_order = $_POST['max_qty_per_order'];
 		update_post_meta( $post_id, 'max_qty_per_order', sanitize_text_field( $woo_free_product_sample_mt_per_order ) );		
-
-		$woo_free_product_sample_from_date = $_POST['wfp_from_date'];
-		update_post_meta( $post_id, 'wfp_from_date', sanitize_text_field( $woo_free_product_sample_from_date ) );
-
-		$woo_free_product_sample_to_date = $_POST['wfp_to_date'];
-		update_post_meta( $post_id, 'wfp_to_date', sanitize_text_field( $woo_free_product_sample_to_date ) );	
-
+	
 		$woo_free_product_sample_button_text = $_POST['button_text'];
 		update_post_meta( $post_id, 'button_text', sanitize_text_field( $woo_free_product_sample_button_text ) );				
 			

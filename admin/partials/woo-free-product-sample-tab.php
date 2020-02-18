@@ -1,20 +1,10 @@
 <?php 
 
     $wcfps_enable_freesample        = get_post_meta( $post->ID, 'enable_freesample', true );    
-    $wfp_sample_timezone            = get_post_meta( $post->ID, 'wfp_sample_timezone', true );
-    $wcfps_limits                   = get_post_meta( $post->ID, 'sample_limits', true );
-
-    if( empty( $wcfps_limits ) ){
-        $wcfps_limits = 0;
-    }
-    
     $wcfps_mt_per_order             = get_post_meta( $post->ID, 'max_qty_per_order', true );  
-    if( empty( $wcfps_mt_per_order ) ){
+    if( empty( $wcfps_mt_per_order ) ) {
         $wcfps_mt_per_order = 1;
     }
-
-    $wcfps_from_date                = get_post_meta( $post->ID, 'wfp_from_date', true );
-    $wcfps_to_date                  = get_post_meta( $post->ID, 'wfp_to_date', true );
     $wcfps_button_text              = get_post_meta( $post->ID, 'button_text', true );
 ?>
 <div id="woo-free-product-sample-tab" class="panel wc-metaboxes-wrapper woocommerce_options_panel">

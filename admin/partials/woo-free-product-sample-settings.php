@@ -9,34 +9,15 @@
 			<tbody>
 				<tr>
 					<th scope="row">
-                        <label for="sample_price">
-                            <?php esc_html_e('Sample Price','woo-free-product-sample')?>
-                        </label>
-                    </th>
-					<td>
-						<input type="text" class="widefat" maxlength="6" required name="<?php echo $this->_optionName; ?>[sample_price]" id="sample_price" value="<?php echo $settings_options['sample_price']; ?>" placeholder="<?php esc_html_e('0.00','woo-free-product-sample')?>" />
-					</td>
-                </tr>
-				<tr>
-					<th scope="row">
                         <label for="max_qty">
-                            <?php esc_html_e('Max Quantity Per Order','woo-free-product-sample')?>
+                            <?php esc_html_e('Max quantity for per order','woo-free-product-sample')?>
                         </label>
                     </th>
 					<td>
-						<input type="number" class="widefat" maxlength="6" min="0" required name="<?php echo $this->_optionName; ?>[max_qty]" id="max_qty" value="<?php echo $settings_options['max_qty']; ?>" placeholder="<?php esc_html_e('Quantity','woo-free-product-sample')?>"/>
+						<input type="number" class="widefat" maxlength="6" min="0" required name="<?php echo $this->_optionName; ?>[max_qty]" id="max_qty" value="<?php echo $settings_options['max_qty']; ?>" placeholder="<?php esc_html_e('Max quantity for per order','woo-free-product-sample')?>"/>
 					</td>
                 </tr>
-				<tr>
-					<th scope="row">
-                        <label for="button_label">
-                            <?php esc_html_e('Button Label','woo-free-product-sample')?>
-                        </label>
-                    </th>
-					<td>
-						<input type="text" class="widefat" maxlength="100" required name="<?php echo $this->_optionName; ?>[button_label]" id="button_label" value="<?php echo $settings_options['button_label']; ?>" placeholder="<?php esc_html_e('Button Label','woo-free-product-sample')?>" />
-					</td>
-                </tr>                                               
+                                              
                 <?php do_settings_fields($this->_optionGroup, 'default'); ?>
 			</tbody>
 		</table>    
