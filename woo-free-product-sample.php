@@ -78,11 +78,11 @@ class Woo_Free_Product_Sample_Start {
 		add_action( 'admin_init',    array( $this, 'check_environment' ) );
 		add_action( 'admin_init',    array( $this, 'add_plugin_notices' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
-		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 
 		// if the environment check fails, initialize the plugin
 		if ( $this->is_environment_compatible() ) {
 			add_action( 'plugins_loaded', array( $this, 'init_plugin' ) );
+			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 		}
 	}
 
@@ -92,7 +92,9 @@ class Woo_Free_Product_Sample_Start {
 	 */
     public function plugin_action_links( $links ) {
 
-        $links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="' . admin_url( 'admin.php?page=wfp-sample-settings' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/">' . __( 'Support', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/plugins/woo-free-product-sample/#reviews">' . __( 'Review', 'woo-free-product-sample' ) . '</a>';
         // $links[] = '<a href="#" target="_blank">' . __( 'Documentation', 'woo-free-product-sample' ) . '</a>';
 
         return $links;
