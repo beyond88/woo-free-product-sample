@@ -7,17 +7,30 @@
         ?>
 		<table class="form-table">
 			<tbody>
+				<?php 
+					foreach( $settings as  $key => $value ) :
+				?>
 				<tr>
 					<th scope="row">
-                        <label for="max_qty">
-                        	<?php esc_html_e('Max quantity for per order','woo-free-product-sample')?>
+                        <label for="<?php echo $value['name']; ?>">
+							<?php echo $value['label']; ?>	
                         </label>
                     </th>
-					<td>
-						<input type="number" class="widefat" maxlength="6" min="0" required name="<?php echo $this->_optionName; ?>[max_qty]" id="max_qty" value="<?php echo $settings_options['max_qty']; ?>" placeholder="<?php esc_html_e('Max quantity for per order','woo-free-product-sample')?>"/>
+					<td>	
+						<?php 
+							$file_name = isset( $field['type'] ) ? $field['type'] : 'text';
+							
+							if( $file_name ) {
+								include WFPS_ADMIN_DIR_PATH . 'includes/fields/'. $file_name .'.php';
+							}
+							if( isset( $value['description'] ) ){
+						?>
+							<div class="woo-free-product-sample-form-desc"><?php echo $value['description']; ?></div>
+						<?php } ?>
 					</td>
                 </tr>
                                               
+				<?php endforeach; ?>											  
                 <?php do_settings_fields($this->_optionGroup, 'default'); ?>
 			</tbody>
 		</table>    
