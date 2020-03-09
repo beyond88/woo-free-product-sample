@@ -10,7 +10,7 @@
 				<tr>
 					<th scope="row">
                         <label for="max_qty">
-                            <?php esc_html_e('Max quantity for per order','woo-free-product-sample')?>
+                        	<?php esc_html_e('Max quantity for per order','woo-free-product-sample')?>
                         </label>
                     </th>
 					<td>
@@ -22,6 +22,6 @@
 			</tbody>
 		</table>    
 		<?php do_settings_sections($this->_optionGroup, 'default'); ?>
-		<?php submit_button();?>
+		<?php submit_button(); ?>
 	</form>	
 </div>

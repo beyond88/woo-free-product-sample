@@ -20,8 +20,8 @@
  * Tested up to:      5.3
  *
  * WC requires at least: 3.1
- * WC tested up to:   3.8* 
- * Copyright: © 2017-2020.
+ * WC tested up to:   3.9* 
+ * Copyright: © 2020.
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -94,7 +94,7 @@ class Woo_Free_Product_Sample_Start {
 
 		$links[] = '<a href="' . admin_url( 'admin.php?page=wfp-sample-settings' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/">' . __( 'Support', 'woo-free-product-sample' ) . '</a>';
-		$links[] = '<a href="https://wordpress.org/plugins/woo-free-product-sample/#reviews">' . __( 'Review', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/plugins/woo-free-product-sample/#reviews">' . __( 'Reviews', 'woo-free-product-sample' ) . '</a>';
 
         return $links;
     }	

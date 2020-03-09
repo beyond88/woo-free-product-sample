@@ -86,7 +86,7 @@ class Woo_Free_Product_Sample_Public {
 	 *
 	 * @since  1.6.0  
 	 */
-	public function wcfps_add_to_cart_btn() {
+	public function woo_free_product_sample_add_to_cart_btn() {
 
 		global $product;
 		if( $product->is_type( array('simple') ) ) { 
@@ -111,7 +111,7 @@ class Woo_Free_Product_Sample_Public {
 	 *
 	 * @since 1.6.0
 	 */
-	public static function add_to_cart_action( $url = false ) {
+	public static function woo_free_product_sample_add_to_cart_action( $url = false ) {
 
 		if ( 
 			! isset( $_REQUEST['simple-add-to-cart'] ) || 
@@ -295,7 +295,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0     
 	 * @param      string, string    	 
 	 */
-	public function wcfps_store_id( $cart_item, $product_id ) {
+	public function woo_free_product_sample_store_id( $cart_item, $product_id ) {
 
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample']  = $_REQUEST['free_sample'];
@@ -310,7 +310,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      array, array    
 	 */
-	public function wcfps_get_cart_items_from_session( $cart_item, $values ) {
+	public function woo_free_product_sample_get_cart_items_from_session( $cart_item, $values ) {
 
 		$settings_options   = wp_parse_args(get_option($this->_optionName),$this->_defaultOptions);	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
@@ -328,7 +328,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      int, array    	 
 	 */
-	public function wcfps_save_posted_data_into_order( $itemID, $values ) {
+	public function woo_free_product_sample_save_posted_data_into_order( $itemID, $values ) {
 
 		if ( isset( $_REQUEST['simple-add-to-cart'] ) && !empty( $values['free_sample'] ) ) {
 			$product 			 = wc_get_product( $values['free_sample'] );
@@ -344,7 +344,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      none
 	 */
-	public static function wcfps_get_plugin_path(){		
+	public static function woo_free_product_sample_get_plugin_path(){		
 		return untrailingslashit( plugin_dir_path( __FILE__ ) );
 	}
 
@@ -353,7 +353,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      none
 	 */
-	public function wcfps_set_woocommerce_locate_template( $template, $template_name, $template_path ) {
+	public function woo_free_product_sample_set_locate_template( $template, $template_name, $template_path ) {
 
 		global $woocommerce;
 		$_template = $template;
@@ -361,7 +361,7 @@ class Woo_Free_Product_Sample_Public {
 			$template_path = $woocommerce->template_url;
 		}		
 
-	  	$plugin_path  = self::wcfps_get_plugin_path() . '/partials/woocommerce/';
+	  	$plugin_path  = self::woo_free_product_sample_get_plugin_path() . '/partials/woocommerce/';
 	  	$template = locate_template(
 	    	array(
 	      		$template_path . $template_name,
@@ -384,7 +384,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      object, array     	 
 	 */
-    public function wcfps_apply_custom_price_to_cart_item( $cart ) {
+    public function woo_free_product_sample_apply_custom_price_to_cart_item( $cart ) {
 
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) )
 		return;
@@ -407,7 +407,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      int, array 
 	 */		
-	function wcfps_set_limit_per_order( $valid, $product_id ) {
+	function woo_free_product_sample_set_limit_per_order( $valid, $product_id ) {
 	
 		global $woocommerce;
 		$settings_options = wp_parse_args(get_option('woo_free_product_sample_settings'),array());
@@ -433,7 +433,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      int, array 
 	 */	
-	public function add_to_cart_message ( $message, $products ) {
+	public function woo_free_product_sample_add_to_cart_message ( $message, $products ) {
 
 		$titles = '';
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
@@ -476,7 +476,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      int, array, array 
 	 */
-    public function woocommerce_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
+    public function woo_free_product_sample_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
 		$settings_options   = wp_parse_args( get_option('woo_free_product_sample_settings'),array('sample_price'=>1,'max_qty' =>'','button_label'=>'') );
 		$set_price 			= str_replace( ",",".",$settings_options['sample_price'] );

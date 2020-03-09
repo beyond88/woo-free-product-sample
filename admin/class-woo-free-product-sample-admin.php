@@ -187,6 +187,16 @@ class Woo_Free_Product_Sample_Admin {
 	 */	
 	public function woo_free_product_sample_settings_page() {
 		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-settings.php';
-	}	
+	}
+	
+	/**
+	 *
+	 * @since    1.6.0
+	 * @param    array
+	 */
+	public function woo_free_product_sample_settings_options() {
+		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-settings-options.php';
+	}
+
 
 }

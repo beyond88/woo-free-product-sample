@@ -134,15 +134,15 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public, 'woo_free_product_sample_add_to_cart_btn', 5 );	
-		$this->loader->add_action( 'wp_loaded', $plugin_public, 'add_to_cart_action', 20 );				
+		$this->loader->add_action( 'wp_loaded', $plugin_public, 'woo_free_product_sample_add_to_cart_action', 20 );				
 		$this->loader->add_filter( 'woocommerce_add_cart_item_data', $plugin_public, 'woo_free_product_sample_store_id', 10, 2 );
-		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'add_to_cart_message', 10, 2 );
+		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'woo_free_product_sample_add_to_cart_message', 10, 2 );
 		$this->loader->add_filter( 'woocommerce_add_to_cart_validation', $plugin_public, 'woo_free_product_sample_set_limit_per_order', 10, 2 );
 		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'woo_free_product_sample_get_cart_items_from_session', 10, 2 );
 		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'woo_free_product_sample_save_posted_data_into_order', 10, 2 );
-		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_woocommerce_locate_template', 10, 3 );	
-		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'set_free_sample_item_name', 10, 3 );	
-		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public,'woocommerce_cart_item_price_filter', 10, 3 );
+		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_locate_template', 10, 3 );	
+		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'woo_free_product_sample_set_free_sample_item_name', 10, 3 );	
+		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public,'woo_free_product_sample_cart_item_price_filter', 10, 3 );
 		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'woo_free_product_sample_apply_custom_price_to_cart_item', 20 );		
 
 	}
