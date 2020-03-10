@@ -54,8 +54,6 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    array 
 	 */	
 	public $_defaultOptions = array(
-        'sample_price'             			=>  0,
-        'max_qty'                     		=>  '',
         'button_label'                    	=>  '',
 	);
 
@@ -69,6 +67,7 @@ class Woo_Free_Product_Sample_Admin {
 
 		$this->plugin_name 	= $plugin_name;
 		$this->version 		= $version;
+		add_option( $this->_optionName, $this->_defaultOptions );	
 
 	}
 
@@ -98,70 +97,6 @@ class Woo_Free_Product_Sample_Admin {
 
 	/**
 	 *
-	 * @since    1.0.0
-	 */
-	public function init() {
-
-		// Add our Free Product Sample panel to the WooCommerce panel container
-		add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'woo_free_product_sample_render_tabs' ) );
-		add_action( 'woocommerce_product_data_panels', array( $this, 'woo_free_product_sample_tabs_panel' ) );
-
-		// Save custom tab data
-		add_action( 'woocommerce_process_product_meta', array( $this, 'woo_free_product_sample_save_tab_data' ), 10, 2 );
-		
-	}
-
-	
-	/**
-	 *
-	 * @since    1.0.0
-	 */
-	public function woo_free_product_sample_render_tabs() {
-
-		echo "<li class=\"woo_free_product_sample_wc_product_tabs_tab\"><a href=\"#woo-free-product-sample-tab\"><span>" . __( 'Free Product Sample', 'woo-free-product-sample' ) . "</span></a></li>";
-	
-	}
-	
-	
-	/**
-	 *
-	 * @since    1.0.0
-	 */
-	public function woo_free_product_sample_tabs_panel() {
-
-		global $woocommerce, $post;
-		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-tab.php';
-
-	}
-	
-	/**
-	 *
-	 * @since    1.0.0
-	 */
-	public function woo_free_product_sample_save_tab_data( $post_id ) {
-
-		$woo_free_product_sample_enable 	= isset( $_POST['enable_freesample'] ) ? 'open' : '';		
-		update_post_meta( $post_id, 'enable_freesample', $woo_free_product_sample_enable );
-
-		$woo_free_product_sample_mt_per_order = $_POST['max_qty_per_order'];
-		update_post_meta( $post_id, 'max_qty_per_order', sanitize_text_field( $woo_free_product_sample_mt_per_order ) );		
-	
-		$woo_free_product_sample_button_text = $_POST['button_text'];
-		update_post_meta( $post_id, 'button_text', sanitize_text_field( $woo_free_product_sample_button_text ) );				
-			
-	}
-	
-	/**
-	 *
-	 * @since    1.6.0
-	 * @param    array
-	 */
-	public function woo_free_product_sample_menu_register_settings() {
-		register_setting( $this->_optionGroup, $this->_optionName );
-	}
-	
-	/**
-	 *
 	 * @since    1.6.0
 	 * @param    array 
 	 */
@@ -169,8 +104,8 @@ class Woo_Free_Product_Sample_Admin {
 		
         add_submenu_page(
             'woocommerce',
-            __('Woo Free Product Sample','wfp-sample'),
-            __('Woo Free Product Sample','wfp-sample'),
+            __('Woo Free Product Sample','woo-fre-product-sample'),
+            __('Woo Free Product Sample','woo-fre-product-sample'),
             'manage_woocommerce',
             'wfp-sample-settings',
             array(
@@ -187,11 +122,22 @@ class Woo_Free_Product_Sample_Admin {
 	 */	
 	public function woo_free_product_sample_settings_page() {
 
+		$current_user = wp_get_current_user();
+		if( ! in_array('administrator', $current_user->roles) ) {
+			return;
+		}
+
 		$settings = Woo_Free_Product_Sample_Settings::settings_fields();
 
 		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-settings.php';
-	}
+	}	
 	
-
-
+	/**
+	 *
+	 * @since    1.6.0
+	 * @param    array
+	 */
+	public function woo_free_product_sample_menu_register_settings() {
+		register_setting( $this->_optionGroup, $this->_optionName );
+	}
 }

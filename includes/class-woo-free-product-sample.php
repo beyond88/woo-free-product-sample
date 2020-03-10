@@ -123,7 +123,6 @@ class Woo_Free_Product_Sample {
 		$plugin_admin = new Woo_Free_Product_Sample_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'woocommerce_init', $plugin_admin, 'init' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'woo_free_product_sample_settings_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'woo_free_product_sample_menu_register_settings' );
 	}
