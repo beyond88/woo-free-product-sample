@@ -317,8 +317,6 @@ class Woo_Free_Product_Sample_Public {
 		}    
 
 		return $cart_item;
-
-
 	}
 	 
 	/**
@@ -414,7 +412,7 @@ class Woo_Free_Product_Sample_Public {
 				if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 
 					if( ( $product_id == $val['free_sample'] ) && ( $settings_options['max_qty'] <= $val['quantity'] ) ) {
-						wc_add_notice( esc_html__( 'You can order this product '.$settings_options['max_qty'].' time per order.', 'wfp-sample' ), 'error' );
+						wc_add_notice( esc_html__( 'You can order this product '.$settings_options['max_qty'].' time per order.', 'woo-free-product-sample' ), 'error' );
 						return false;
 					}
 
@@ -437,9 +435,9 @@ class Woo_Free_Product_Sample_Public {
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			
 			foreach ( $products as $product_id => $qty ) {
-				$titles =	get_the_title( $product_id );
+				$titles = get_the_title( $product_id );
 			}	
-			$message = sprintf(esc_html__('Free Sample - "%s" have been added to your cart.','wfp-sample'), $titles ); 
+			$message = sprintf( esc_html__('Sample - "%s" have been added to your cart.','woo-free-product-sample'), $titles ); 
 			return $message; 
 
 		} else {
@@ -459,14 +457,13 @@ class Woo_Free_Product_Sample_Public {
 
 		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
 		$product 			= $cart_item['data']; // Get the WC_Product Object
-		$custom_price 		= str_replace(",",".",$settings_options['sample_price']);
-		$prod_price 		= str_replace(",",".",$product->get_price());	
+		$custom_price 		= str_replace( ",",".", $settings_options['sample_price'] );
+		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $custom_price == $prod_price ) {
-			$product_name   = esc_html__( 'Free Sample', 'wfp-sample' ).' - "'.$product_name.'"';		
+			$product_name   = esc_html__( 'Sample ', 'woo-free-product-sample' ).' - "'.$product_name.'"';		
 		}
 
 		return $product_name;
-
 	}
 
    	/**
@@ -486,7 +483,6 @@ class Woo_Free_Product_Sample_Public {
 		}
 		
 		return $price;
-
 	} 
 
 
