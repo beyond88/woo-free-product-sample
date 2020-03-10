@@ -47,8 +47,6 @@ class Woo_Free_Product_Sample_Public {
 	 * @param    array 
 	 */	
 	public $_defaultOptions = array(
-        'sample_price'             			=>  0,
-        'max_qty'                     		=>  '',
         'button_label'                    	=>  '',
 	);	
 
@@ -459,7 +457,7 @@ class Woo_Free_Product_Sample_Public {
 	 */	
 	public function set_free_sample_item_name ( $product_name, $cart_item, $cart_item_key ) {
 
-		$settings_options   = wp_parse_args( get_option($this->_optionName),$this->_defaultOptions );	
+		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
 		$product 			= $cart_item['data']; // Get the WC_Product Object
 		$custom_price 		= str_replace(",",".",$settings_options['sample_price']);
 		$prod_price 		= str_replace(",",".",$product->get_price());	
@@ -478,7 +476,7 @@ class Woo_Free_Product_Sample_Public {
 	 */
     public function woo_free_product_sample_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
-		$settings_options   = wp_parse_args( get_option('woo_free_product_sample_settings'),array('sample_price'=>1,'max_qty' =>'','button_label'=>'') );
+		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
 		$set_price 			= str_replace( ",",".",$settings_options['sample_price'] );
 		if( isset( $cart_item['custom_price'] ) ) {
 			$custom_price 		= str_replace( ",",".",$cart_item['custom_price'] );	
