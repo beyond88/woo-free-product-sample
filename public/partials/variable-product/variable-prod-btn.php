@@ -19,7 +19,7 @@
 			<?php echo esc_attr( $wcfps_button_text ); ?>	
 		</button>
 		<input type="hidden" name="free_sample" value="<?php the_ID(); ?>">
-		<input type="hidden" name="custom_price" value="<?php echo $settings_options['sample_price']; ?>" />
+		<input type="hidden" name="sample_price" value="<?php echo $settings_options['sample_price']; ?>" />
 	<?php 
 	}
 ?>

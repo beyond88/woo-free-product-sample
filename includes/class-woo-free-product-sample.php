@@ -148,7 +148,7 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_locate_template', 10, 3 );	
 		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'woo_free_product_sample_set_free_sample_item_name', 10, 3 );	
 		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public,'woo_free_product_sample_cart_item_price_filter', 10, 3 );
-		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'woo_free_product_sample_apply_custom_price_to_cart_item', 20 );		
+		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'woo_free_product_sample_apply_sample_price_to_cart_item', 20 );		
 
 	}
 

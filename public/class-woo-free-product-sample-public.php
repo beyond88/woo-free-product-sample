@@ -47,7 +47,8 @@ class Woo_Free_Product_Sample_Public {
 	 * @param    array 
 	 */	
 	public $_defaultOptions = array(
-        'button_label'                    	=>  '',
+		'button_label'          => '',
+		'max_qty_per_order'		=> 5 
 	);	
 
 	/**
@@ -58,8 +59,7 @@ class Woo_Free_Product_Sample_Public {
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name 	= $plugin_name;
-		$this->version 		= $version;					
-		
+		$this->version 		= $version;		
 	}
 
 
@@ -131,14 +131,12 @@ class Woo_Free_Product_Sample_Public {
 		}
 
 		$add_to_cart_handler = apply_filters( 'woocommerce_add_to_cart_handler', $adding_to_cart->get_type(), $adding_to_cart );
-		//$was_added_to_cart   = self::add_to_cart_handler_simple( $product_id );
 
 		if ( 'variable' === $add_to_cart_handler || 'variation' === $add_to_cart_handler ) {
 			$was_added_to_cart = self::add_to_cart_handler_variable( $product_id );
 		} else {
 			$was_added_to_cart = self::add_to_cart_handler_simple( $product_id );
 		}
-
 
 		// If we added the product to the cart we can now optionally do a redirect.
 		if ( $was_added_to_cart && 0 === wc_notice_count( 'error' ) ) {
@@ -297,7 +295,7 @@ class Woo_Free_Product_Sample_Public {
 
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample']  = $_REQUEST['free_sample'];
-			$cart_item['custom_price'] = $_REQUEST['custom_price'];			
+			$cart_item['sample_price'] = $_REQUEST['sample_price'];			
 		}
 			
 		return $cart_item; 
@@ -380,7 +378,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      1.6.0
 	 * @param      object, array     	 
 	 */
-    public function woo_free_product_sample_apply_custom_price_to_cart_item( $cart ) {
+    public function woo_free_product_sample_apply_sample_price_to_cart_item( $cart ) {
 
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) )
 		return;
@@ -390,9 +388,9 @@ class Woo_Free_Product_Sample_Public {
 		return;	
 	
 		foreach ( $cart->get_cart() as $key => $value ) {
-			if( isset( $value["custom_price"] ) ) {
-				//$value['data']->set_price($value["custom_price"]);
-				$value['data']->price = $value["custom_price"];
+			if( isset( $value["sample_price"] ) ) {
+				//$value['data']->set_price($value["sample_price"]);
+				$value['data']->price = $value["sample_price"];
 			}				
 
 		}   
@@ -457,9 +455,9 @@ class Woo_Free_Product_Sample_Public {
 
 		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
 		$product 			= $cart_item['data']; // Get the WC_Product Object
-		$custom_price 		= str_replace( ",",".", $settings_options['sample_price'] );
+		$sample_price 		= str_replace( ",",".", $settings_options['sample_price'] );
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
-		if( $custom_price == $prod_price ) {
+		if( $sample_price == $prod_price ) {
 			$product_name   = esc_html__( 'Sample ', 'woo-free-product-sample' ).' - "'.$product_name.'"';		
 		}
 
@@ -475,10 +473,10 @@ class Woo_Free_Product_Sample_Public {
 	
 		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
 		$set_price 			= str_replace( ",",".",$settings_options['sample_price'] );
-		if( isset( $cart_item['custom_price'] ) ) {
-			$custom_price 		= str_replace( ",",".",$cart_item['custom_price'] );	
-			if( $custom_price == $set_price ) {
-				$price   = wc_price( $custom_price );		
+		if( isset( $cart_item['sample_price'] ) ) {
+			$sample_price 		= str_replace( ",",".",$cart_item['sample_price'] );	
+			if( $sample_price == $set_price ) {
+				$price   = wc_price( $sample_price );		
 			}
 		}
 		

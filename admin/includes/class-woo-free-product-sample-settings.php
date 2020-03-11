@@ -4,11 +4,11 @@
  * Register all settings actions and filters for the plugin
  *
  * @link       https://profiles.wordpress.org/hossain88
- * @since      1.1.6
+ * @since      2.0.0
  *
  * @package    Woo_Free_Product_Sample
  * @subpackage Woo_Free_Product_Sample/includes
- * @author     max-themes <muhin.cse.diu@gmail.com> 
+ * @author     Mohiuddin Abdul Kader <muhin.cse.diu@gmail.com> 
  */
 
 class Woo_Free_Product_Sample_Settings {
@@ -16,7 +16,7 @@ class Woo_Free_Product_Sample_Settings {
     /**
 	 * Initialize the class and set its settings options.
 	 *
-	 * @since    1.1.6
+	 * @since    2.0.0
 	 * @param    none 
 	 */
     public function __construct() {
@@ -26,7 +26,7 @@ class Woo_Free_Product_Sample_Settings {
     /**
 	 * Define settings options as array
 	 *
-	 * @since    1.1.6
+	 * @since    2.0.0
 	 * @param    none
      * @return   array 
 	 */
