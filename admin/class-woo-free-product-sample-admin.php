@@ -8,7 +8,7 @@
  *
  * @package    Woo_Free_Product_Sample
  * @subpackage Woo_Free_Product_Sample/admin
- * @author     max-themes <muhin.cse.diu@gmail.com>
+ * @author     Mohiuddin Abdul Kader <muhin.cse.diu@gmail.com>
  */
 
 class Woo_Free_Product_Sample_Admin {
@@ -78,9 +78,7 @@ class Woo_Free_Product_Sample_Admin {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-free-product-sample-admin.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name."datetime-css", plugin_dir_url( __FILE__ ) . 'css/jquery.datetimepicker.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-free-product-sample-admin.css', array(), $this->version, 'all' );		
 	}
 
 	/**
@@ -90,8 +88,7 @@ class Woo_Free_Product_Sample_Admin {
 	 */
 	public function enqueue_scripts() {
 		
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-free-product-sample-admin.js', array( 'jquery' ), $this->version, false );  
-		wp_enqueue_script( $this->plugin_name."-datetime", plugin_dir_url( __FILE__ ) . 'js/jquery.datetimepicker.full.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-free-product-sample-admin.js', array( 'jquery' ), $this->version, false ); 		
 
 	}
 
