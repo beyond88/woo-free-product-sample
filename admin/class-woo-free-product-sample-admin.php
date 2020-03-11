@@ -54,7 +54,7 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    array 
 	 */	
 	public $_defaultOptions = array(
-        'button_label'                    	=>  '',
+        'button_label'      =>  '',
 	);
 
 	/**
@@ -102,17 +102,18 @@ class Woo_Free_Product_Sample_Admin {
 	 */
     public function woo_free_product_sample_settings_menu() {
 		
-        add_submenu_page(
-            'woocommerce',
-            __('Woo Free Product Sample','woo-fre-product-sample'),
-            __('Woo Free Product Sample','woo-fre-product-sample'),
-            'manage_woocommerce',
-            'wfp-sample-settings',
+        add_menu_page(
+			__('Free Product Sample','woo-free-product-sample'),
+			__('Free Product Sample','woo-free-product-sample'),
+			'manage_woocommerce',
+			'woo-free-product-sample',            
             array(
                 $this,
                 'woo_free_product_sample_settings_page'
-            )
-        );		
+			),
+			'dashicons-admin-generic',
+			10
+		);
 	}
 	
 	/**
