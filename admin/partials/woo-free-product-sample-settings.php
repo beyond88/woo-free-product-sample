@@ -20,7 +20,7 @@
                     </th>
 					<td>	
 						<?php 
-							$file_name = isset( $field['type'] ) ? $field['type'] : 'text';
+							$file_name = isset( $value['type'] ) ? $value['type'] : 'text';							
 							
 							if( $file_name ) {
 								include WFPS_ADMIN_DIR_PATH . 'includes/fields/'. $file_name .'.php';
