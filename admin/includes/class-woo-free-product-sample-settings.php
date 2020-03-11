@@ -33,13 +33,14 @@ class Woo_Free_Product_Sample_Settings {
     public static function settings_fields() {
 
         $settings_fields = array( 
-			array(
+                        
+            array(
                 'name'          => 'button_label',
                 'label'         => __( 'Button Label', 'woo-free-product-sample' ),
                 'type'          => 'text',
                 'class'         => 'widefat',
-                'description'   => __( 'Set a button label', 'woo-free-product-sample' ),
-                'placeholder'   => __( 'Set a button label', 'woo-free-product-sample' ),
+                'description'   => __( 'Set button label', 'woo-free-product-sample' ),
+                'placeholder'   => __( 'Set button label', 'woo-free-product-sample' ),
             ),
 			array(
                 'name'          => 'max_qty_per_order',
