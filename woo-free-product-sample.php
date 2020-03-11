@@ -8,7 +8,7 @@
  * Plugin Name:       WooCommerce Free Product Sample
  * Plugin URI:        https://wordpress.org/plugins/woo-free-product-sample
  * Description:       WooCommerce Free Product Sample is a WordPress plugin. Display an add to cart button in product detail page to order product as free sample. Shop owner can be offered to customer to order product as free sample to promote his product or business.  
- * Version:           1.6.0
+ * Version:           2.0.0
  * Author:            Mohiuddin Abdul Kader
  * Author URI:        https://profiles.wordpress.org/hossain88
  * License:           GPL-2.0+
@@ -39,7 +39,7 @@ if ( ! is_woocommerce_active() ) {
 	return;
 }
 
-define( 'WFPS_VERSION', '1.6.0' );
+define( 'WFPS_VERSION', '2.0.0' );
 define( 'MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'MINIMUM_WP_VERSION', '4.4' );
 define( 'MINIMUM_WC_VERSION', '3.0.9' );
@@ -55,7 +55,7 @@ define( 'PLUGIN_NAME', 'WooCommerce Free Product Sample' );
 /**
  * WooCommerce Free Product Sample Start.
  *
- * @since 1.6.0
+ * @since 2.0.0
  */
 class Woo_Free_Product_Sample_Start {	
 
@@ -68,7 +68,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Loads WooCommerce Free Product Sample Start.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	protected function __construct() {
 
@@ -88,7 +88,7 @@ class Woo_Free_Product_Sample_Start {
 
 	/**
 	 *
-	 * @since    1.6.0
+	 * @since    2.0.0
 	 */
     public function plugin_action_links( $links ) {
 
@@ -103,22 +103,22 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Cloning instances is forbidden due to singleton pattern.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	public function __clone() {
 
-		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot clone instances of %s.', get_class( $this ) ), '1.6.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot clone instances of %s.', get_class( $this ) ), '2.0.0' );
 	}
 
 
 	/**
 	 * Unserializing instances is forbidden due to singleton pattern.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	public function __wakeup() {
 
-		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot unserialize instances of %s.', get_class( $this ) ), '1.6.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot unserialize instances of %s.', get_class( $this ) ), '2.0.0' );
 	}
 
 
@@ -127,7 +127,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	public function init_plugin() {
 
@@ -149,7 +149,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	public function activation_check() {
 
@@ -166,7 +166,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	public function check_environment() {
 
@@ -184,7 +184,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	public function add_plugin_notices() {
 
@@ -214,7 +214,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Determines if the required plugins are compatible.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @return bool
 	 */
@@ -227,7 +227,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Determines if the WordPress compatible.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @return bool
 	 */
@@ -240,7 +240,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Determines if the WooCommerce compatible.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @return bool
 	 */
@@ -253,7 +253,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Deactivates the plugin.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	private function deactivate_plugin() {
 
@@ -270,7 +270,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @param string $slug the slug for the notice
 	 * @param string $class the css class for the notice
@@ -288,7 +288,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Displays admin notices.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 */
 	public function admin_notices() {
 
@@ -309,7 +309,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * Override this method to add checks for more than just the PHP version.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @return bool
 	 */
@@ -322,7 +322,7 @@ class Woo_Free_Product_Sample_Start {
 	/**
 	 * Gets the message for display when the environment is incompatible with this plugin.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @return string
 	 */
@@ -337,7 +337,7 @@ class Woo_Free_Product_Sample_Start {
 	 *
 	 * Ensures only one instance can be loaded.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @return \Woo_Free_Product_Sample_Start
 	 */

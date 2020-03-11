@@ -4,7 +4,7 @@
  * Fired when the plugin is uninstalled.
  *
  * @link       https://profiles.wordpress.org/hossain88
- * @since      1.6.0
+ * @since      2.0.0
  *
  * @package    Woo_Free_Product_Sample
  */

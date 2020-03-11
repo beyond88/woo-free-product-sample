@@ -34,7 +34,7 @@ class Woo_Free_Product_Sample_Admin {
 	/**
 	 * The option of this plugin.
 	 *
-	 * @since    1.6.0
+	 * @since    2.0.0
 	 * @param    string 
 	 */
 	public $_optionName  = 'woo_free_product_sample_settings';
@@ -42,7 +42,7 @@ class Woo_Free_Product_Sample_Admin {
 	/**
 	 * The option group of this plugin.
 	 *
-	 * @since    1.6.0
+	 * @since    2.0.0
 	 * @param    string 
 	 */	
 	public $_optionGroup = 'woo-free-product-sample-options-group';
@@ -50,7 +50,7 @@ class Woo_Free_Product_Sample_Admin {
 	/**
 	 * The option group of this plugin.
 	 *
-	 * @since    1.6.0
+	 * @since    2.0.0
 	 * @param    array 
 	 */	
 	public $_defaultOptions = array(
@@ -95,7 +95,7 @@ class Woo_Free_Product_Sample_Admin {
 
 	/**
 	 *
-	 * @since    1.6.0
+	 * @since    2.0.0
 	 * @param    array 
 	 */
     public function woo_free_product_sample_settings_menu() {
@@ -116,7 +116,7 @@ class Woo_Free_Product_Sample_Admin {
 	
 	/**
 	 *
-	 * @since    1.6.0
+	 * @since    2.0.0
 	 * @param    array
 	 */	
 	public function woo_free_product_sample_settings_page() {
@@ -133,7 +133,7 @@ class Woo_Free_Product_Sample_Admin {
 	
 	/**
 	 *
-	 * @since    1.6.0
+	 * @since    2.0.0
 	 * @param    array
 	 */
 	public function woo_free_product_sample_menu_register_settings() {
