@@ -36,7 +36,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				$thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 				if( isset( $cart_item['sample_price'] ) ) {
 					// $product_price     = apply_filters( 'woocommerce_cart_item_price', $cart_item['sample_price'], $cart_item, $cart_item_key );
-					$product_price     = $cart_item['sample_price'];
+					$product_price     = wc_price( $cart_item['sample_price'] );
 				} else {
 					$product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 				}
@@ -58,6 +58,13 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						$cart_item_key
 					);
 					?>
+                    <?php 
+                        if( isset( $cart_item['sample_price'] ) ) {
+                            $sample = esc_html__( 'Sample - ', 'woo-free-product-sample' );
+                        } else {
+                            $sample = '';
+                        }        
+                    ?>					
 					<?php if ( empty( $product_permalink ) ) : ?>
 						<?php echo $thumbnail . $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php else : ?>
