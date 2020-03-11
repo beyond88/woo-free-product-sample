@@ -89,14 +89,14 @@ class Woo_Free_Product_Sample_Public {
 		global $product;
 		if( $product->is_type( array('simple') ) ) { 
 			wc_get_template(
-				'/partials/simple-product/simple-prod-btn.php',
+				'/partials/button/simple.php',
 			array(),
 			'',			
 			untrailingslashit( plugin_dir_path( __FILE__ ) ) 
 			);	
 		} else if( $product->is_type( array('variable') ) ) {
 			wc_get_template(
-				'/partials/variable-product/variable-prod-btn.php',
+				'/partials/button/variable.php',
 			array(),
 			'',			
 			untrailingslashit( plugin_dir_path( __FILE__ ) ) 
