@@ -30,10 +30,9 @@ class Woo_Free_Product_Sample_Settings {
 	 * @param    none
      * @return   array 
 	 */
-    public static function settings_fields() {
+    public static function setting_fields() {
 
-        $settings_fields = array( 
-                        
+        $setting_fields = array(                         
             array(
                 'name'          => 'button_label',
                 'label'         => __( 'Button Label', 'woo-free-product-sample' ),
@@ -52,7 +51,7 @@ class Woo_Free_Product_Sample_Settings {
             ),            
 		);
 
-		return apply_filters( 'woo_free_product_sample_settings_fields', $settings_fields );
+		return apply_filters( 'woo_free_product_sample_setting_fields', $setting_fields );
     }
 
 

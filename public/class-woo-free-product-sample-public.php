@@ -448,7 +448,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      2.0.0
 	 * @param      string, array, array 
 	 */	
-	public function set_free_sample_item_name ( $product_name, $cart_item, $cart_item_key ) {
+	public function woo_free_product_sample_alter_item_name ( $product_name, $cart_item, $cart_item_key ) {
 
 		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
 		$product 			= $cart_item['data']; // Get the WC_Product Object

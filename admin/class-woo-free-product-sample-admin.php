@@ -55,7 +55,7 @@ class Woo_Free_Product_Sample_Admin {
 	 */	
 	public $_defaultOptions = array(
 		'button_label'      	=> '',
-		'max_qty_per_order'		=> 5 
+		'max_qty_per_order'		=> 5,
 	);
 
 	/**
@@ -126,7 +126,7 @@ class Woo_Free_Product_Sample_Admin {
 			return;
 		}
 
-		$settings = Woo_Free_Product_Sample_Settings::settings_fields();
+		$settings = Woo_Free_Product_Sample_Settings::setting_fields();
 
 		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-settings.php';
 	}	
@@ -139,4 +139,15 @@ class Woo_Free_Product_Sample_Admin {
 	public function woo_free_product_sample_menu_register_settings() {
 		register_setting( $this->_optionGroup, $this->_optionName );
 	}
+
+	/**
+	 *
+	 * @since    2.0.0
+	 * @param    none
+	 */
+	public function woo_free_product_sample_set_default_options() {
+
+		return apply_filters( 'woo_free_product_sample_default_options', $this->_defaultOptions );
+
+	}	
 }

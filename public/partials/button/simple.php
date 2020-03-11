@@ -1,6 +1,6 @@
 <?php
 
-	$settings_options 	    = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
+	$settings_options 	    = wp_parse_args( get_option('woo_free_product_sample_settings'), array() );	
 	if( ! empty( $settings_options['button_label'] ) ) {
 		$wcfps_button_label = esc_html__( $settings_options['button_label'], 'woo-free-product-sample' );					
 	} else { 

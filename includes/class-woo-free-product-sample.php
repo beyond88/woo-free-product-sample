@@ -123,6 +123,7 @@ class Woo_Free_Product_Sample {
 		$plugin_admin = new Woo_Free_Product_Sample_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'plugins_loaded', $plugin_admin, 'woo_free_product_sample_set_default_options' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'woo_free_product_sample_settings_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'woo_free_product_sample_menu_register_settings' );
 	}
@@ -146,7 +147,7 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'woo_free_product_sample_get_cart_items_from_session', 10, 2 );
 		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'woo_free_product_sample_save_posted_data_into_order', 10, 2 );
 		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_locate_template', 10, 3 );	
-		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'woo_free_product_sample_set_free_sample_item_name', 10, 3 );	
+		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'woo_free_product_sample_alter_item_name', 10, 3 );	
 		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public,'woo_free_product_sample_cart_item_price_filter', 10, 3 );
 		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'woo_free_product_sample_apply_sample_price_to_cart_item', 20 );		
 

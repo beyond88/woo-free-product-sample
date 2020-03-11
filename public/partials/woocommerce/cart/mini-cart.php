@@ -35,7 +35,6 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				$product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
 				$thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 				if( isset( $cart_item['sample_price'] ) ) {
-					// $product_price     = apply_filters( 'woocommerce_cart_item_price', $cart_item['sample_price'], $cart_item, $cart_item_key );
 					$product_price     = wc_price( $cart_item['sample_price'] );
 				} else {
 					$product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
