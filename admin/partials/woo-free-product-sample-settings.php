@@ -3,7 +3,7 @@
 	<form method="post" action="options.php" novalidate="novalidate">
         <?php
             settings_fields( $this->_optionGroup );
-			$settings_options = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
+			$setting_options = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
         ?>
 		<table class="form-table">
 			<tbody>

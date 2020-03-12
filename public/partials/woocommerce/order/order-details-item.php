@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 	return;
 }
-$settings_options = wp_parse_args(get_option('woo_free_product_sample_settings'),array());	
+$setting_options = wp_parse_args(get_option('woo_free_product_sample_settings'),array());	
 ?>
 <tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'woocommerce-table__line-item order_item', $item, $order ) ); ?>">
 
@@ -33,7 +33,7 @@ $settings_options = wp_parse_args(get_option('woo_free_product_sample_settings')
 			$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
 				$get_free      = '';			
 				foreach ( $item->get_formatted_meta_data() as $meta_id => $meta ) {					
-					if( $item['subtotal'] == $settings_options['sample_price'] ) {
+					if( $item['subtotal'] == $setting_options['sample_price'] ) {
 						$get_free = 1;
 					}
 				}
