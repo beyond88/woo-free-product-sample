@@ -113,9 +113,8 @@ class Woo_Free_Product_Sample_Public {
 
 		if ( 
 			! isset( $_REQUEST['simple-add-to-cart'] ) || 
-			! is_numeric( wp_unslash( $_REQUEST['simple-add-to-cart'] ) ) ||
-			! isset( $_REQUEST['variable-add-to-cart'] ) || 
-			! is_numeric( wp_unslash( $_REQUEST['variable-add-to-cart'] ) ) )			 
+			! is_numeric( wp_unslash( $_REQUEST['simple-add-to-cart'] ) )
+		)			 
 		{ // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			return;
 		}
@@ -452,7 +451,8 @@ class Woo_Free_Product_Sample_Public {
 
 		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
 		$product 			= $cart_item['data']; // Get the WC_Product Object
-		$sample_price 		= str_replace( ",",".", $settings_options['sample_price'] );
+		$sample_price 		= isset( $settings_options['sample_price'] ) ? $settings_options['sample_price'] : 0.00;
+		$sample_price 		= str_replace( ",",".", $sample_price );
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $sample_price == $prod_price ) {
 			$product_name   = esc_html__( 'Sample - ', 'woo-free-product-sample' ).$product_name;		
@@ -469,7 +469,8 @@ class Woo_Free_Product_Sample_Public {
     public function woo_free_product_sample_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
 		$settings_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
-		$set_price 			= str_replace( ",",".",$settings_options['sample_price'] );
+		$sample_price 		= isset( $settings_options['sample_price'] ) ? $settings_options['sample_price'] : 0.00;
+		$set_price 			= str_replace( ",",".",$sample_price );
 		if( isset( $cart_item['sample_price'] ) ) {
 			$item_price 		= str_replace( ",",".",$cart_item['sample_price'] );	
 			if( $item_price == $set_price ) {

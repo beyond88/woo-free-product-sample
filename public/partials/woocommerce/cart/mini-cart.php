@@ -62,7 +62,8 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                             $sample = esc_html__( 'Sample - ', 'woo-free-product-sample' );
                         } else {
                             $sample = '';
-                        }        
+						}  
+						$product_name = $sample . $product_name;      
                     ?>					
 					<?php if ( empty( $product_permalink ) ) : ?>
 						<?php echo $thumbnail . $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
