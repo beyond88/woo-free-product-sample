@@ -8,7 +8,7 @@
 		<table class="form-table">
 			<tbody>
 
-				<?php 
+				<?php
 					foreach( $settings as  $key => $value ) :
 				?>
 				

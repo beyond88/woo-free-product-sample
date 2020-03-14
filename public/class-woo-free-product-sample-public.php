@@ -310,7 +310,7 @@ class Woo_Free_Product_Sample_Public {
 		$setting_options   = wp_parse_args( get_option($this->_optionName),$this->_defaultOptions );	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample'] = $values['free_sample'];
-			$cart_item['price'] 	  = 0.00;
+			$cart_item['price'] 	  = isset( $setting_options['sample_price'] ) ? $setting_options['sample_price'] : 0.00;
 		}    
 
 		return $cart_item;
@@ -402,12 +402,13 @@ class Woo_Free_Product_Sample_Public {
 		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
 		if( $woocommerce->cart->cart_contents_count > 0 ) {
 			foreach( $woocommerce->cart->get_cart() as $key => $val ) {
-				if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 
-					if( ( $product_id == $val['free_sample'] ) && ( $setting_options['max_qty_per_order'] <= $val['quantity'] ) ) {
-						wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' time per order.', 'woo-free-product-sample' ), 'error' );						
-					}
-
+				if( ( $product_id == $val['free_sample'] ) &&
+					( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
+					( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
+				) {
+					wc_add_notice( esc_html__( 'You can order this product '.$val['free_sample'].' time per order.', 'woo-free-product-sample' ), 'error' );
+					exit( wp_redirect( get_permalink($product_id) ) );						
 				}
 
 			}
