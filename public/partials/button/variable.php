@@ -7,5 +7,5 @@
 		<?php echo esc_attr( $button_label ); ?>	
 	</button>
 	<input type="hidden" name="free_sample" value="<?php the_ID(); ?>">
-	<input type="hidden" name="sample_price" value="0.00" />
+	<input type="hidden" name="sample_price" value="<?php echo $sample_price; ?>" />
 
