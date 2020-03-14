@@ -115,7 +115,7 @@ class Woo_Free_Product_Sample_Public {
 			! isset( $_REQUEST['simple-add-to-cart'] ) || 
 			! is_numeric( wp_unslash( $_REQUEST['simple-add-to-cart'] ) )
 		)			 
-		{ // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		{
 			return;
 		}
 
@@ -290,7 +290,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      2.0.0     
 	 * @param      string, string    	 
 	 */
-	public function woo_free_product_sample_store_id( $cart_item, $product_id ) {
+	public function woo_free_product_sample_store_id( $cart_item ) {
 
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample']  = $_REQUEST['free_sample'];
@@ -310,7 +310,7 @@ class Woo_Free_Product_Sample_Public {
 		$setting_options   = wp_parse_args( get_option($this->_optionName),$this->_defaultOptions );	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample'] = $values['free_sample'];
-			$cart_item['price'] 	  = isset( $setting_options['sample_price'] ) ? $setting_options['sample_price'] : 0.00;
+			$cart_item['price'] 	  = 0.00;
 		}    
 
 		return $cart_item;
@@ -385,8 +385,7 @@ class Woo_Free_Product_Sample_Public {
 	
 		foreach ( $cart->get_cart() as $key => $value ) {
 			if( isset( $value["sample_price"] ) ) {
-				//$value['data']->set_price($value["sample_price"]);
-				$value['data']->price = $value["sample_price"];
+				$value['data']->set_price($value["sample_price"]);
 			}				
 
 		}   
@@ -400,14 +399,13 @@ class Woo_Free_Product_Sample_Public {
 	public function woo_free_product_sample_set_limit_per_order( $valid, $product_id ) {
 	
 		global $woocommerce;
-		$setting_options = wp_parse_args(get_option('woo_free_product_sample_settings'),array());
+		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
 		if( $woocommerce->cart->cart_contents_count > 0 ) {
 			foreach( $woocommerce->cart->get_cart() as $key => $val ) {
 				if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 
 					if( ( $product_id == $val['free_sample'] ) && ( $setting_options['max_qty_per_order'] <= $val['quantity'] ) ) {
-						wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' time per order.', 'woo-free-product-sample' ), 'error' );
-						return false;
+						wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' time per order.', 'woo-free-product-sample' ), 'error' );						
 					}
 
 				}
@@ -434,12 +432,7 @@ class Woo_Free_Product_Sample_Public {
 			$message = sprintf( esc_html__('Sample - "%s" have been added to your cart.','woo-free-product-sample'), $titles ); 
 			return $message; 
 
-		} else {
-
-			return $message;
-
-		}
-
+		} 
 	}
 
 	/**
@@ -449,10 +442,10 @@ class Woo_Free_Product_Sample_Public {
 	 */	
 	public function woo_free_product_sample_alter_item_name ( $product_name, $cart_item, $cart_item_key ) {
 
-		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
+		$setting_options    = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
 		$product 			= $cart_item['data']; // Get the WC_Product Object
-		$sample_price 		= isset( $setting_options['sample_price'] ) ? $setting_options['sample_price'] : 0.00;
-		$sample_price 		= str_replace( ",",".", $sample_price );
+		$sample_price 		= 0.00;
+		//$sample_price 		= str_replace( ",",".", $sample_price );
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $sample_price == $prod_price ) {
 			$product_name   = esc_html__( 'Sample - ', 'woo-free-product-sample' ).$product_name;		
@@ -468,13 +461,13 @@ class Woo_Free_Product_Sample_Public {
 	 */
     public function woo_free_product_sample_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
-		$setting_options   = wp_parse_args( get_option( $this->_optionName), $this->_defaultOptions );
-		$sample_price 		= isset( $setting_options['sample_price'] ) ? $setting_options['sample_price'] : 0.00;
-		$set_price 			= str_replace( ",",".",$sample_price );
+		$setting_options    = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
+		$sample_price 		= 0.00;
+		$set_price 			= str_replace( ",", ".", $sample_price );
 		if( isset( $cart_item['sample_price'] ) ) {
-			$item_price 		= str_replace( ",",".",$cart_item['sample_price'] );	
-			if( $item_price == $set_price ) {
-				$price   = wc_price( $item_price );		
+			$item_price 	= str_replace( ",", ".", $cart_item['sample_price'] );	
+			if( $item_price == $sample_price ) {
+				$price      = wc_price( $item_price );		
 			}
 		}
 		
