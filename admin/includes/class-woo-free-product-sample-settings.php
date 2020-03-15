@@ -53,6 +53,4 @@ class Woo_Free_Product_Sample_Settings {
 
 		return apply_filters( 'woo_free_product_sample_setting_fields', $setting_fields );
     }
-
-
 }

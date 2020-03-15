@@ -59,10 +59,9 @@ class Woo_Free_Product_Sample_Public {
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name 	= $plugin_name;
-		$this->version 		= $version;		
-		add_filter('woocommerce_get_item_data', array($this, 'get_item_data'), 10, 2);
+		$this->version 		= $version;	
+		add_action('woocommerce_checkout_order_processed', array($this, 'checkout_order_processed'), 10, 3);	
 	}
-
 
 	/**
 	 *
@@ -74,12 +73,19 @@ class Woo_Free_Product_Sample_Public {
 
 	}
 
-
 	/**
 	 *
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {}
+
+	/**
+	 *
+	 * @since    2.0.0
+	 */
+	public static function woo_free_product_sample_price() {
+		return apply_filters( 'woo_free_product_sample_price', 0.00 );
+	}	
 
 	/**
 	 *
@@ -109,6 +115,7 @@ class Woo_Free_Product_Sample_Public {
 	/**
 	 *
 	 * @since 2.0.0
+	 * @param string
 	 */
 	public static function woo_free_product_sample_add_to_cart_action( $url = false ) {
 
@@ -295,7 +302,7 @@ class Woo_Free_Product_Sample_Public {
 
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample']  = $_REQUEST['free_sample'];
-			$cart_item['sample_price'] = $_REQUEST['sample_price'];			
+			$cart_item['sample_price'] = self::woo_free_product_sample_price();			
 		}
 			
 		return $cart_item; 
@@ -311,7 +318,7 @@ class Woo_Free_Product_Sample_Public {
 		$setting_options   = wp_parse_args( get_option($this->_optionName),$this->_defaultOptions );	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample'] = $values['free_sample'];
-			$cart_item['price'] 	  = isset( $setting_options['sample_price'] ) ? $setting_options['sample_price'] : 0.00;
+			$cart_item['price'] 	  = self::woo_free_product_sample_price();
 		}    
 
 		return $cart_item;
@@ -324,8 +331,8 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	public function woo_free_product_sample_save_posted_data_into_order( $itemID, $values ) {
 
-		if ( isset( $_REQUEST['simple-add-to-cart'] ) && !empty( $values['free_sample'] ) ) {
-			wc_add_order_item_meta( $itemID, 'prod_type', 'free_sample' );
+		if ( isset( $values['free_sample'] ) ) {
+			wc_add_order_item_meta( $itemID, 'PRODUCT_TYPE', 'Sample' );
 		}
 		
 	}
@@ -446,7 +453,7 @@ class Woo_Free_Product_Sample_Public {
 
 		$setting_options    = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );	
 		$product 			= $cart_item['data']; // Get the WC_Product Object
-		$sample_price 		= isset( $setting_options['sample_price'] ) ? $setting_options['sample_price'] : 0.00;
+		$sample_price 		= self::woo_free_product_sample_price();
 		$sample_price 		= str_replace( ",",".", $sample_price );
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $sample_price == $prod_price ) {
@@ -464,7 +471,7 @@ class Woo_Free_Product_Sample_Public {
     public function woo_free_product_sample_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
 		$setting_options    = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
-		$sample_price 		= isset( $setting_options['sample_price'] ) ? $setting_options['sample_price'] : 0.00;
+		$sample_price 		= self::woo_free_product_sample_price();
 		$set_price 			= str_replace( ",", ".", $sample_price );
 		if( isset( $cart_item['sample_price'] ) ) {
 			$item_price 	= str_replace( ",", ".", $cart_item['sample_price'] );	
@@ -494,6 +501,21 @@ class Woo_Free_Product_Sample_Public {
 
 		return $passed;
 
+	}
+
+	public function checkout_order_processed( $order_id, $posted_data, $order=false ) {
+		
+		if($order===false){
+            $order = wc_get_order($order_id);
+        }
+        $items = $order->get_items();
+        if (is_array($items)) {
+            foreach ($items as $item_id => $item) {
+			   // $this->update_order_item($item, $order_id);
+			    
+            }
+		}
+		
 	}
 
 }
