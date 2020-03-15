@@ -60,7 +60,6 @@ class Woo_Free_Product_Sample_Public {
 
 		$this->plugin_name 	= $plugin_name;
 		$this->version 		= $version;	
-		add_action('woocommerce_checkout_order_processed', array($this, 'checkout_order_processed'), 10, 3);	
 	}
 
 	/**
@@ -501,21 +500,6 @@ class Woo_Free_Product_Sample_Public {
 
 		return $passed;
 
-	}
-
-	public function checkout_order_processed( $order_id, $posted_data, $order=false ) {
-		
-		if($order===false){
-            $order = wc_get_order($order_id);
-        }
-        $items = $order->get_items();
-        if (is_array($items)) {
-            foreach ($items as $item_id => $item) {
-			   // $this->update_order_item($item, $order_id);
-			    
-            }
-		}
-		
 	}
 
 }
