@@ -84,40 +84,55 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	public static function woo_free_product_sample_price() {
 		return apply_filters( 'woo_free_product_sample_price', 0.00 );
-	}	
+	}
+	
+	/**
+	 *
+	 * @since    2.0.0
+	 */	
+	public function woo_free_product_sample_button_text() {
+		$setting_options   = wp_parse_args( get_option($this->_optionName),$this->_defaultOptions );
+		return isset( $setting_options['button_label'] ) ? esc_html__( $setting_options['button_label'], 'woo-free-product-sample' ) : esc_html__( 'Order a Free Sample', 'woo-free-product-sample' );
+	}
 
 	/**
 	 *
-	 * @since  2.0.0  
+	 * @since    2.0.0
+	 */	
+	public static function woo_free_product_sample_product_type() {
+		global $product;
+		if( $product->is_type( 'simple' ) ) {
+			return 'simple';
+		} else if( $product->is_type( 'variable' ) ) {
+			return 'variable';
+		} else {
+			return NULL;
+		}
+	}
+
+	/**
+	 *
+	 * @since  2.0.0
+	 * @param  none  
+	 * @return html
 	 */
 	public function woo_free_product_sample_button() {
 
-		global $product;
-		if( $product->is_type( array('simple') ) ) { 
-			wc_get_template(
-				'/partials/button/simple.php',
-			array(),
-			'',			
-			untrailingslashit( plugin_dir_path( __FILE__ ) ) 
-			);	
-		} else if( $product->is_type( array('variable') ) ) {
-			wc_get_template(
-				'/partials/button/variable.php',
-			array(),
-			'',			
-			untrailingslashit( plugin_dir_path( __FILE__ ) ) 
-			);
+		switch ( self::woo_free_product_sample_product_type() ) {
+			case "simple":
+				$button = '<button type="submit" name="simple-add-to-cart" value="'.get_the_ID().'" class="single_add_to_cart_button button alt">'.$this->woo_free_product_sample_button_text().'</button>';
+				break;
+			case "variable":
+				$button = '<button type="submit" name="variable-add-to-cart" value="'.get_the_ID().'" class="single_add_to_cart_button button alt">'.$this->woo_free_product_sample_button_text().'</button>';
+				break;			
+			default:
+				$button = '';
 		} 
-		// $setting_options 	    = wp_parse_args( get_option('woo_free_product_sample_settings'), array() );	
-		// $button_label 			= isset( $setting_options['button_label'] ) ? esc_html__( $setting_options['button_label'], 'woo-free-product-sample' ) : esc_html__( 'Order a Free Sample', 'woo-free-product-sample' ); 
-		// $html  = '';
-		// if( $product->is_type( array('simple') ) ) { 
-		// $html .= '<button type="submit" name="simple-add-to-cart" value="'.get_the_ID().'" class="single_add_to_cart_button button simple-add-to-cart">';
-		// 	$html .= $button_label;
-		// $html .= '</button>';
-		// $html .= '<input type="hidden" name="free_sample" value="'.get_the_ID().'">';
-		// }
-		// echo $html;
+		echo apply_filters( 
+					'woo_free_product_sample_button',
+					$button
+				);
+
 	}	
 
 	/**
