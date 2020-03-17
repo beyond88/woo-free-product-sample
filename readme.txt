@@ -1,6 +1,6 @@
 === WooCommerce Free Product Sample ===
 Contributors: hossain88
-Donate Link: https://profiles.wordpress.org/hossain88
+Donate Link: mohiuddinabdulkader.website
 Tags: woocommerce, free, product, sample, free-sample, free-product-sample, free-sample-product
 Requires at least: 4.4
 Tested up to: 5.3.2

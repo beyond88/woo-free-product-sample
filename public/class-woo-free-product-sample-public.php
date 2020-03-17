@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @link       https://profiles.wordpress.org/hossain88
+ * @link       mohiuddinabdulkader.website
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample
@@ -47,7 +47,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @param    array 
 	 */	
 	public $_defaultOptions = array(
-		'button_label'          => '',
+		'button_label'          => 'Order a Sample',
 		'max_qty_per_order'		=> 5 
 	);	
 
@@ -90,7 +90,7 @@ class Woo_Free_Product_Sample_Public {
 	 *
 	 * @since  2.0.0  
 	 */
-	public function woo_free_product_sample_add_to_cart_btn() {
+	public function woo_free_product_sample_sample_button() {
 
 		global $product;
 		if( $product->is_type( array('simple') ) ) { 

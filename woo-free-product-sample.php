@@ -1,6 +1,6 @@
 <?php
 /**
- * @link              https://profiles.wordpress.org/hossain88
+ * @link              mohiuddinabdulkader.website
  * @since             1.0.0
  * @package           Woo_Free_Product_Sample
  *
@@ -10,7 +10,7 @@
  * Description:       WooCommerce Free Product Sample is a WordPress plugin. Display an add to cart button in product detail page to order product as free sample. Shop owner can be offered to customer to order product as free sample to promote his product or business.  
  * Version:           2.0.0
  * Author:            Mohiuddin Abdul Kader
- * Author URI:        https://profiles.wordpress.org/hossain88
+ * Author URI:        mohiuddinabdulkader.website
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woo-free-product-sample

@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://profiles.wordpress.org/hossain88
+ * @link       mohiuddinabdulkader.website
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample
