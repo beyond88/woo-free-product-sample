@@ -7,7 +7,7 @@
  * @wordpress-plugin
  * Plugin Name:       WooCommerce Free Product Sample
  * Plugin URI:        https://wordpress.org/plugins/woo-free-product-sample
- * Description:       WooCommerce Free Product Sample is a WordPress plugin. Display an add to cart button in product detail page to order product as free sample. Shop owner can be offered to customer to order product as free sample to promote his product or business.  
+ * Description:       Display an add to cart button in the product detail page to order product as free sample.  
  * Version:           2.0.0
  * Author:            Mohiuddin Abdul Kader
  * Author URI:        mohiuddinabdulkader.website
