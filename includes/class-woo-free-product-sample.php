@@ -139,7 +139,7 @@ class Woo_Free_Product_Sample {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_filter( 'plugins_loaded', $plugin_public, 'woo_free_product_sample_price' );		
+		$this->loader->add_filter( 'plugins_loaded', $plugin_public, 'woo_free_product_sample_price' );	
 		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public, 'woo_free_product_sample_button', 5 );	
 		$this->loader->add_action( 'wp_loaded', $plugin_public, 'woo_free_product_sample_add_to_cart_action', 20 );	
 		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'woo_free_product_sample_apply_sample_price_to_cart_item', 20 );			

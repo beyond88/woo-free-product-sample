@@ -108,7 +108,16 @@ class Woo_Free_Product_Sample_Public {
 			untrailingslashit( plugin_dir_path( __FILE__ ) ) 
 			);
 		} 
-
+		// $setting_options 	    = wp_parse_args( get_option('woo_free_product_sample_settings'), array() );	
+		// $button_label 			= isset( $setting_options['button_label'] ) ? esc_html__( $setting_options['button_label'], 'woo-free-product-sample' ) : esc_html__( 'Order a Free Sample', 'woo-free-product-sample' ); 
+		// $html  = '';
+		// if( $product->is_type( array('simple') ) ) { 
+		// $html .= '<button type="submit" name="simple-add-to-cart" value="'.get_the_ID().'" class="single_add_to_cart_button button simple-add-to-cart">';
+		// 	$html .= $button_label;
+		// $html .= '</button>';
+		// $html .= '<input type="hidden" name="free_sample" value="'.get_the_ID().'">';
+		// }
+		// echo $html;
 	}	
 
 	/**
@@ -300,7 +309,7 @@ class Woo_Free_Product_Sample_Public {
 	public function woo_free_product_sample_store_id( $cart_item ) {
 
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
-			$cart_item['free_sample']  = $_REQUEST['free_sample'];
+			$cart_item['free_sample']  = isset( $_REQUEST['simple-add-to-cart'] ) ? $_REQUEST['simple-add-to-cart'] : $_REQUEST['variable-add-to-cart'];
 			$cart_item['sample_price'] = self::woo_free_product_sample_price();			
 		}
 			
@@ -316,7 +325,7 @@ class Woo_Free_Product_Sample_Public {
 
 		$setting_options   = wp_parse_args( get_option($this->_optionName),$this->_defaultOptions );	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
-			$cart_item['free_sample'] = $values['free_sample'];
+			$cart_item['free_sample'] = isset( $values['simple-add-to-cart'] ) ? $values['simple-add-to-cart'] : $values['variable-add-to-cart'];
 			$cart_item['price'] 	  = self::woo_free_product_sample_price();
 		}    
 
