@@ -50,6 +50,7 @@ define( 'WFPS_FILE', __FILE__ );
 define( 'WFPS_ROOT_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WFPS_ADMIN_DIR_PATH', WFPS_ROOT_DIR_PATH . 'admin/' );
 define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
+define( 'WFPS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'PLUGIN_NAME', 'WooCommerce Free Product Sample' );
 
 /**
@@ -92,7 +93,9 @@ class Woo_Free_Product_Sample_Start {
 	 */
     public function plugin_action_links( $links ) {
 
-		$links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/" style="color: #389e38;font-weight: bold;">' . __( 'Go PRO', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Configure', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/">' . __( 'Docs', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/">' . __( 'Support', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="https://wordpress.org/plugins/woo-free-product-sample/#reviews">' . __( 'Review', 'woo-free-product-sample' ) . '</a>';
 

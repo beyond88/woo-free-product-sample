@@ -68,9 +68,8 @@ class Woo_Free_Product_Sample_Admin {
 
 		$this->plugin_name 	= $plugin_name;
 		$this->version 		= $version;
-		add_option( $this->_optionName, $this->_defaultOptions );	
-
-	}
+		add_option( $this->_optionName, $this->_defaultOptions );		
+	}	
 
 	/**
 	 * Register the stylesheets for the admin area.
