@@ -90,7 +90,7 @@ class Woo_Free_Product_Sample_Public {
 	 *
 	 * @since  2.0.0  
 	 */
-	public function woo_free_product_sample_sample_button() {
+	public function woo_free_product_sample_button() {
 
 		global $product;
 		if( $product->is_type( array('simple') ) ) { 
