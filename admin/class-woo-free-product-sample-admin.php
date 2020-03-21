@@ -48,7 +48,7 @@ class Woo_Free_Product_Sample_Admin {
 	public $_optionGroup = 'woo-free-product-sample-options-group';
 	
 	/**
-	 * The option group of this plugin.
+	 * The default option of this plugin.
 	 *
 	 * @since    2.0.0
 	 * @param    array 
@@ -93,7 +93,8 @@ class Woo_Free_Product_Sample_Admin {
 	}
 
 	/**
-	 *
+	 * Register the admin menu for the settings
+	 * 
 	 * @since    2.0.0
 	 * @param    array 
 	 */
@@ -114,7 +115,8 @@ class Woo_Free_Product_Sample_Admin {
 	}
 	
 	/**
-	 *
+	 * Display the settings page
+	 * 
 	 * @since    2.0.0
 	 * @param    array
 	 */	
@@ -131,7 +133,8 @@ class Woo_Free_Product_Sample_Admin {
 	}	
 	
 	/**
-	 *
+	 * Save the setting options		
+	 * 
 	 * @since    2.0.0
 	 * @param    array
 	 */
@@ -140,7 +143,8 @@ class Woo_Free_Product_Sample_Admin {
 	}
 
 	/**
-	 *
+	 * Apply filter with default options
+	 * 
 	 * @since    2.0.0
 	 * @param    none
 	 */

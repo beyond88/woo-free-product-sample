@@ -41,7 +41,7 @@ class Woo_Free_Product_Sample_Public {
 	public $_optionGroup = 'woo-free-product-sample-options-group';
 	
 	/**
-	 * The option group of this plugin.
+	 * The default option of this plugin.
 	 *
 	 * @since    2.0.0
 	 * @param    array 
@@ -79,16 +79,20 @@ class Woo_Free_Product_Sample_Public {
 	public function enqueue_scripts() {}
 
 	/**
-	 *
+	 * Return sample price
+	 * 
 	 * @since    2.0.0
+	 * @param    none
 	 */
 	public static function woo_free_product_sample_price() {
 		return apply_filters( 'woo_free_product_sample_price', 0.00 );
 	}
 	
 	/**
-	 *
+	 * Retrive button label	
+	 * 
 	 * @since    2.0.0
+	 * @param    none
 	 */	
 	public function woo_free_product_sample_button_text() {
 		$setting_options   = wp_parse_args( get_option($this->_optionName),$this->_defaultOptions );
@@ -96,8 +100,10 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
-	 *
+	 * Check product type in product details page
+	 * 
 	 * @since    2.0.0
+	 * @param    none
 	 */	
 	public static function woo_free_product_sample_product_type() {
 		global $product;
@@ -111,10 +117,11 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
-	 *
-	 * @since  2.0.0
-	 * @param  none  
-	 * @return html
+	 * Display sample button
+	 * 
+	 * @since  	2.0.0
+	 * @param  	none  
+	 * @return 	html
 	 */
 	public function woo_free_product_sample_button() {
 
@@ -136,6 +143,7 @@ class Woo_Free_Product_Sample_Public {
 	}	
 
 	/**
+	 * Handle add to cart
 	 *
 	 * @since 2.0.0
 	 * @param string
@@ -317,7 +325,8 @@ class Woo_Free_Product_Sample_Public {
 	}	
 	 
 	/**
-	 *
+	 * Set sample price in the cart
+	 * 
 	 * @since      2.0.0     
 	 * @param      string, string    	 
 	 */
@@ -332,7 +341,8 @@ class Woo_Free_Product_Sample_Public {
 	}	
 
 	/**
-	 *
+	 * Set sample price in session
+	 * 
 	 * @since      2.0.0
 	 * @param      array, array    
 	 */
@@ -348,7 +358,8 @@ class Woo_Free_Product_Sample_Public {
 	}
 	 
 	/**
-	 *
+	 * Add product meta for sample to indentity in the admin order details
+	 * 
 	 * @since      2.0.0
 	 * @param      int, array    	 
 	 */
@@ -361,6 +372,7 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
+	 * Return plugin directory
 	 *
 	 * @since      2.0.0
 	 * @param      none
@@ -370,7 +382,8 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
-	 *
+	 * Return WooCommerce template path
+	 * 
 	 * @since      2.0.0
 	 * @param      none
 	 */
@@ -401,7 +414,8 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
-	 *
+	 * Set sample price in the order meta
+	 * 
 	 * @since      2.0.0
 	 * @param      object, array     	 
 	 */
@@ -423,6 +437,7 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
+	 * Display validation message when order a product sample 
 	 *
 	 * @since      2.0.0
 	 * @param      int, array 
@@ -449,6 +464,7 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
+	 * Sample product added in the cart message
 	 *
 	 * @since      2.0.0
 	 * @param      int, array 
@@ -468,6 +484,7 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
+	 * Add sample label before the product 
 	 *
 	 * @since      2.0.0
 	 * @param      string, array, array 
@@ -487,7 +504,8 @@ class Woo_Free_Product_Sample_Public {
 	}
 
    	/**
-	 *
+	 * Set sample price instead real price
+	 * 
 	 * @since      2.0.0
 	 * @param      int, array, array 
 	 */
@@ -507,7 +525,8 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
-	 *
+	 * Show validation message in the cart page for maximum order
+	 * 
 	 * @since      2.0.0
 	 * @param      boolean, array, array, int 
 	 */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Register all settings actions and filters for the plugin
+ * Register all setting actions and filters for the plugin
  *
  * @link       mohiuddinabdulkader.website
  * @since      2.0.0
@@ -24,7 +24,7 @@ class Woo_Free_Product_Sample_Settings {
     }
 
     /**
-	 * Define settings options as array
+	 * Define setting options as array
 	 *
 	 * @since    2.0.0
 	 * @param    none
