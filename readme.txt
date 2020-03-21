@@ -1,6 +1,6 @@
 === WooCommerce Free Product Sample ===
 Contributors: hossain88
-Donate Link: mohiuddinabdulkader.website
+Donate Link: http://mohiuddinabdulkader.website/
 Tags: woocommerce, free, product, sample, free-sample, free-product-sample, free-sample-product
 Requires at least: 4.4
 Tested up to: 5.3.2
@@ -17,12 +17,12 @@ The pioneer WooCommerce Free Product Sample plugin for WooCommerce based e-comme
 
 = WOOCOMMERCE FREE PRODUCT SAMPLE PLUGIN FOR WORDPRESS =
 
-👉 Official Free Demo Link: [Official Demo](http://plugins.mohiuddinabdulkader.website/woo-free-product-sample)
-👉 Learn More About PRO Version: [All The Features](http://plugins.mohiuddinabdulkader.website/woo-free-product-sample)
+👉 Official Free Demo Link: [Official Demo](http://plugins.http://mohiuddinabdulkader.website//woo-free-product-sample)
+👉 Learn More About PRO Version: [All The Features](http://plugins.http://mohiuddinabdulkader.website//woo-free-product-sample)
 
 = POWERED BY WooCommerce =
 
-[WooCommerce Free Product Sample](http://mohiuddinabdulkader.website/woo-free-prod-sample.php) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
+[WooCommerce Free Product Sample](http://http://mohiuddinabdulkader.website//woo-free-prod-sample.php) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
 
 = HOW IT WORKS? =
 * Store Owner will be able to offer to order some product as free sample 

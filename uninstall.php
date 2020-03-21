@@ -3,7 +3,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @link       mohiuddinabdulkader.website
+ * @link       http://mohiuddinabdulkader.website/
  * @since      2.0.0
  *
  * @package    Woo_Free_Product_Sample

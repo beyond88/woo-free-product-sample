@@ -1,6 +1,6 @@
 <?php
 /**
- * @link              mohiuddinabdulkader.website
+ * @link              http://mohiuddinabdulkader.website/
  * @since             1.0.0
  * @package           Woo_Free_Product_Sample
  *
@@ -10,7 +10,7 @@
  * Description:       Display an add to cart button in the product detail page to order product as free sample.  
  * Version:           2.0.0
  * Author:            Mohiuddin Abdul Kader
- * Author URI:        mohiuddinabdulkader.website
+ * Author URI:        http://mohiuddinabdulkader.website/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woo-free-product-sample

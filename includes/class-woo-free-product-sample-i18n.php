@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       mohiuddinabdulkader.website
+ * @link       http://mohiuddinabdulkader.website/
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample

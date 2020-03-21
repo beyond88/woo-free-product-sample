@@ -4,7 +4,7 @@
  * The file that defines the core plugin class
  *
  *
- * @link       mohiuddinabdulkader.website
+ * @link       http://mohiuddinabdulkader.website/
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample
