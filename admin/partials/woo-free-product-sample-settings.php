@@ -67,7 +67,7 @@
                                     light, fast and feature-rich plugins.
                                 </div>
                                 <div>
-                                    <a href="https://acowebs.com/woo-custom-product-addons/?ref=free-wfps" target="_blank">Upgrade Now</a>
+                                    <a href="http://mohiuddinabdulkader.website" target="_blank">Upgrade Now</a>
                                 </div>
 
 
@@ -102,14 +102,14 @@
                     <div class="sidebar">
                         <div class="sidebar_top">
                             <h1>Upgrade to<br> Premium Now!</h1>
-                            <div class="price_side">
+                            <!-- <div class="price_side">
                                For only<b> $29 </b>per site
-                            </div>
+                            </div> -->
                             <div class="tagline_side">Supercharge Your WooCommerce <br>Stores  with our
                                 light, fast <br>and feature-rich plugins
                             </div>
                             <div>
-                                <a href="https://acowebs.com/woo-custom-product-addons/?ref=free-wfps" target="_blank">Upgrade Now</a>
+                                <a href="http://mohiuddinabdulkader.website" target="_blank">Upgrade Now</a>
                             </div>
 
                         </div>
