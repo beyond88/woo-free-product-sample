@@ -51,7 +51,7 @@ define( 'WFPS_ROOT_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WFPS_ADMIN_DIR_PATH', WFPS_ROOT_DIR_PATH . 'admin/' );
 define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
 define( 'WFPS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PLUGIN_NAME', 'WooCommerce Free Product Sample' );
+define( 'WFPS_PLUGIN_NAME', 'WooCommerce Free Product Sample' );
 
 /**
  * WooCommerce Free Product Sample Start.
@@ -160,7 +160,7 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->deactivate_plugin();
 
-			wp_die( PLUGIN_NAME . ' could not be activated. ' . $this->get_environment_message() );
+			wp_die( WFPS_PLUGIN_NAME . ' could not be activated. ' . $this->get_environment_message() );
 		}
 	}
 
@@ -177,7 +177,7 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->deactivate_plugin();
 
-			$this->add_admin_notice( 'bad_environment', 'error', PLUGIN_NAME . ' has been deactivated. ' . $this->get_environment_message() );
+			$this->add_admin_notice( 'bad_environment', 'error', WFPS_PLUGIN_NAME . ' has been deactivated. ' . $this->get_environment_message() );
 		}
 	}
 
@@ -195,7 +195,7 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->add_admin_notice( 'update_wordpress', 'error', sprintf(
 				'%s requires WordPress version %s or higher. Please %supdate WordPress &raquo;%s',
-				'<strong>' . PLUGIN_NAME . '</strong>',
+				'<strong>' . WFPS_PLUGIN_NAME . '</strong>',
 				MINIMUM_WP_VERSION,
 				'<a href="' . esc_url( admin_url( 'update-core.php' ) ) . '">', '</a>'
 			) );
@@ -205,7 +205,7 @@ class Woo_Free_Product_Sample_Start {
 
 			$this->add_admin_notice( 'update_woocommerce', 'error', sprintf(
 				'%1$s requires WooCommerce version %2$s or higher. Please %3$supdate WooCommerce%4$s to the latest version, or %5$sdownload the minimum required version &raquo;%6$s',
-				'<strong>' . PLUGIN_NAME . '</strong>',
+				'<strong>' . WFPS_PLUGIN_NAME . '</strong>',
 				MINIMUM_WC_VERSION,
 				'<a href="' . esc_url( admin_url( 'update-core.php' ) ) . '">', '</a>',
 				'<a href="' . esc_url( 'https://downloads.wordpress.org/plugin/woocommerce.' . MINIMUM_WC_VERSION . '.zip' ) . '">', '</a>'

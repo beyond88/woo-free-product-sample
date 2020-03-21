@@ -101,8 +101,8 @@ class Woo_Free_Product_Sample_Admin {
     public function woo_free_product_sample_settings_menu() {
 		
         add_menu_page(
-			__('Free Product Sample','woo-free-product-sample'),
-			__('Free Product Sample','woo-free-product-sample'),
+			__('Product Sample','woo-free-product-sample'),
+			__('Product Sample','woo-free-product-sample'),
 			'manage_woocommerce',
 			'woo-free-product-sample',            
             array(
