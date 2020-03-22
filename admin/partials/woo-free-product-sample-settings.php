@@ -1,6 +1,7 @@
 <div class="wrap wfps_settings">
     <div id="icon-options-general" class="icon32"></div>
     <h1><?php echo WFPS_PLUGIN_NAME; ?></h1>
+    <?php settings_errors(); ?>
 
     <div id="poststuff">
         <div class="metabox-holder columns-2">
