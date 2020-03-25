@@ -103,7 +103,7 @@ class Woo_Free_Product_Sample_Admin {
         add_menu_page(
 			__('Product Sample','woo-free-product-sample'),
 			__('Product Sample','woo-free-product-sample'),
-			'manage_woocommerce',
+			'manage_options',
 			'woo-free-product-sample',            
             array(
                 $this,
