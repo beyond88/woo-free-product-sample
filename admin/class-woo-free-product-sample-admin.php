@@ -59,6 +59,14 @@ class Woo_Free_Product_Sample_Admin {
 	);
 
 	/**
+	 * The option of this plugin.
+	 *
+	 * @since    2.0.0
+	 * @param    string 
+	 */
+	public $_activation  = 'the_wp_next_licence_activation';	
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0

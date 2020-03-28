@@ -2,6 +2,9 @@
     <div id="icon-options-general" class="icon32"></div>
     <h1><?php echo WFPS_PLUGIN_NAME; ?></h1>
     <?php settings_errors(); ?>
+    <?php 
+        $activation_info = get_option( $this->_activation );
+    ?>
 
     <div id="poststuff">
         <div class="metabox-holder columns-2">
@@ -56,9 +59,12 @@
 
                         </div>
                         <!-- .postbox -->
-
+                        
+                        <?php 
+                            if( !isset($activation_info['license_key']) ):
+                        ?>
                         <div class="premium clearfix">
-                            <div class="premium_left">
+                            <div class="premium_left premium_left_free">
                                 <h1>Upgrade to <br>Premium Now!</h1>
                                <div class="price">
                                    <span>For only <b>$29.00</b> per site</span>
@@ -70,8 +76,6 @@
                                 <div>
                                     <a href="http://mohiuddinabdulkader.website" target="_blank">Upgrade Now</a>
                                 </div>
-
-
                             </div>
                             <div class="premium_right">
                                 <div class="outer">
@@ -99,8 +103,12 @@
                                 </div>
                             </div>
                         </div>
+                        <?php endif; ?>
                     </div>
                     <div class="sidebar">
+                        <?php 
+                            if( !isset($activation_info['license_key']) ):
+                        ?>
                         <div class="sidebar_top">
                             <h1>Upgrade to<br> Premium Now!</h1>
                             <!-- <div class="price_side">
@@ -137,6 +145,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <?php endif; ?>
                         <div class="support">
                             <h3>Dedicated Support Team</h3>
                             <p>Our support is what makes us No.1. We are available round the clock for any support.</p>

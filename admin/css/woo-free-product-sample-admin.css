@@ -1,24 +1,28 @@
 #wfps_editor .form-wrap label {
-    display: inline-block; }
-#wfps_product-meta-tab h4{
+    display: inline-block; 
+}
+
+#wfps_product-meta-tab h4 {
     padding: 0px 15px;
     margin: 1.33em 0 .5em 0;
 }
-#wfps_product-meta-tab p{
+
+#wfps_product-meta-tab p {
     margin:0px 9px;
 }
 
-
-#wfps_product-meta-tab input[type="checkbox"]{
+#wfps_product-meta-tab input[type="checkbox"] {
     position: absolute;
     opacity: 0;
-  }
-  #wfps_product-meta-tab input[type="checkbox"] + label{
+}
+
+#wfps_product-meta-tab input[type="checkbox"] + label {
     position: relative;
     cursor: pointer;
     padding: 0;
-  }
-  #wfps_product-meta-tab input[type="checkbox"] + label:before{
+}
+
+#wfps_product-meta-tab input[type="checkbox"] + label:before {
     content: "";
     margin-right: 6px;
     display: inline-block;
@@ -28,25 +32,31 @@
     background: white;
     border:1px solid rgba(39,39,50,.25);
     border-radius: 4px;
-  }
-  #wfps_product-meta-tab input[type="checkbox"]:hover + label:before{
+}
+
+#wfps_product-meta-tab input[type="checkbox"]:hover + label:before {
     background: #0877FF;
-  }
-  #wfps_product-meta-tab input[type="checkbox"]:focus + label:before{
+}
+
+#wfps_product-meta-tab input[type="checkbox"]:focus + label:before {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
-  }
-  #wfps_product-meta-tab input[type="checkbox"]:checked + label:before{
+}
+
+#wfps_product-meta-tab input[type="checkbox"]:checked + label:before {
     background: #0877FF;
-  }
-  #wfps_product-meta-tab input[type="checkbox"]:disabled + label{
+}
+
+#wfps_product-meta-tab input[type="checkbox"]:disabled + label {
     color: #b8b8b8;
     cursor: auto;
-  }
-  #wfps_product-meta-tab input[type="checkbox"]:disabled + label:before{
+}
+
+#wfps_product-meta-tab input[type="checkbox"]:disabled + label:before {
     box-shadow: none;
     background: #ddd;
-  }
-  #wfps_product-meta-tab input[type="checkbox"]:checked + label:after{
+}
+
+#wfps_product-meta-tab input[type="checkbox"]:checked + label:after{
     content: '';
     position: absolute;
     left: 7px;
@@ -59,14 +69,12 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-  }
+}
 
+#wfps_editor .hidden-field { 
+    display: block;
+}
 
-
-
-
-
-#wfps_editor .hidden-field{display: block;}
 #woocommerce-order-items .wc-order-edit-line-item-actions .wfps_delete-order-item::before {
     font-family: Dashicons;
     speak: none;
@@ -86,69 +94,79 @@
     margin: 0px;
 }
 
-#woocommerce-order-items .wfps_icon{
+#woocommerce-order-items .wfps_icon {
     width:15px;
     max-width: 100%;
     display: inline;
     margin: 0 4px 0px 0;
 }
 
-.wfps_editor_message{
+.wfps_editor_message {
     color: #fffefe;
     background: #FF9800;
     padding: 5px 6px;
     font-size: 13px;
 }
 
-.wfps_wpml_pro_meta *{
+.wfps_wpml_pro_meta * {
     opacity: .5;
     pointer-events: none;
 }
-.wfps_wpml_pro_meta .wfps_editor_message{
+
+.wfps_wpml_pro_meta .wfps_editor_message {
     opacity: 1;
     pointer-events: all;
 }
 
-table.wp-list-table .column-wfps_forms{
-        width: 11%!important;
+table.wp-list-table .column-wfps_forms {
+    width: 11%!important;
 }
-.toplevel_page_woo-free-product-sample #wpwrap{
+
+.toplevel_page_woo-free-product-sample #wpwrap {
     font-family: Arial;
     font-size: 12px;
     background: #F2F7FA;
 }
-.wfps_settings .wfps_inside{
+
+.wfps_settings .wfps_inside {
     margin-top: 0;
     padding: 10px;
 }
-.wfps_settings .wfps_settings_outer_left{
+
+.wfps_settings .wfps_settings_outer_left {
     float: left;
     width: 74%;
 }
-.wfps_settings .wfps_inside .form_table{
+
+.wfps_settings .wfps_inside .form_table {
     padding:25px;
 }
-.wfps_settings .wfps_inside .form_table p{
+
+.wfps_settings .wfps_inside .form_table p {
     padding-top:0px;
 }
 
-.wfps_settings .wfps_inside .form-table th{
+.wfps_settings .wfps_inside .form-table th {
     padding: 20px 10px 20px 26px;
 }
-.wfps_settings .wfps_inside .form_table .form_table_left .group_heading{
+
+.wfps_settings .wfps_inside .form_table .form_table_left .group_heading {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: bold;
 }
-.wfps_settings .wfps_inside .form_table .form_table_row{
+
+.wfps_settings .wfps_inside .form_table .form_table_row {
     border-bottom: 1px solid #fdfdfd;
     margin-top: 15px;
 }
-.wfps_settings .wfps_inside .form_table .form_table_left{
+
+.wfps_settings .wfps_inside .form_table .form_table_left {
     width:210px;
     padding-bottom: 20px;
 }
-.wfps_settings .wfps_inside .form_table .form_table_right{
+
+.wfps_settings .wfps_inside .form_table .form_table_right {
     float:left;
     padding:0;
 }
@@ -158,28 +176,32 @@ table.wp-list-table .column-wfps_forms{
     display:block;
     clear:both;
 }
-.wfps_settings .wfps_inside .form_table .form_table_right .block_view{
+
+.wfps_settings .wfps_inside .form_table .form_table_right .block_view {
     display: block;
     padding-bottom: 20px;
 }
+
 .wfps_settings .wfps_inside .form_table .label-text{
     display: inline;
 }
-.wfps_settings .postbox{
+
+.wfps_settings .postbox {
     border: none;
 }
 
-.wfps_settings .premium{
+.wfps_settings .premium {
     background-color: #fff;
 }
-.wfps_settings .premium .premium_left{
+
+.wfps_settings .premium .premium_left {
     width: 40%;
     float: left;
     padding-left:30px;
     padding-top: 75px;
 }
 
-.wfps_settings .premium .premium_left h1{
+.wfps_settings .premium .premium_left h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 34;
     font-weight: bold;
@@ -189,7 +211,7 @@ table.wp-list-table .column-wfps_forms{
     font-size: 17px;
     padding-bottom: 10px;
 }
-.wfps_settings .premium .premium_left .tagline{
+.wfps_settings .premium .premium_left .tagline {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     padding-top: 10px;
@@ -198,7 +220,7 @@ table.wp-list-table .column-wfps_forms{
     z-index: 5;
 }
 
-.wfps_settings .premium .premium_left a{
+.wfps_settings .premium .premium_left a {
     height: 28px;
     width:130px;
     color: #ffffff;
@@ -215,7 +237,8 @@ table.wp-list-table .column-wfps_forms{
     padding-left: 10px;
     text-decoration: none;
 }
-.wfps_settings .premium .premium_left a:hover{
+
+.wfps_settings .premium .premium_left a:hover {
     height: 28px;
     width:130px;
     color: #ffffff;
@@ -230,11 +253,14 @@ table.wp-list-table .column-wfps_forms{
     display: block;
     text-decoration: none;
 }
-.wfps_settings .premium .premium_right{
+
+
+.wfps_settings .premium .premium_right {
     float:right;
     position: relative;
     width: 53%;
 }
+
 .wfps_settings .premium .premium_right:before {
     position: absolute;
     background-color: #fff;
@@ -249,22 +275,25 @@ table.wp-list-table .column-wfps_forms{
     z-index: 0;
     background-size: cover;
 }
+
 .wfps_settings .premium .outer {
     position: relative;
     z-index: 2;
 }
-.wfps_settings .premium .premium_right h4{
+
+.wfps_settings .premium .premium_right h4 {
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: bold;
     padding-left: 30px;
 }
-.wfps_settings .premium .premium_right ul{
+.wfps_settings .premium .premium_right ul {
     list-style: none;
     padding:0 20px 0 30px;
 }
-.wfps_settings .premium .premium_right li{
+
+.wfps_settings .premium .premium_right li {
     background-image: url(../img/tick.png);
     background-repeat: no-repeat;
     background-position:top left;
@@ -276,11 +305,12 @@ table.wp-list-table .column-wfps_forms{
     font-weight: normal;
 }
 
-.wfps_settings .sidebar{
+.wfps_settings .sidebar {
     width: 25%;
     float: right;
 }
-.wfps_settings .sidebar .sidebar_top{
+
+.wfps_settings .sidebar .sidebar_top {
     background-image: url(../img/bg_horiz.png);
     background-repeat: no-repeat;
     background-position:bottom;
@@ -288,27 +318,30 @@ table.wp-list-table .column-wfps_forms{
     background-color: #ffffff;
     background-size: cover;
 }
-.wfps_settings .sidebar .sidebar_top h1{
+
+.wfps_settings .sidebar .sidebar_top h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30;
     font-weight: bold;
     color: #ffffff;
     padding-bottom: 5px;
 }
-.wfps_settings .sidebar .sidebar_top .price_side{
+
+.wfps_settings .sidebar .sidebar_top .price_side {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
     color: #fff;
     padding-bottom: 20px;
 }
-.wfps_settings .sidebar .sidebar_top .tagline_side{
+
+.wfps_settings .sidebar .sidebar_top .tagline_side {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #fff;
     padding-bottom: 30px;
 }
 
-.wfps_settings .sidebar .sidebar_top a{
+.wfps_settings .sidebar .sidebar_top a {
     height: 28px;
     width:100px;
     color: #1AA1B7;
@@ -324,7 +357,8 @@ table.wp-list-table .column-wfps_forms{
     padding-left:10px;
     text-decoration: none;
 }
-.wfps_settings .sidebar .sidebar_top a:hover{
+
+.wfps_settings .sidebar .sidebar_top a:hover {
     height: 28px;
     width:100px;
     color: #ffffff;
@@ -339,11 +373,13 @@ table.wp-list-table .column-wfps_forms{
     display: block;
     text-decoration: none;
 }
-.wfps_settings .sidebar .sidebar_bottom{
+
+.wfps_settings .sidebar .sidebar_bottom {
     background: #ffffff;
     padding: 20px 20px;
 }
-.wfps_settings .sidebar .sidebar_bottom li{
+
+.wfps_settings .sidebar .sidebar_bottom li {
     background-color:#fff;
     background-image: url(../img/kcit.png);
     background-repeat: no-repeat;
@@ -352,22 +388,24 @@ table.wp-list-table .column-wfps_forms{
     padding-left: 20px;
 }
 
-.wfps_settings .support{
+.wfps_settings .support {
     background: #ffffff;
     padding:10px;
     margin-top: 5px;
 }
 
-.wfps_settings .wfps_inside .form_table input[type="checkbox"]{
+.wfps_settings .wfps_inside .form_table input[type="checkbox"] {
     position: absolute;
     opacity: 0;
-  }
-.wfps_settings .wfps_inside .form_table input[type="checkbox"] + label{
+}
+
+.wfps_settings .wfps_inside .form_table input[type="checkbox"] + label {
     position: relative;
     cursor: pointer;
     padding: 0;
-  }
-.wfps_settings .wfps_inside .form_table input[type="checkbox"] + label:before{
+}
+
+.wfps_settings .wfps_inside .form_table input[type="checkbox"] + label:before {
     content: "";
     margin-right: 6px;
     display: inline-block;
@@ -377,25 +415,31 @@ table.wp-list-table .column-wfps_forms{
     background: white;
     border:1px solid rgba(39,39,50,.25);
     border-radius: 4px;
-  }
-  .wfps_settings .wfps_inside .form_table input[type="checkbox"]:hover + label:before{
+}
+
+.wfps_settings .wfps_inside .form_table input[type="checkbox"]:hover + label:before {
     background: #0877FF;
-  }
-  .wfps_settings .wfps_inside input[type="checkbox"]:focus + label:before{
+}
+
+.wfps_settings .wfps_inside input[type="checkbox"]:focus + label:before {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
-  }
-  .wfps_settings .wfps_inside .form_table input[type="checkbox"]:checked + label:before{
+}
+
+.wfps_settings .wfps_inside .form_table input[type="checkbox"]:checked + label:before {
     background: #0877FF;
-  }
-  .wfps_settings .wfps_inside .form_table input[type="checkbox"]:disabled + label{
+ }
+
+.wfps_settings .wfps_inside .form_table input[type="checkbox"]:disabled + label {
     color: #b8b8b8;
     cursor: auto;
-  }
-  .wfps_settings .wfps_inside .form_table input[type="checkbox"]:disabled + label:before{
+}
+
+.wfps_settings .wfps_inside .form_table input[type="checkbox"]:disabled + label:before {
     box-shadow: none;
     background: #ddd;
-  }
-  .wfps_settings .wfps_inside .form_table input[type="checkbox"]:checked + label:after{
+}
+
+.wfps_settings .wfps_inside .form_table input[type="checkbox"]:checked + label:after {
     content: '';
     position: absolute;
     left: 7px;
@@ -408,21 +452,17 @@ table.wp-list-table .column-wfps_forms{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-  }
+}
 
+.wfps_settings .wfps_inside input[type="text"] {
+    border-radius: 4px;
+    box-shadow: none;
+    height:35px;
+    padding-top: 0;
+    margin-top: 0;
+}
 
-
-  .wfps_settings .wfps_inside input[type="text"]{
-      border-radius: 4px;
-      box-shadow: none;
-      height:35px;
-      padding-top: 0;
-      margin-top: 0;
-  }
-
-
-
-  .wfps_settings .button{
+.wfps_settings .button {
     background: #3454F5;
     border: #6A6B7C;
     font-family: Arial, Helvetica, sans-serif;
@@ -432,11 +472,12 @@ table.wp-list-table .column-wfps_forms{
     margin-left: 25px;
 
 }
-.wfps_settings .button:hover{
+
+.wfps_settings .button:hover {
     background: rgb(51, 80, 228);
 }
 
-.post-type-wfps_pt_forms #wfps_form_banner{
+.post-type-wfps_pt_forms #wfps_form_banner {
     border: none;
     box-shadow: none;
     /*display: none;*/
@@ -444,40 +485,48 @@ table.wp-list-table .column-wfps_forms{
     animation: fadeInUp 1s ease-in-out 3s forwards;
 
 }
-.post-type-wfps_pt_forms #wfps_form_banner .inside{
+
+.post-type-wfps_pt_forms #wfps_form_banner .inside {
     padding: 0px;
     margin: 0px;
 }
+
 .post-type-wfps_pt_forms #wfps_form_banner .handlediv,
-.post-type-wfps_pt_forms #wfps_form_banner .hndle{
+.post-type-wfps_pt_forms #wfps_form_banner .hndle {
     display: none;
 }
-.wfps_upgrade{
+
+.wfps_upgrade {
     background: url(../img/upgrade_bg.svg) 100% 100% no-repeat #fff;
     padding: 30px 40px;
 }
-.wfps_upgrade .wfps_upgrade_left{
+
+.wfps_upgrade .wfps_upgrade_left {
     float: left;
     width: 60%;
 }
-.wfps_upgrade .wfps_upgrade_right{
+
+.wfps_upgrade .wfps_upgrade_right {
     float: left;
     width: 40%;
 }
-.wfps_upgrade h1{
+
+.wfps_upgrade h1 {
     font-size: 32px;
     line-height: 37px;
     color: #000;
     margin: 0px 0px 10px 0;
     padding: 0px;
 }
-.wfps_upgrade .price{
+
+.wfps_upgrade .price {
     font-size: 22px;
     line-height: 22px;
     color: #272732;
     margin-bottom: 15px;
 }
-.wfps_upgrade p{
+
+.wfps_upgrade p {
     font-size: 14px;
     line-height: 22px;
     font-weight: 400;
@@ -485,7 +534,7 @@ table.wp-list-table .column-wfps_forms{
     margin: 0px;
 }
 
-.wfps_upgrade .wfps_button{
+.wfps_upgrade .wfps_button {
     background:#004CFF;
     border:none;
     font-size: 18px;
@@ -500,20 +549,20 @@ table.wp-list-table .column-wfps_forms{
     right: 60px;
 }
 
-.wfps_upgrade .wfps_button:hover{
+.wfps_upgrade .wfps_button:hover {
     background: #1d60ff;
 }
 
-.wfps_activation_status{
+.wfps_activation_status {
     display: block;
     padding-left: 26px;
 }
 
-.wfps_activation_status .wfps_activation_error{ 
+.wfps_activation_status .wfps_activation_error { 
     color:#f00;
 }
 
-.wfps_activation_status .wfps_activation_success{
+.wfps_activation_status .wfps_activation_success {
     color: #16a716;
     font-size: 14px;
     font-weight: 600;
@@ -529,11 +578,12 @@ table.wp-list-table .column-wfps_forms{
 }
 @media screen and (max-width:1200px) and (min-width:850px) {
     .wfps_upgrade .wfps_upgrade_left,
-    .wfps_upgrade .wfps_upgrade_right{
+    .wfps_upgrade .wfps_upgrade_right {
         float: none;
         width: 100%;
     }
-    .wfps_upgrade .wfps_button{
+
+    .wfps_upgrade .wfps_button {
         position: relative;
         top: auto;
         display: inline-block;
@@ -546,12 +596,15 @@ table.wp-list-table .column-wfps_forms{
     .wfps_settings .sidebar .sidebar_top, .wfps_settings .sidebar_bottom {
         display:none;
     }
-    .wfps_settings .wfps_settings_outer_left{
+
+    .wfps_settings .wfps_settings_outer_left {
         width:100%;
     }
-    .wfps_settings .sidebar{
+
+    .wfps_settings .sidebar {
         width:100%;
     }
+
     .wfps_upgrade{
         margin-right: 0px;
     }
@@ -563,46 +616,52 @@ table.wp-list-table .column-wfps_forms{
         padding-left: 10px;
     }
     .post-type-wfps_pt_forms #wpfooter #footer-left,
-    .post-type-wfps_pt_forms #wpfooter #footer-upgrade{
+    .post-type-wfps_pt_forms #wpfooter #footer-upgrade {
         display: none;
     }
-    .wfps_upgrade .wfps_upgrade_left{
+    .wfps_upgrade .wfps_upgrade_left {
         width: 80%;
     }
-    .wfps_upgrade .wfps_upgrade_right{
+    .wfps_upgrade .wfps_upgrade_right {
         width: 20%;
     }
 }
 @media screen and (max-width: 600px) {
-    .wfps_settings .premium .premium_left{
+    .wfps_settings .premium .premium_left {
         width:100%;
         padding-left: 30px;
         padding-top: 5px;
     }
-    .wfps_settings .premium .premium_right{
+
+    .wfps_settings .premium .premium_right {
         width:100%;
         margin-top:10px
     }
-    .wfps_settings .premium .premium_right:before{
+
+    .wfps_settings .premium .premium_right:before {
         width:100%;
         background-position:-150px 0px;
         background-image: url(../img/width600.jpg);
 
     }
-    .wfps_settings .support{
+
+    .wfps_settings .support {
         padding-top: 5px;
         padding-left: 5px;
         margin-top: 5px;
     }
-    .wfps_upgrade{
+
+    .wfps_upgrade {
         padding: 25px;
     }
+
     .wfps_upgrade .wfps_upgrade_left,
-    .wfps_upgrade .wfps_upgrade_right{
+    .wfps_upgrade .wfps_upgrade_right {
         float: none;
         width: 100%;
     }
-    .wfps_upgrade .wfps_button{
+
+    .wfps_upgrade .wfps_button {
         position: relative;
         top: auto;
         display: inline-block;
