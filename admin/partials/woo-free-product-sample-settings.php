@@ -72,7 +72,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                                 </div>
                                 <div>
-                                    <a href="https://wordpress.org/plugins/woo-free-product-sample/" target="_blank"><?php esc_html_e( 'Upcoming', 'woo-free-product-sample' ); ?></a>
+                                    <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                                 </div>
                             </div>
                             <div class="premium_right">
@@ -111,7 +111,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                             </div>
                             <div>
-                                <a href="https://wordpress.org/plugins/woo-free-product-sample/" target="_blank"><?php esc_html_e( 'Upcoming', 'woo-free-product-sample' ); ?></a>
+                                <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                             </div>
 
                         </div>
