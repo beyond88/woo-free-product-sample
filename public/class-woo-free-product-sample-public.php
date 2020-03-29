@@ -367,6 +367,7 @@ class Woo_Free_Product_Sample_Public {
 
 		if ( isset( $values['free_sample'] ) ) {
 			wc_add_order_item_meta( $itemID, 'PRODUCT_TYPE', 'Sample' );
+			wc_add_order_item_meta( $itemID, 'SAMPLE_PRICE', $values['sample_price'] );
 		}
 		
 	}

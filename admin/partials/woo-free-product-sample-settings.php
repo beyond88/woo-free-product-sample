@@ -135,7 +135,7 @@
                                 </li>                                
                             </ul>
                         </div>
-                        <?php// endif; ?>
+                        <?php // endif; ?>
                         <div class="support">
                             <h3><?php esc_html_e( 'Dedicated Support Team', 'woo-free-product-sample' ); ?></h3>
                             <p><?php esc_html_e( 'We are available round the clock for any support.', 'woo-free-product-sample' ); ?></p>

@@ -31,9 +31,10 @@ $setting_options = wp_parse_args(get_option('woo_free_product_sample_settings'),
 		<?php
 			$is_visible        = $product && $product->is_visible();
 			$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
-				$get_free      = '';		
-				foreach ( $item->get_formatted_meta_data() as $meta_id => $meta ) {				
-					if( str_replace( ",",".", $item['subtotal'] ) == $setting_options['sample_price'] ) {
+				$get_free      = '';	
+
+				foreach ( $item->get_formatted_meta_data() as $meta_id => $meta ) {		
+					if( $meta->key == "SAMPLE_PRICE" && $item['subtotal'] == $meta->value ){		
 						$get_free = 1;
 					}
 				}
