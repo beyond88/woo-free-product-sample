@@ -446,15 +446,31 @@ class Woo_Free_Product_Sample_Public {
 	
 		global $woocommerce;
 		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
+		$notice_type 	   = $setting_options['limit_per_order'];
 		if( $woocommerce->cart->cart_contents_count > 0 ) {
+
 			foreach( $woocommerce->cart->get_cart() as $key => $val ) {
 
-				if( ( $product_id == $val['free_sample'] ) &&
-					( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
-					( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
-				) {
-					wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
-					exit( wp_redirect( get_permalink($product_id) ) );						
+				if( 'product' == $notice_type ) {
+
+					if( ( $product_id == $val['free_sample'] ) &&
+						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
+						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
+					) {
+						wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						exit( wp_redirect( get_permalink($product_id) ) );						
+					}	
+
+				} else if( 'all' == $notice_type ) {
+
+					if( ( $val['free_sample'] ) &&
+						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
+						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
+					) {
+						wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						exit( wp_redirect( get_permalink($product_id) ) );						
+					}
+
 				}
 
 			}

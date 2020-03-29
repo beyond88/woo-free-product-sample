@@ -568,6 +568,12 @@ table.wp-list-table .column-wfps_forms {
     font-weight: 600;
 }
 
+.woo-free-product-sample-form-desc{
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0.3em 0;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
