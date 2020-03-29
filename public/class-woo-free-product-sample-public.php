@@ -453,7 +453,7 @@ class Woo_Free_Product_Sample_Public {
 					( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
 					( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
 				) {
-					wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' time per order.', 'woo-free-product-sample' ), 'error' );
+					wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
 					exit( wp_redirect( get_permalink($product_id) ) );						
 				}
 
