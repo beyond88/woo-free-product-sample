@@ -118,7 +118,7 @@ class Woo_Free_Product_Sample_Admin {
                 'woo_free_product_sample_settings_page'
 			),
 			'dashicons-admin-generic',
-			10
+			60
 		);
 	}
 	

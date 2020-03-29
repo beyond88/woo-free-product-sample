@@ -60,65 +60,58 @@
                         </div>
                         <!-- .postbox -->
                         
-                        <?php 
-                            if( !isset($activation_info['license_key']) ):
-                        ?>
+                        <?php  //if( ! isset($activation_info['license_key']) ) : ?>
                         <div class="premium clearfix">
-                            <div class="premium_left premium_left_free">
-                                <h1>Upgrade to <br>Premium Now!</h1>
+                            <div class="premium_left premium_left_free premium_left_free_button">
+                                <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
                                <div class="price">
-                                   <span>For only <b>$29.00</b> per site</span>
+                                   <span><?php esc_html_e( 'For only', 'woo-free-product-sample' ); ?> <b><?php esc_html_e( '$29.00', 'woo-free-product-sample' ); ?></b> <?php esc_html_e( 'per site', 'woo-free-product-sample' ); ?></span>
                                </div>
                                 <div class="tagline">
-                                    Supercharge Your WooCommerce Stores <br> with our
-                                    light, fast and feature-rich plugins.
+                                    <?php esc_html_e( 'Supercharge Your WooCommerce Stores', 'woo-free-product-sample' ); ?> <br> <?php esc_html_e( 'with our
+                                    light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                                 </div>
                                 <div>
-                                    <a href="http://mohiuddinabdulkader.website" target="_blank">Upgrade Now</a>
+                                    <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                                 </div>
                             </div>
                             <div class="premium_right">
                                 <div class="outer">
-                                    <h4>Premium Features</h4>
+                                    <h4><?php esc_html_e( 'Premium Features', 'woo-free-product-sample' ); ?></h4>
                                     <ul>
                                         <li>
-                                            <b>22+ types of custom product fields.</b>
+                                            <b><?php esc_html_e( 'Display the button for global.', 'woo-free-product-sample' ); ?></b>
                                         </li>
                                         <li>
-                                            <b>Conditional logic:</b> Show or hide some fields based on the value selected for other fields.
+                                            <b><?php esc_html_e( 'Conditional logic', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Exclude products capability if don’t need.', 'woo-free-product-sample' ); ?>
                                         </li>
                                         <li>
-                                            <b>Fields based on variations:</b> Show or hide some fields based on the product variation selected.
+                                            <b><?php esc_html_e( 'Sample price', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Set custom price for sample products.', 'woo-free-product-sample' ); ?>
                                         </li>
                                         <li>
-                                            <b>Set price for fields:</b> Price can be set for all the fields available. The price can be a fixed value, percentage value of the product base price.
+                                            <b><?php esc_html_e( 'Custom shipping class & tax rules', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Set shipping class & tax rule for the sample products.', 'woo-free-product-sample' ); ?>
                                         </li>
                                         <li>
-                                            <b>Custom price formula:</b> To calculate price using mathematical formula based on user input value, product quantity, product base price, and based on the prices of other fields as well.
-                                        </li>
-                                        <li>
-                                            <b>WPML</b> and <b>Polylang</b> support.
+                                            <b><?php esc_html_e( 'Custom SKU', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Set custom SKU for sample products.', 'woo-free-product-sample' ); ?>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <?php endif; ?>
+                        <?php //endif; ?>
                     </div>
                     <div class="sidebar">
-                        <?php 
-                            if( !isset($activation_info['license_key']) ):
-                        ?>
+                        <?php //if( ! isset( $activation_info['license_key'] ) ) : ?>
                         <div class="sidebar_top">
-                            <h1>Upgrade to<br> Premium Now!</h1>
-                            <!-- <div class="price_side">
-                               For only<b> $29 </b>per site
-                            </div> -->
-                            <div class="tagline_side">Supercharge Your WooCommerce <br>Stores  with our
-                                light, fast <br>and feature-rich plugins
+                            <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
+                            <div class="price_side">
+                            <?php esc_html_e( 'For only', 'woo-free-product-sample' ); ?><b> <?php esc_html_e( '$29', 'woo-free-product-sample' ); ?> </b><?php esc_html_e( 'per site', 'woo-free-product-sample' ); ?>
+                            </div>
+                            <div class="tagline_side"><?php esc_html_e( 'Supercharge Your WooCommerce Stores', 'woo-free-product-sample' ); ?> <br> <?php esc_html_e( 'with our
+                                    light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                             </div>
                             <div>
-                                <a href="http://mohiuddinabdulkader.website" target="_blank">Upgrade Now</a>
+                                <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                             </div>
 
                         </div>
@@ -126,29 +119,26 @@
                         <div class="sidebar_bottom">
                             <ul>
                                 <li>
-                                    <b>22+ types of custom product fields.</b>
+                                    <b><?php esc_html_e( 'Display the button for global.', 'woo-free-product-sample' ); ?></b>
                                 </li>
                                 <li>
-                                    <b>Conditional logic:</b> Show or hide some fields based on the value selected for other fields.
+                                    <b><?php esc_html_e( 'Conditional logic', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Exclude products capability if don’t need.', 'woo-free-product-sample' ); ?>
                                 </li>
                                 <li>
-                                    <b>Fields based on variations:</b> Show or hide some fields based on the product variation selected.
+                                    <b><?php esc_html_e( 'Sample price', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Set custom price for sample products.', 'woo-free-product-sample' ); ?>
                                 </li>
                                 <li>
-                                    <b>Set price for fields:</b> Price can be set for all the fields available. The price can be a fixed value, percentage value of the product base price.
+                                    <b><?php esc_html_e( 'Custom shipping class & tax rules', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Set shipping class & tax rule for the sample products.', 'woo-free-product-sample' ); ?>
                                 </li>
                                 <li>
-                                    <b>Custom price formula:</b> To calculate price using mathematical formula based on user input value, product quantity, product base price, and based on the prices of other fields as well.
-                                </li>
-                                <li>
-                                    <b>WPML</b> and <b>Polylang</b> support.
-                                </li>
+                                    <b><?php esc_html_e( 'Custom SKU', 'woo-free-product-sample' ); ?>:</b> <?php esc_html_e( 'Set custom SKU for sample products.', 'woo-free-product-sample' ); ?>
+                                </li>                                
                             </ul>
                         </div>
-                        <?php endif; ?>
+                        <?php// endif; ?>
                         <div class="support">
-                            <h3>Dedicated Support Team</h3>
-                            <p>We are available round the clock for any support.</p>
+                            <h3><?php esc_html_e( 'Dedicated Support Team', 'woo-free-product-sample' ); ?></h3>
+                            <p><?php esc_html_e( 'We are available round the clock for any support.', 'woo-free-product-sample' ); ?></p>
                             <p><a href="https://wordpress.org/support/plugin/woo-free-product-sample/" target="_blank"><?php esc_html_e( 'Submit a topic', 'woo-free-product-sample' ); ?></a></p>
                         </div>
 

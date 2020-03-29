@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 	return;
 }
-$setting_options = wp_parse_args(get_option('woo_free_product_sample_settings'),array());	
+$setting_options = wp_parse_args(get_option('woo_free_product_sample_settings'),array());
 ?>
 <tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'woocommerce-table__line-item order_item', $item, $order ) ); ?>">
 
@@ -31,14 +31,14 @@ $setting_options = wp_parse_args(get_option('woo_free_product_sample_settings'),
 		<?php
 			$is_visible        = $product && $product->is_visible();
 			$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
-				$get_free      = '';			
-				foreach ( $item->get_formatted_meta_data() as $meta_id => $meta ) {					
-					if( $item['subtotal'] == $setting_options['sample_price'] ) {
+				$get_free      = '';		
+				foreach ( $item->get_formatted_meta_data() as $meta_id => $meta ) {				
+					if( str_replace( ",",".", $item['subtotal'] ) == $setting_options['sample_price'] ) {
 						$get_free = 1;
 					}
 				}
 			if( 1 == $get_free ) {
-			echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">Free Sample (%s)</a>', $product_permalink, $item->get_name() ) : $item->get_name(), $item, $is_visible );
+			echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">Sample - (%s)</a>', $product_permalink, $item->get_name() ) : $item->get_name(), $item, $is_visible );
 			} else {
 			echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">%s</a>', $product_permalink, $item->get_name() ) : $item->get_name(), $item, $is_visible );					
 			}

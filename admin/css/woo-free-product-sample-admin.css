@@ -254,6 +254,14 @@ table.wp-list-table .column-wfps_forms {
     text-decoration: none;
 }
 
+.wfps_settings .premium .premium_left_free_button a {
+    width: 100px;
+}
+
+.wfps_settings .premium .premium_left_free_button a:hover {
+    width: 100px;
+}
+
 
 .wfps_settings .premium .premium_right {
     float:right;
