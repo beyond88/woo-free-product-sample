@@ -41,6 +41,17 @@ class Woo_Free_Product_Sample_Settings {
                 'description'   => __( 'Set button label', 'woo-free-product-sample' ),
                 'placeholder'   => __( 'Set button label', 'woo-free-product-sample' ),
             ),
+            array(
+                'name'          => 'limit_per_order',
+                'label'         => __( 'Maximum limit type', 'woo-free-product-sample' ),
+                'type'          => 'select',
+                'class'         => 'widefat',
+                'description'   => __( 'Maximum limit type', 'woo-free-product-sample' ),
+                'default'       => array(
+                    'product'   => 'Product',
+                    'all'       => 'Order',
+                )
+            ),            
 			array(
                 'name'          => 'max_qty_per_order',
                 'label'         => __( 'Maximum quantity per order', 'woo-free-product-sample' ),

@@ -148,8 +148,8 @@
                         <?php endif; ?>
                         <div class="support">
                             <h3>Dedicated Support Team</h3>
-                            <p>Our support is what makes us No.1. We are available round the clock for any support.</p>
-                            <p><a href="https://wordpress.org/support/plugin/woo-free-product-sample/" target="_blank">Submit a ticket</a></p>
+                            <p>We are available round the clock for any support.</p>
+                            <p><a href="https://wordpress.org/support/plugin/woo-free-product-sample/" target="_blank"><?php esc_html_e( 'Submit a topic', 'woo-free-product-sample' ); ?></a></p>
                         </div>
 
                     </div>
