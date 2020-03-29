@@ -232,7 +232,7 @@ table.wp-list-table .column-wfps_forms {
     font-weight: bold;
     margin-top: 10px;
     cursor: pointer;
-    display: block;
+    display: inline-block;
     padding-top: 10px;
     padding-left: 10px;
     text-decoration: none;
@@ -250,7 +250,7 @@ table.wp-list-table .column-wfps_forms {
     font-weight: bold;
     margin-top: 10px;
     cursor: pointer;
-    display: block;
+    display: inline-block;
     text-decoration: none;
 }
 
