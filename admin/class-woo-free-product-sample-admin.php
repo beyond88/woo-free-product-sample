@@ -157,8 +157,6 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    none
 	 */
 	public function woo_free_product_sample_set_default_options() {
-
 		return apply_filters( 'woo_free_product_sample_default_options', $this->_defaultOptions );
-
 	}	
 }

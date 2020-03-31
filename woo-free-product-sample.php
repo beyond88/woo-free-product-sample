@@ -93,10 +93,10 @@ class Woo_Free_Product_Sample_Start {
 	 */
     public function plugin_action_links( $links ) {
 
-		// $links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/" style="color: #389e38;font-weight: bold;">' . __( 'Go PRO', 'woo-free-product-sample' ) . '</a>';
-		// $links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Configure', 'woo-free-product-sample' ) . '</a>';
-		// $links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/">' . __( 'Docs', 'woo-free-product-sample' ) . '</a>';
-		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample/">' . __( 'Support', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" style="color: #389e38;font-weight: bold;">' . __( 'Go PRO', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Configure', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample">' . __( 'Docs', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample">' . __( 'Support', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="https://wordpress.org/plugins/woo-free-product-sample/#reviews">' . __( 'Review', 'woo-free-product-sample' ) . '</a>';
 
         return $links;

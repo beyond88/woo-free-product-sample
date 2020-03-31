@@ -60,7 +60,7 @@
                         </div>
                         <!-- .postbox -->
                         
-                        <?php  //if( ! isset($activation_info['license_key']) ) : ?>
+                        <?php  if( ! isset($activation_info['license_key']) ) : ?>
                         <div class="premium clearfix">
                             <div class="premium_left premium_left_free premium_left_free_button">
                                 <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
@@ -72,7 +72,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                                 </div>
                                 <div>
-                                    <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
+                                    <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upcoming', 'woo-free-product-sample' ); ?></a>
                                 </div>
                             </div>
                             <div class="premium_right">
@@ -98,10 +98,10 @@
                                 </div>
                             </div>
                         </div>
-                        <?php //endif; ?>
+                        <?php endif; ?>
                     </div>
                     <div class="sidebar">
-                        <?php //if( ! isset( $activation_info['license_key'] ) ) : ?>
+                        <?php if( ! isset( $activation_info['license_key'] ) ) : ?>
                         <div class="sidebar_top">
                             <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
                             <div class="price_side">
@@ -111,7 +111,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                             </div>
                             <div>
-                                <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
+                                <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upcoming', 'woo-free-product-sample' ); ?></a>
                             </div>
 
                         </div>
@@ -135,7 +135,7 @@
                                 </li>                                
                             </ul>
                         </div>
-                        <?php // endif; ?>
+                        <?php endif; ?>
                         <div class="support">
                             <h3><?php esc_html_e( 'Dedicated Support Team', 'woo-free-product-sample' ); ?></h3>
                             <p><?php esc_html_e( 'We are available round the clock for any support.', 'woo-free-product-sample' ); ?></p>
