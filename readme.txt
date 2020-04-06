@@ -17,11 +17,11 @@ The pioneer WooCommerce Free Product Sample plugin for WooCommerce based e-comme
 
 = WOOCOMMERCE FREE PRODUCT SAMPLE PLUGIN FOR WORDPRESS =
 
-👉 Official Demo Link: [Official Demo](http://plugins.mohiuddinabdulkader.website/woo-free-product-sample)
+👉 Official Demo Link: [Official Demo](http://plugins.thewpnext.com/woo-free-product-sample)
 
 = POWERED BY WooCommerce =
 
-[WooCommerce Free Product Sample](http://mohiuddinabdulkader.website/woo-free-prod-sample.php) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
+[WooCommerce Free Product Sample](http://plugins.thewpnext.com/woo-free-product-sample/) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
 
 == Key Features ==
 * Display a button in the product details page to order free sample product
@@ -90,3 +90,6 @@ Remove timezone, start & end date
 
 = 2.0.0 =
 Changed whole coding structure and business logic
+
+= 2.0.1 =
+Fixed button space

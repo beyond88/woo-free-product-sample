@@ -8,7 +8,7 @@
  * Plugin Name:       WooCommerce Free Product Sample
  * Plugin URI:        https://wordpress.org/plugins/woo-free-product-sample
  * Description:       Display an add to cart button in the product detail page to order product as free sample.  
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            Mohiuddin Abdul Kader
  * Author URI:        http://mohiuddinabdulkader.website/
  * License:           GPL-2.0+
@@ -39,7 +39,7 @@ if ( ! is_woocommerce_active() ) {
 	return;
 }
 
-define( 'WFPS_VERSION', '2.0.0' );
+define( 'WFPS_VERSION', '2.0.1' );
 define( 'MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'MINIMUM_WP_VERSION', '4.4' );
 define( 'MINIMUM_WC_VERSION', '3.0.9' );

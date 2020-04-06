@@ -3,9 +3,6 @@
  * included in this file.
  */
 
- .variable-free-sample-btn{
-	float: left;
-	width: 100%;
-	margin-top: 10px;
-	margin-bottom: 10px; 	
- }
+ button.single_add_to_cart_button.button.alt.woo-free-sample-button {
+    margin-left: 20px;
+}
