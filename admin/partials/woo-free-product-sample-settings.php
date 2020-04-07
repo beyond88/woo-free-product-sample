@@ -68,11 +68,11 @@
                                    <span><?php esc_html_e( 'For only', 'woo-free-product-sample' ); ?> <b><?php esc_html_e( '$29.00', 'woo-free-product-sample' ); ?></b> <?php esc_html_e( 'per site', 'woo-free-product-sample' ); ?></span>
                                </div>
                                 <div class="tagline">
-                                    <?php esc_html_e( 'Supercharge Your WooCommerce Stores', 'woo-free-product-sample' ); ?> <br> <?php esc_html_e( 'with our
+                                    <?php esc_html_e( 'Elevate Your WooCommerce Stores', 'woo-free-product-sample' ); ?> <br> <?php esc_html_e( 'with our
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                                 </div>
                                 <div>
-                                    <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upcoming', 'woo-free-product-sample' ); ?></a>
+                                    <a href="https://plugins.thewpnext.com/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                                 </div>
                             </div>
                             <div class="premium_right">
@@ -107,11 +107,11 @@
                             <div class="price_side">
                             <?php esc_html_e( 'For only', 'woo-free-product-sample' ); ?><b> <?php esc_html_e( '$29', 'woo-free-product-sample' ); ?> </b><?php esc_html_e( 'per site', 'woo-free-product-sample' ); ?>
                             </div>
-                            <div class="tagline_side"><?php esc_html_e( 'Supercharge Your WooCommerce Stores', 'woo-free-product-sample' ); ?> <br> <?php esc_html_e( 'with our
+                            <div class="tagline_side"><?php esc_html_e( 'Elevate Your WooCommerce Stores', 'woo-free-product-sample' ); ?> <br> <?php esc_html_e( 'with our
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                             </div>
                             <div>
-                                <a href="http://plugins.mohiuddinabdulkader.website/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upcoming', 'woo-free-product-sample' ); ?></a>
+                                <a href="https://plugins.thewpnext.com/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                             </div>
 
                         </div>
