@@ -1,7 +1,7 @@
-=== WooCommerce Free Product Sample ===
+=== Free Product Sample for WooCommerce ===
 Contributors: hossain88
-Donate Link: http://mohiuddinabdulkader.website
-Tags: woocommerce, free, product, sample, free-sample, free-product-sample, free-sample-product, dokan, e-commerce, ecommerce, yith, yithemes
+Donate Link: http://thewpnext.com
+Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce, yith, yithemes
 Requires at least: 4.4
 Tested up to: 5.3.2
 WC requires at least: 3.0
@@ -11,17 +11,17 @@ Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The pioneer WooCommerce Free Product Sample plugin for WooCommerce based e-commerce store. Promote your business in minutes!
+The easy way to handle free product sample for WooCommerce. Promote your business in minutes!
 
 == Description ==
 
-= WOOCOMMERCE FREE PRODUCT SAMPLE PLUGIN FOR WORDPRESS =
+= FREE PRODUCT SAMPLE FOR WOOCOMMERCE PLUGIN FOR WORDPRESS =
 
-👉 Official Demo Link: [Official Demo](http://plugins.thewpnext.com/woo-free-product-sample)
+👉 Official Demo Link: [Official Demo](http://plugins.thewpnext.com/free-product-sample)
 
 = POWERED BY WooCommerce =
 
-[WooCommerce Free Product Sample](http://plugins.thewpnext.com/woo-free-product-sample/) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
+[Free Product Sample for WooCommerce](http://plugins.thewpnext.com/free-product-sample/) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
 
 == Key Features ==
 * Display a button in the product details page to order free sample product
@@ -37,7 +37,7 @@ The pioneer WooCommerce Free Product Sample plugin for WooCommerce based e-comme
 
 == Screenshots ==
 
-1.WooCommerce Product Free Sample Setting Tab.
+1.Free Product Sample Setting Tab.
 2.Display Order Free Sample button in Product Detail Page.
 3.Display Order Free Sample button in Product Detail Page.
 4.Added Product as Free Sample in Cart Page.
@@ -93,3 +93,9 @@ Changed whole coding structure and business logic
 
 = 2.0.1 =
 Fixed button space
+
+= 2.0.2 =
+Fixed button responsive space
+
+= 2.0.3 =
+Fixed copyright issue

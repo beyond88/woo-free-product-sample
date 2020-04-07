@@ -3,6 +3,12 @@
  * included in this file.
  */
 
- button.single_add_to_cart_button.button.alt.woo-free-sample-button {
+button.single_add_to_cart_button.button.alt.woo-free-sample-button {
     margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    button.single_add_to_cart_button.button.alt.woo-free-sample-button {
+        margin: 20px 0;
+    }  
 }
