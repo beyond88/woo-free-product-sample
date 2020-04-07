@@ -51,10 +51,10 @@ define( 'WFPS_ROOT_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WFPS_ADMIN_DIR_PATH', WFPS_ROOT_DIR_PATH . 'admin/' );
 define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
 define( 'WFPS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'WFPS_PLUGIN_NAME', 'WooCommerce Free Product Sample' );
+define( 'WFPS_PLUGIN_NAME', 'Free Product Sample for WooCommerce' );
 
 /**
- * WooCommerce Free Product Sample Start.
+ * Free Product Sample for WooCommerce Start.
  *
  * @since 2.0.0
  */
@@ -67,7 +67,7 @@ class Woo_Free_Product_Sample_Start {
 	private $notices = array();
 
 	/**
-	 * Loads WooCommerce Free Product Sample Start.
+	 * Loads Free Product Sample for WooCommerce Start.
 	 *
 	 * @since 2.0.0
 	 */
