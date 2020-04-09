@@ -17,11 +17,11 @@ The easy way to handle free product sample for WooCommerce. Promote your busines
 
 = FREE PRODUCT SAMPLE FOR WOOCOMMERCE PLUGIN FOR WORDPRESS =
 
-👉 Official Demo Link: [Official Demo](https://plugins.thewpnext.com/woo-free-product-sample)
+👉 Official Demo Link: [Official Demo](http://plugins.thewpnext.com/woo-free-product-sample)
 
 = POWERED BY WooCommerce =
 
-[Free Product Sample for WooCommerce](https://plugins.thewpnext.com/woo-free-product-sample) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
+[Free Product Sample for WooCommerce](http://plugins.thewpnext.com/woo-free-product-sample) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
 
 == Key Features ==
 * Display a button in the product details page to order free sample product
