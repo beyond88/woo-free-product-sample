@@ -121,11 +121,10 @@ class Woo_Free_Product_Sample {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Woo_Free_Product_Sample_Admin( $this->get_plugin_name(), $this->get_version() );	
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'plugins_loaded', $plugin_admin, 'woo_free_product_sample_set_default_options' );
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'woo_free_product_sample_settings_menu' );
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'woo_free_product_sample_menu_register_settings' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'wfps_enqueue_styles' );
+		$this->loader->add_action( 'plugins_loaded', $plugin_admin, 'wfps_set_default_options' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'wfps_settings_menu' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'wfps_menu_register_settings' );
 	}
 
 	/**
@@ -137,21 +136,20 @@ class Woo_Free_Product_Sample {
 
 		$plugin_public = new Woo_Free_Product_Sample_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_filter( 'plugins_loaded', $plugin_public, 'woo_free_product_sample_price' );	
-		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public, 'woo_free_product_sample_button', 5 );	
-		$this->loader->add_action( 'wp_loaded', $plugin_public, 'woo_free_product_sample_add_to_cart_action', 20 );	
-		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'woo_free_product_sample_apply_sample_price_to_cart_item', 20 );			
-		$this->loader->add_filter( 'woocommerce_add_cart_item_data', $plugin_public, 'woo_free_product_sample_store_id', 10, 2 );
-		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'woo_free_product_sample_add_to_cart_message', 10, 2 );
-		$this->loader->add_filter( 'woocommerce_add_to_cart_validation', $plugin_public, 'woo_free_product_sample_set_limit_per_order', 10, 2 );
-		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'woo_free_product_sample_get_cart_items_from_session', 10, 2 );
-		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'woo_free_product_sample_save_posted_data_into_order', 10, 2 );
-		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'woo_free_product_sample_set_locate_template', 10, 3 );	
-		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'woo_free_product_sample_alter_item_name', 10, 3 );	
-		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public, 'woo_free_product_sample_cart_item_price_filter', 10, 3 );
-		$this->loader->add_filter( 'woocommerce_update_cart_validation', $plugin_public, 'woo_free_product_sample_cart_update_limit_order', 10, 4 );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'wfps_enqueue_styles' );
+		$this->loader->add_filter( 'plugins_loaded', $plugin_public, 'wfps_price' );	
+		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public, 'wfps_button', 5 );	
+		$this->loader->add_action( 'wp_loaded', $plugin_public, 'wfps_add_to_cart_action', 20 );	
+		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'wfps_apply_sample_price_to_cart_item', 20 );			
+		$this->loader->add_filter( 'woocommerce_add_cart_item_data', $plugin_public, 'wfps_store_id', 10, 2 );
+		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'wfps_add_to_cart_message', 10, 2 );
+		$this->loader->add_filter( 'woocommerce_add_to_cart_validation', $plugin_public, 'wfps_set_limit_per_order', 10, 2 );
+		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'wfps_get_cart_items_from_session', 10, 2 );
+		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'wfps_save_posted_data_into_order', 10, 2 );
+		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'wfps_set_locate_template', 10, 3 );	
+		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'wfps_alter_item_name', 10, 3 );	
+		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public, 'wfps_cart_item_price_filter', 10, 3 );
+		$this->loader->add_filter( 'woocommerce_update_cart_validation', $plugin_public, 'wfps_cart_update_limit_order', 10, 4 );
 		
 	}
 

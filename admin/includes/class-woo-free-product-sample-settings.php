@@ -19,9 +19,7 @@ class Woo_Free_Product_Sample_Settings {
 	 * @since    2.0.0
 	 * @param    none 
 	 */
-    public function __construct() {
-
-    }
+    public function __construct() {}
 
     /**
 	 * Define setting options as array
@@ -30,7 +28,7 @@ class Woo_Free_Product_Sample_Settings {
 	 * @param    none
      * @return   array 
 	 */
-    public static function setting_fields() {
+    public static function wfps_setting_fields() {
 
         $setting_fields = array(                         
             array(
