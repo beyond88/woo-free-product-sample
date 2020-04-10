@@ -3,9 +3,9 @@ Contributors: hossain88
 Donate Link: http://thewpnext.com
 Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce
 Requires at least: 4.4
-Tested up to: 5.3.2
-WC requires at least: 3.0
-WC tested up to: 3.9.1
+Tested up to: 5.4
+WC requires at least: 3.1
+WC tested up to: 4.0.1
 Requires PHP: 5.6
 Stable tag: 3.0.1
 License: GPLv2 or later
@@ -98,4 +98,4 @@ Fixed button space
 Fixed button responsive space
 
 = 2.0.3 =
-Fixed copyright issue
+Fixed copyright issue and changed function prefix
