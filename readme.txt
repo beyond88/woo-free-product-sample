@@ -1,5 +1,5 @@
 === Free Product Sample for WooCommerce ===
-Contributors: hossain88
+Contributors: thewpnext, hossain88
 Donate Link: http://thewpnext.com
 Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce
 Requires at least: 4.4
@@ -17,11 +17,11 @@ The easy way to handle free product sample for WooCommerce. Promote your busines
 
 = FREE PRODUCT SAMPLE FOR WOOCOMMERCE PLUGIN FOR WORDPRESS =
 
-👉 Official Demo Link: [Official Demo](http://plugins.thewpnext.com/woo-free-product-sample)
+👉 Official Demo Link: [Official Demo](https://thewpnext.com/demo/woo-free-product-sample)
 
 = POWERED BY WooCommerce =
 
-[Free Product Sample for WooCommerce](http://plugins.thewpnext.com/woo-free-product-sample) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
+[Free Product Sample for WooCommerce](https://thewpnext.com/demo/woo-free-product-sample) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
 
 == Key Features ==
 * Display a button in the product details page to order free sample product
@@ -43,10 +43,17 @@ The easy way to handle free product sample for WooCommerce. Promote your busines
 4.Added Product as Free Sample in Cart Page.
 5.Display in Checkout Page.
 6.Display in Order Receive Page.
-7.Display in Order Detail Page.
+7.Display in Order Detail Page. 
 
-== Author  ==
-If needs any modification please feel free to contact with the author (muhin.cse.diu@gmail.com). For instants response, WhatsApp : 8801745468682    
+== Frequently Asked Questions ==
+
+= Does it work with WooCommerce Measurement Price Calculator plugin? =
+
+Yes, it will work with WooCommerce Measurement Price Calculator plugin.
+
+= Does it work with any WordPress theme? =
+
+Yes, it will work with any standard WordPress theme.
 
 == Installation ==
 
