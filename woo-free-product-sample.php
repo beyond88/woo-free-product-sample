@@ -84,7 +84,7 @@ class Woo_Free_Product_Sample_Start {
 	 */
     public function wfps_plugin_action_links( $links ) {
 
-		$links[] = '<a href="http://plugins.thewpnext.com/woo-free-product-sample" style="color: #389e38;font-weight: bold;">' . __( 'Go PRO', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://thewpnext.com/demo/woo-free-product-sample" style="color: #389e38;font-weight: bold;">' . __( 'Go PRO', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Configure', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample">' . __( 'Docs', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="https://wordpress.org/support/plugin/woo-free-product-sample">' . __( 'Support', 'woo-free-product-sample' ) . '</a>';
@@ -149,6 +149,14 @@ class Woo_Free_Product_Sample_Start {
 			$this->wfps_deactivate_plugin();
 
 			wp_die( WFPS_PLUGIN_NAME . ' could not be activated. ' . $this->wfps_get_environment_message() );
+		
+		} else {
+
+			/**
+			* Reqrite the rules on activation.
+			*/
+			flush_rewrite_rules();
+			
 		}
 	}
 
