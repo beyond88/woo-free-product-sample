@@ -2,9 +2,7 @@
     <div id="icon-options-general" class="icon32"></div>
     <h1><?php echo WFPS_PLUGIN_NAME; ?></h1>
     <?php settings_errors(); ?>
-    <?php 
-        $activation_info = get_option( $this->_activation );
-    ?>
+    <?php $activation_info = get_option( $this->_activation ); ?>
 
     <div id="poststuff">
         <div class="metabox-holder columns-2">
@@ -72,7 +70,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                                 </div>
                                 <div>
-                                    <a href="http://plugins.thewpnext.com/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
+                                    <a href="https://thewpnext.com/demo/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                                 </div>
                             </div>
                             <div class="premium_right">
@@ -111,7 +109,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                             </div>
                             <div>
-                                <a href="http://plugins.thewpnext.com/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
+                                <a href="https://thewpnext.com/demo/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                             </div>
 
                         </div>
@@ -139,7 +137,7 @@
                         <div class="support">
                             <h3><?php esc_html_e( 'Dedicated Support Team', 'woo-free-product-sample' ); ?></h3>
                             <p><?php esc_html_e( 'We are available round the clock for any support.', 'woo-free-product-sample' ); ?></p>
-                            <p><a href="https://wordpress.org/support/plugin/woo-free-product-sample/" target="_blank"><?php esc_html_e( 'Submit a topic', 'woo-free-product-sample' ); ?></a></p>
+                            <?php echo apply_filters( 'request_support_ticket', $activation_info ); ?>                            
                         </div>
 
                     </div>
@@ -155,9 +153,7 @@
 
         </div>
         <!-- #post-body .metabox-holder .columns-2 -->
-        <div id="post-body" class="metabox-holder columns-2">
-
-        </div>
+        <div id="post-body" class="metabox-holder columns-2"></div>
 
         <br class="clear">
     </div>
