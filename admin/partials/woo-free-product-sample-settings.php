@@ -60,7 +60,7 @@
                         </div>
                         <!-- .postbox -->
                         
-                        <?php  if( ! isset($activation_info['wfps_license_key']) ) : ?>
+                        <?php  if( ! isset( $activation_info['wfps_license_key'] ) || ! class_exists( 'Woo_Free_Product_Sample_Pro' ) ) : ?>
                         <div class="premium clearfix">
                             <div class="premium_left premium_left_free premium_left_free_button">
                                 <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
@@ -101,7 +101,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="sidebar">
-                        <?php if( ! isset( $activation_info['wfps_license_key'] ) ) : ?>
+                        <?php  if( ! isset( $activation_info['wfps_license_key'] ) || ! class_exists( 'Woo_Free_Product_Sample_Pro' ) ) : ?>
                         <div class="sidebar_top">
                             <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
                             <div class="price_side">
