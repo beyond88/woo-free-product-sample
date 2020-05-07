@@ -106,3 +106,6 @@ Fixed button responsive space
 
 = 2.0.3 =
 Fixed copyright issue and changed function prefix
+
+= 2.0.4 =
+Remove single-add-to-cart class

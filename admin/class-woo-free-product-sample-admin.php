@@ -106,7 +106,7 @@ class Woo_Free_Product_Sample_Admin {
                 $this,
                 'wfps_settings_page'
 			),
-			'dashicons-admin-generic',
+			WFPS_ADMIN_URL . 'img/woo-free-product-sample.png',
 			60
 		);
 	}
