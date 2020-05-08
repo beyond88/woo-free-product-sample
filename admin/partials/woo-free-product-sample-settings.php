@@ -24,7 +24,7 @@
 												foreach( $settings as  $key => $value ) :
 											?>
 											
-											<tr>
+											<tr <?php if( isset( $value['position'] ) ) { echo  $value['style']; } ?>>
 												<th scope="row">
 													<label for="<?php echo $value['name']; ?>">
 														<?php echo $value['label']; ?>	

@@ -57,6 +57,7 @@ class Woo_Free_Product_Sample_Settings {
                 'class'         => 'widefat',
                 'description'   => __( 'Maximum quantity per order', 'woo-free-product-sample' ),
                 'placeholder'   => 5,
+                
             ),            
 		);
 
