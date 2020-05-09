@@ -484,13 +484,26 @@ class Woo_Free_Product_Sample_Public {
 		$titles = '';
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			
+			$count = 0;
+			$titles = array();
 			foreach ( $products as $product_id => $qty ) {
-				$titles = get_the_title( $product_id );
-			}	
-			$message = sprintf( esc_html__('Sample - "%s" has been added to your cart.','woo-free-product-sample'), $titles ); 
-			return $message; 
+				$sample = esc_html__( 'Sample - ', 'woo-free-product-sample' );
+				$titles[] = apply_filters( 'woocommerce_add_to_cart_qty_html', ( $qty > 1 ? absint( $qty ) . ' &times; ' : '' ), $product_id ) . apply_filters( 'woocommerce_add_to_cart_item_name_in_quotes', sprintf( _x( '&ldquo;%s&rdquo;', 'Item name in quotes', 'woocommerce' ), strip_tags( $sample . get_the_title( $product_id ) ) ), $product_id );
+				$count   += $qty;
+			}
+			
+			$titles = array_filter( $titles );
+			/* translators: %s: product name */
+			$added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', $count, 'woocommerce' ), wc_format_list_of_items( $titles ) );		
+	
+			// Output success messages.
+			$message = sprintf( '<a href="%s" tabindex="1" class="button wc-forward">%s</a> %s', esc_url( wc_get_cart_url() ), esc_html__( 'View cart', 'woocommerce' ), esc_html( $added_text ) );
+			return $message;
+	
 		} 
+	
 		return $message;
+
 	}
 
 	/**

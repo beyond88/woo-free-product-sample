@@ -144,7 +144,7 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_action( 'wp_loaded', $plugin_public, 'wfps_add_to_cart_action', 20 );	
 		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'wfps_apply_sample_price_to_cart_item', 20 );			
 		$this->loader->add_filter( 'woocommerce_add_cart_item_data', $plugin_public, 'wfps_store_id', 10, 2 );
-		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'wfps_add_to_cart_message', 10, 2 );
+		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'wfps_add_to_cart_message', 99, 4 );
 		$this->loader->add_filter( 'woocommerce_add_to_cart_validation', $plugin_public, 'wfps_set_limit_per_order', 10, 2 );
 		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'wfps_get_cart_items_from_session', 10, 2 );
 		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'wfps_save_posted_data_into_order', 10, 2 );
