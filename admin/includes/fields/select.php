@@ -1,5 +1,5 @@
 
-<select class="<?php echo esc_attr( $value['class'] ); ?>" id="<?php echo $value['name']; ?>" name="<?php echo $this->_optionName."[".$value['name']."]"; ?>" placeholder="<?php echo $value['placeholder']; ?>">
+<select class="<?php echo esc_attr( $value['class'] ); ?>" id="<?php echo $value['name']; ?>" name="<?php echo $this->_optionName."[".$value['name']."]"; ?>" >
     <?php 
         foreach( $value['default'] as $key => $val ) :
             $selected = '';
