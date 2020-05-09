@@ -109,3 +109,6 @@ Fixed copyright issue and changed function prefix
 
 = 2.0.4 =
 Remove single-add-to-cart class
+
+= 2.0.5 =
+Added japanese translation, fix bug for maximum quantity in the order
