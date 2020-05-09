@@ -90,6 +90,17 @@ class Woo_Free_Product_Sample_Admin {
 	}
 
 	/**
+	 * Register the JavaScript for the admin area.
+	 *
+	 * @since    1.0.0
+	 */
+	public function wfps_enqueue_scripts() {
+
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-free-product-sample-admin.js', array( 'jquery' ), $this->version, false );
+
+	}	
+
+	/**
 	 * Register the admin menu for the settings
 	 * 
 	 * @since    2.0.0

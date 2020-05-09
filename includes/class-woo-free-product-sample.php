@@ -122,6 +122,7 @@ class Woo_Free_Product_Sample {
 
 		$plugin_admin = new Woo_Free_Product_Sample_Admin( $this->get_plugin_name(), $this->get_version() );	
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'wfps_enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'wfps_enqueue_scripts' );
 		$this->loader->add_action( 'plugins_loaded', $plugin_admin, 'wfps_set_default_options' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'wfps_settings_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'wfps_menu_register_settings' );
