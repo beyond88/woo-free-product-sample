@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "POT-Creation-Date: 2020-05-04 15:58+0000\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2020-05-09 03:20+0000\n"
+"PO-Revision-Date: 2020-05-09 03:16+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Project-Id-Version: TheWPNext\n"
-"Language-Team: 日本語\n"
+"Language-Team: Japanese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
+"Last-Translator: Jhon Doe\n"
 "Language: ja\n"
 "X-Poedit-KeywordsList: ;__;_e;_x;_ex;-n;_nx;_n_noop;_nx_noop;"
 "_translate_nooped_plural;esc_html_e;esc_html__;esc_html_x;esc_attr__;"
@@ -40,7 +40,7 @@ msgstr ""
 #: admin/class-woo-free-product-sample-admin.php:101
 #: admin/class-woo-free-product-sample-admin.php:102
 msgid "Product Sample"
-msgstr "製品サンプル"
+msgstr ""
 
 #: admin/class-woo-free-product-sample-admin.php:163
 #: admin/class-woo-free-product-sample-admin.php:171
@@ -58,7 +58,7 @@ msgstr ""
 #: public/class-woo-free-product-sample-public.php:454
 #: public/class-woo-free-product-sample-public.php:464
 msgid " quantity per order."
-msgstr ""
+msgstr "製品サンプル"
 
 #: public/class-woo-free-product-sample-public.php:490
 #, php-format
@@ -68,11 +68,11 @@ msgstr ""
 #: public/class-woo-free-product-sample-public.php:509
 #: public/partials/woocommerce/cart/mini-cart.php:62
 msgid "Sample - "
-msgstr "サンプル -"
+msgstr ""
 
 #: public/class-woo-free-product-sample-public.php:549
 msgid "  per order."
-msgstr ""
+msgstr "注文ごと。"
 
 #: admin/includes/class-woo-free-product-sample-settings.php:36
 msgid "Button Label"
