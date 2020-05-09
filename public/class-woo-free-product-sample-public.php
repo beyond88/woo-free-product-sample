@@ -447,7 +447,7 @@ class Woo_Free_Product_Sample_Public {
 
 				if( 'product' == $notice_type ) {
 
-					if( ( $product_id == $val['free_sample'] ) &&
+					if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) &&
 						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
 						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
 					) {
@@ -487,7 +487,7 @@ class Woo_Free_Product_Sample_Public {
 			foreach ( $products as $product_id => $qty ) {
 				$titles = get_the_title( $product_id );
 			}	
-			$message = sprintf( esc_html__('Sample - "%s" have been added to your cart.','woo-free-product-sample'), $titles ); 
+			$message = sprintf( esc_html__('Sample - "%s" has been added to your cart.','woo-free-product-sample'), $titles ); 
 			return $message; 
 		} 
 		return $message;

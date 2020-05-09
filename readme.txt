@@ -112,3 +112,6 @@ Remove single-add-to-cart class
 
 = 2.0.5 =
 Added japanese translation, fix bug for maximum quantity in the order
+
+= 2.0.6 =
+Fix bug for maximum quantity in the order
