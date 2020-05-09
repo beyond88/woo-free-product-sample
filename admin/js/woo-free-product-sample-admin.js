@@ -1,7 +1,7 @@
 jQuery(function ($) {
 
     let exclude_type = $("#exclude_type").val();
-    if( exclude_type == 'prdouct' ) {
+    if( exclude_type == 'product' ) {
         $('.exclude_product_area').show();
         $('.exclude_category_area').hide();
     } else {
