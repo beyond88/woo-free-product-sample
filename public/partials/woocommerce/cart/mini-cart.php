@@ -59,7 +59,13 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					?>
                     <?php 
                         if( isset( $cart_item['sample_price'] ) ) {
-                            $sample = esc_html__( 'Sample - ', 'woo-free-product-sample' );
+
+							if( get_locale() == "ja" ) {
+								$sample =  esc_html__( 'サンプル - ', 'woo-free-product-sample' );
+							} else {
+								$sample =  esc_html__( 'Sample - ', 'woo-free-product-sample' );
+							}
+
                         } else {
                             $sample = '';
 						}  

@@ -487,7 +487,12 @@ class Woo_Free_Product_Sample_Public {
 			$count = 0;
 			$titles = array();
 			foreach ( $products as $product_id => $qty ) {
-				$sample = esc_html__( 'Sample - ', 'woo-free-product-sample' );
+				if( get_locale() == "ja" ) {
+					$sample =  esc_html__( 'サンプル - ', 'woo-free-product-sample' );
+				} else {
+					$sample =  esc_html__( 'Sample - ', 'woo-free-product-sample' );
+				}
+				
 				$titles[] = apply_filters( 'woocommerce_add_to_cart_qty_html', ( $qty > 1 ? absint( $qty ) . ' &times; ' : '' ), $product_id ) . apply_filters( 'woocommerce_add_to_cart_item_name_in_quotes', sprintf( _x( '&ldquo;%s&rdquo;', 'Item name in quotes', 'woocommerce' ), strip_tags( $sample . get_the_title( $product_id ) ) ), $product_id );
 				$count   += $qty;
 			}
@@ -519,7 +524,12 @@ class Woo_Free_Product_Sample_Public {
 		$sample_price 		= str_replace( ",",".", $sample_price );
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $sample_price == $prod_price ) {
-			$product_name   = esc_html__( 'Sample - ', 'woo-free-product-sample' ).$product_name;		
+			if( get_locale() == 'ja' ) {
+				$product_name   = esc_html__( 'サンプル - ', 'woo-free-product-sample' ).$product_name;		
+			} else {
+				$product_name   = esc_html__( 'Sample - ', 'woo-free-product-sample' ).$product_name;
+			}
+			
 		}
 
 		return $product_name;
