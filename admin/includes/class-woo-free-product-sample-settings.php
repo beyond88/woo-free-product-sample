@@ -41,10 +41,10 @@ class Woo_Free_Product_Sample_Settings {
             ),
             array(
                 'name'          => 'limit_per_order',
-                'label'         => __( 'Maximum limit type', 'woo-free-product-sample' ),
+                'label'         => __( 'Maximum Limit Type', 'woo-free-product-sample' ),
                 'type'          => 'select',
                 'class'         => 'widefat',
-                'description'   => __( 'Maximum limit type', 'woo-free-product-sample' ),
+                'description'   => __( 'Maximum Limit Type', 'woo-free-product-sample' ),
                 'default'       => array(
                     'product'   => 'Product',
                     'all'       => 'Order',
@@ -52,10 +52,10 @@ class Woo_Free_Product_Sample_Settings {
             ),            
 			array(
                 'name'          => 'max_qty_per_order',
-                'label'         => __( 'Maximum quantity per order', 'woo-free-product-sample' ),
+                'label'         => __( 'Maximum Quantity Per Order', 'woo-free-product-sample' ),
                 'type'          => 'number',
                 'class'         => 'widefat',
-                'description'   => __( 'Maximum quantity per order', 'woo-free-product-sample' ),
+                'description'   => __( 'Maximum Quantity Per Order', 'woo-free-product-sample' ),
                 'placeholder'   => 5,
                 
             ),            

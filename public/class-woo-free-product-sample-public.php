@@ -451,7 +451,11 @@ class Woo_Free_Product_Sample_Public {
 						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
 						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
 					) {
-						wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						if( get_locale() == 'ja' ) {
+							wc_add_notice( esc_html__( 'この商品を注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
+						} else {
+							wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						}						
 						exit( wp_redirect( get_permalink($product_id) ) );						
 					}	
 
@@ -461,7 +465,11 @@ class Woo_Free_Product_Sample_Public {
 						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
 						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
 					) {
-						wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						if( get_locale() == 'ja' ) {
+							wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
+						} else {
+							wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						}						
 						exit( wp_redirect( get_permalink($product_id) ) );						
 					}
 
@@ -569,7 +577,12 @@ class Woo_Free_Product_Sample_Public {
 			$setting_options['max_qty_per_order'] < $updated_quantity
 		  ){			
 			$product = wc_get_product( $values['product_id'] );
-			wc_add_notice( esc_html__( 'You can order '.$product->get_name().' maximum  '.$setting_options['max_qty_per_order'].'  per order.', 'woo-free-product-sample' ), 'error' );
+			if( get_locale() == "ja" ) {
+				wc_add_notice( esc_html__( '注文できます '.$product->get_name().' 最大 '.$setting_options['max_qty_per_order'].'  注文ごと。', 'woo-free-product-sample' ), 'error' );
+			} else {
+				wc_add_notice( esc_html__( 'You can order '.$product->get_name().' maximum  '.$setting_options['max_qty_per_order'].'  per order.', 'woo-free-product-sample' ), 'error' );
+			}
+			
 			$passed = false;
 		}
 
