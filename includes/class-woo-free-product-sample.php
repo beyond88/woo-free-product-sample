@@ -151,8 +151,7 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'wfps_set_locate_template', 10, 3 );	
 		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'wfps_alter_item_name', 10, 3 );	
 		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public, 'wfps_cart_item_price_filter', 10, 3 );
-		$this->loader->add_filter( 'woocommerce_update_cart_validation', $plugin_public, 'wfps_cart_update_limit_order', 10, 4 );
-		
+		$this->loader->add_filter( 'woocommerce_update_cart_validation', $plugin_public, 'wfps_cart_update_limit_order', 10, 4 );	
 	}
 
 	/**

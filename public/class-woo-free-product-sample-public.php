@@ -49,7 +49,9 @@ class Woo_Free_Product_Sample_Public {
 	public $_defaultOptions = array(
 		'button_label'          => 'Order a Sample',
 		'max_qty_per_order'		=> 5 
-	);	
+	);
+	
+	public $_total = 1;
 
 	/**
 	 * @since    1.0.0
@@ -440,46 +442,55 @@ class Woo_Free_Product_Sample_Public {
 	
 		global $woocommerce;
 		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
-		$notice_type 	   = $setting_options['limit_per_order'];
-		if( $woocommerce->cart->cart_contents_count > 0 ) {
+		$notice_type 	   = $setting_options['limit_per_order'];		
+		foreach( $woocommerce->cart->get_cart() as $key => $val ) {
+			
+			if( 'product' == $notice_type ) {
 
-			foreach( $woocommerce->cart->get_cart() as $key => $val ) {
+				if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) &&
+					( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
+					( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
+				) {
+					if( get_locale() == 'ja' ) {
+						wc_add_notice( esc_html__( 'この商品を注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
+					} else {
+						wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+					}						
+					exit( wp_redirect( get_permalink($product_id) ) );						
+				}	
 
-				if( 'product' == $notice_type ) {
+			} else if( 'all' == $notice_type ) {
 
-					if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) &&
-						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
-						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
-					) {
-						if( get_locale() == 'ja' ) {
-							wc_add_notice( esc_html__( 'この商品を注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
-						} else {
-							wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
-						}						
-						exit( wp_redirect( get_permalink($product_id) ) );						
-					}	
-
-				} else if( 'all' == $notice_type ) {
-
-					if( ( isset( $val['free_sample'] ) ) &&
-						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
-						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
-					) {
-						if( get_locale() == 'ja' ) {
-							wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
-						} else {
-							wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
-						}						
-						exit( wp_redirect( get_permalink($product_id) ) );						
-					}
-
-				}
-
+				if( ( isset( $val['free_sample'] ) ) &&
+					( $setting_options['max_qty_per_order'] <= $this->wfps_cart_total() ) && 
+					( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
+				) {
+					if( get_locale() == 'ja' ) {
+						wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
+					} else {
+						wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+					}						
+					exit( wp_redirect( get_permalink($product_id) ) );						
+				}	
 			}
 		}
+
 		return $valid;
 
 	}
+
+	public function wfps_cart_total( ) {
+
+		global $woocommerce;
+		$total = 0;
+		foreach( $woocommerce->cart->get_cart() as $key => $val ) {
+			if( isset( $val['free_sample'] ) ) {				
+				$total += $val['quantity'];
+			}
+		}
+		return $total;		
+	}
+
 
 	/**
 	 * Sample product added in the cart message
@@ -551,7 +562,6 @@ class Woo_Free_Product_Sample_Public {
 	 */
     public function wfps_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
-		$setting_options    = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
 		$sample_price 		= self::wfps_price();
 		$set_price 			= str_replace( ",", ".", $sample_price );
 		if( isset( $cart_item['sample_price'] ) ) {
