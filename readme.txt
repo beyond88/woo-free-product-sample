@@ -115,3 +115,6 @@ Added japanese translation, fix bug for maximum quantity in the order
 
 = 2.0.6 =
 Fix bug for maximum quantity in the order
+
+= 2.0.7 =
+Update code for maximum order validation
