@@ -118,3 +118,6 @@ Fix bug for maximum quantity in the order
 
 = 2.0.7 =
 Update code for maximum order validation
+
+= 2.0.8 =
+Comment out print_r
