@@ -289,6 +289,13 @@ table.wp-list-table .column-wfps_forms {
     z-index: 2;
 }
 
+.wfps_settings .premium .outer a,
+.wfps_settings .premium .outer a:hover,
+.wfps_settings .premium .outer a:visited,
+.wfps_settings .premium .outer a:active{
+    color: #fff;
+}
+
 .wfps_settings .premium .premium_right h4 {
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
@@ -470,19 +477,26 @@ table.wp-list-table .column-wfps_forms {
     margin-top: 0;
 }
 
+.wfps-license-activation-btn,
 .wfps_settings .button {
     background: #3454F5;
-    border: #6A6B7C;
+    border: #3454F5;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     height: 35px;
     width: 125px;
-    margin-left: 25px;
+    color: #fff
 
 }
 
+.wfps_settings .wfps-license-deactivation-btn{
+    background-color: rgba(186,110,120,.5);
+}
+
+.wfps-license-activation-btn, 
 .wfps_settings .button:hover {
     background: rgb(51, 80, 228);
+    color: #fff;
 }
 
 .post-type-wfps_pt_forms #wfps_form_banner {
