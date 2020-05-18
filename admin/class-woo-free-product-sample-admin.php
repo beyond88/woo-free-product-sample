@@ -159,6 +159,22 @@ class Woo_Free_Product_Sample_Admin {
 	public function wfps_set_default_options() {
 		return apply_filters( 'woo_free_product_sample_default_options', $this->_defaultOptions );
 	}
+
+	/**
+	 * Load activation status
+	 * 
+	 * @since    2.0.0
+	 * @param    array
+	 * @return   void
+	 */	
+	public function get_license_status() {
+		$status = get_option( $this->product_slug . '-license-status' );
+		if ( ! $status ) {
+			// User hasn't saved the license to settings yet. No use making the call.
+			return false;
+		}
+		return trim( $status );
+	}	
 	
 	/**
 	 * Load submit ticket button
