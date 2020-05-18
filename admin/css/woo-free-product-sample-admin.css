@@ -491,6 +491,11 @@ table.wp-list-table .column-wfps_forms {
 
 .wfps_settings .wfps-license-deactivation-btn{
     background-color: rgba(186,110,120,.5);
+    width: 145px !important;
+}
+
+.wfps_settings .wfps-license-deactivation-btn:hover{
+    background-color: rgba(186,110,120,1) !important;
 }
 
 .wfps-license-activation-btn, 
