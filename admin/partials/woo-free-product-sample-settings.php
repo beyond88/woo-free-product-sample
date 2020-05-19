@@ -3,8 +3,7 @@
     <h1><?php echo WFPS_PLUGIN_NAME; ?></h1>
     <?php settings_errors(); ?>
     <?php 
-        $status 		 = $this->get_license_status();
-        print_r($status);
+        $status 		 = $this->get_license_status();        
         $activation_info = get_option( $this->_activation ); ?>
     <div id="poststuff">
         <div class="metabox-holder columns-2">

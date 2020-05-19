@@ -262,6 +262,11 @@ table.wp-list-table .column-wfps_forms {
     width: 100px;
 }
 
+.wfps_settings .premium .premium_right_nobg {
+    float:right;
+    position: relative;
+    width: 53%;
+}
 
 .wfps_settings .premium .premium_right {
     float:right;
@@ -296,6 +301,7 @@ table.wp-list-table .column-wfps_forms {
     color: #fff;
 }
 
+.wfps_settings .premium .premium_right_nobg h4,
 .wfps_settings .premium .premium_right h4 {
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
@@ -303,11 +309,13 @@ table.wp-list-table .column-wfps_forms {
     font-weight: bold;
     padding-left: 30px;
 }
+.wfps_settings .premium .premium_right_nobg ul, 
 .wfps_settings .premium .premium_right ul {
     list-style: none;
     padding:0 20px 0 30px;
 }
 
+.wfps_settings .premium .premium_right_nobg li,
 .wfps_settings .premium .premium_right li {
     background-image: url(../img/tick.png);
     background-repeat: no-repeat;
