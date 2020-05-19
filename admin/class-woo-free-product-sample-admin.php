@@ -168,7 +168,7 @@ class Woo_Free_Product_Sample_Admin {
 	 * @return   void
 	 */	
 	public function get_license_status() {
-		$status = get_option( $this->product_slug . '-license-status' );
+		$status = get_option( 'wfps-pro-license-status' );
 		if ( ! $status ) {
 			// User hasn't saved the license to settings yet. No use making the call.
 			return false;
@@ -185,21 +185,12 @@ class Woo_Free_Product_Sample_Admin {
 	 */	
 	public function wfps_request_support_ticket( $data ) {
 
+		$status = $this->get_license_status();
 		$html = '';
-		if( ! isset( $data['wfps_license_key'] ) || ! class_exists( 'Woo_Free_Product_Sample_Pro' ) ) {
+		if ( $status == false || $status !== 'valid' ) {
 			$html .='<p><a href="https://wordpress.org/support/plugin/woo-free-product-sample/" target="_blank">'.esc_html__( "Submit a topic", "woo-free-product-sample" ).'</a></p>';		
 		} else {
-
-			$expiry_date  = isset( $data['wfps_license_expire'] ) ? $data['wfps_license_expire'] : ''; 
-			$current_date = date("Y-m-d");                                        
-			$current_date = strtotime( $current_date );                                        
-			$expiry_date  = strtotime( $expiry_date );
-			if( isset( $data['wfps_license_key'] ) && $current_date > $expiry_date ) {
-				$html .='<p><a href="https://wordpress.org/support/plugin/woo-free-product-sample/" target="_blank">'.esc_html__( "Submit a topic", "woo-free-product-sample" ).'</a></p>';
-			} else {
-				$html .='<p><a href="https://thewpnext.com/ask-question" target="_blank">'.esc_html__( "Submit a ticket", "woo-free-product-sample" ).'</a></p>';
-			}
-
+			$html .='<p><a href="https://thewpnext.com/ask-question" target="_blank">'.esc_html__( "Submit a ticket", "woo-free-product-sample" ).'</a></p>';
 		}
 		echo $html;
 

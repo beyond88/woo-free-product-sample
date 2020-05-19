@@ -2,8 +2,10 @@
     <div id="icon-options-general" class="icon32"></div>
     <h1><?php echo WFPS_PLUGIN_NAME; ?></h1>
     <?php settings_errors(); ?>
-    <?php $activation_info = get_option( $this->_activation ); ?>
-
+    <?php 
+        $status 		 = $this->get_license_status();
+        print_r($status);
+        $activation_info = get_option( $this->_activation ); ?>
     <div id="poststuff">
         <div class="metabox-holder columns-2">
             <!-- main content -->
@@ -58,7 +60,7 @@
                         </div>
                         <!-- .postbox -->
                         
-                        <?php  if( ! isset( $activation_info['wfps_license_key'] ) || ! class_exists( 'Woo_Free_Product_Sample_Pro' ) ) : ?>
+                        <?php if ( $status == false || $status !== 'valid' ) : ?>
                         <div class="premium clearfix">
                             <div class="premium_left premium_left_free premium_left_free_button">
                                 <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
@@ -70,7 +72,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                                 </div>
                                 <div>
-                                    <a href="https://thewpnext.com/demo/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
+                                    <a href="https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                                 </div>
                             </div>
                             <div class="premium_right">
@@ -99,7 +101,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="sidebar">
-                        <?php  if( ! isset( $activation_info['wfps_license_key'] ) || ! class_exists( 'Woo_Free_Product_Sample_Pro' ) ) : ?>
+                        <?php if ( $status == false || $status !== 'valid' ) : ?>
                         <div class="sidebar_top">
                             <h1><?php esc_html_e( 'Upgrade to', 'woo-free-product-sample' ); ?> <br><?php esc_html_e( 'Premium Now!', 'woo-free-product-sample' ); ?></h1>
                             <div class="price_side">
@@ -109,7 +111,7 @@
                                     light, fast and feature-rich plugins.', 'woo-free-product-sample' ); ?>
                             </div>
                             <div>
-                                <a href="https://thewpnext.com/demo/woo-free-product-sample" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
+                                <a href="https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/" target="_blank"><?php esc_html_e( 'Upgrade Now', 'woo-free-product-sample' ); ?></a>
                             </div>
 
                         </div>
