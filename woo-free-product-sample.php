@@ -86,7 +86,7 @@ class Woo_Free_Product_Sample_Start {
 		$links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
 		$links[] = '<a href="https://www.thewpnext.com/docs/">' . __( 'Docs', 'woo-free-product-sample' ) . '</a>';
 		if( !class_exists('Woo_Free_Product_Sample_Pro') ) {
-			$links[] = '<a href="https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/" style="color: #d30c5c;font-weight: bold;">' . __( 'Go PRO', 'woo-free-product-sample' ) . '</a>';
+			$links[] = '<a href="https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/" style="color: #d30c5c;font-weight: bold;">' . __( 'Get Pro', 'woo-free-product-sample' ) . '</a>';
 		}
         return $links;
     }	
