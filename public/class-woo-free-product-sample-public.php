@@ -158,14 +158,21 @@ class Woo_Free_Product_Sample_Public {
 		$was_added_to_cart = false;
 		$adding_to_cart    = wc_get_product( $product_id );
 
+		$real_shipping_class_id = $adding_to_cart->get_shipping_class_id();
+		$shipping_class_id 		= get_post_meta( $product_id, 'wfps_shipping_class', true );
+		if( isset($shipping_class_id) && !empty($shipping_class_id) && $shipping_class_id != -1 ) {
+			update_post_meta( $product_id, 'wfps_real_shipping_class', $real_shipping_class_id );
+			$adding_to_cart->set_shipping_class_id( $shipping_class_id ); // Set the shipping class ID 
+			$adding_to_cart->save(); // Save the product data to database
+		}
+
 		if ( ! $adding_to_cart ) {
 			return;
 		}
-
-		// $shipping_class_id = get_post_meta( $product_id, 'wfps_shipping_class', true );
-		// if( isset($get_shipping_class) && !empty($shipping_class_id) && $shipping_class_id != -1 ) {
-		// 	$shipping_class = '';
-		// 	add_post_meta( $product_id, 'temp_original_shipping_class', $shipping_class );
+		// $real_shipping_class_id = $adding_to_cart->get_shipping_class_id();
+		// $shipping_class_id 		= get_post_meta( $product_id, 'wfps_shipping_class', true );
+		// if( isset($shipping_class_id) && !empty($shipping_class_id) && $shipping_class_id != -1 ) {
+		// 	update_post_meta( $product_id, 'wfps_real_shipping_class', $real_shipping_class_id );
 		// 	$adding_to_cart->set_shipping_class_id( $shipping_class_id ); // Set the shipping class ID 
 		// 	$adding_to_cart->save(); // Save the product data to database
 		// }
@@ -603,6 +610,25 @@ class Woo_Free_Product_Sample_Public {
 		}
 
 		return $passed;
+
+	}
+
+
+	public function wfps_update_shipping_class( $order_id ) {
+
+		$order 		= wc_get_order( $order_id );		
+		$items 		= $order->get_items(); 
+
+		foreach ( $items as $item ) {
+			$product_id 		 = version_compare( WC_VERSION, '3.0', '<' ) ? $item['product_id'] : $item->get_product_id();
+			$real_shipping_class = get_post_meta( $product_id, 'wfps_real_shipping_class', true );
+			if( isset($real_shipping_class) && !empty($real_shipping_class) ){
+				$product 		     = wc_get_product( $product_id );
+				$product->set_shipping_class_id( $real_shipping_class ); // Set the shipping class ID 
+				$product->save(); // Save the product data to database
+				delete_post_meta( $product_id, 'wfps_real_shipping_class' );
+			}			
+		}
 
 	}
 
