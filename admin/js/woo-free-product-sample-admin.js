@@ -9,6 +9,11 @@ jQuery(function ($) {
         $('.exclude_category_area').show();
     }
 
+	let manage_stock = $("#wfps_manage_stock").val();
+    if( manage_stock == 1 ) {
+        $(".wfps-enable-area").show();
+    }    
+
 });
 
 

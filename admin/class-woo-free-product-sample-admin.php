@@ -54,7 +54,7 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    array 
 	 */	
 	public $_defaultOptions = array(
-		'button_label'      	=> '',
+		'button_label'      	=> 'Order a Sample',
 		'max_qty_per_order'		=> 5,
 	);
 

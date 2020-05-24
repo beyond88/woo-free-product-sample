@@ -69,9 +69,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since    1.0.0
 	 */
 	public function wfps_enqueue_styles() {
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-free-product-sample-public.css', array(), $this->version, 'all' );
-
 	}
 
 	/**
@@ -164,6 +162,14 @@ class Woo_Free_Product_Sample_Public {
 			return;
 		}
 
+		// $shipping_class_id = get_post_meta( $product_id, 'wfps_shipping_class', true );
+		// if( isset($get_shipping_class) && !empty($shipping_class_id) && $shipping_class_id != -1 ) {
+		// 	$shipping_class = '';
+		// 	add_post_meta( $product_id, 'temp_original_shipping_class', $shipping_class );
+		// 	$adding_to_cart->set_shipping_class_id( $shipping_class_id ); // Set the shipping class ID 
+		// 	$adding_to_cart->save(); // Save the product data to database
+		// }
+		
 		$add_to_cart_handler = apply_filters( 'woocommerce_add_to_cart_handler', $adding_to_cart->get_type(), $adding_to_cart );
 
 		if ( 'variable' === $add_to_cart_handler || 'variation' === $add_to_cart_handler ) {
@@ -194,8 +200,9 @@ class Woo_Free_Product_Sample_Public {
 	 * @return bool success or not
 	 */
 	private static function wfps_add_to_cart_handler_simple( $product_id ) {
+
 		$quantity          = 1; // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
-		$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
+		$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );	
 
 		if ( $passed_validation && false !== WC()->cart->add_to_cart( $product_id, $quantity ) ) {
 			wc_add_to_cart_message( array( $product_id => $quantity ), true );
@@ -222,7 +229,7 @@ class Woo_Free_Product_Sample_Public {
 
 			if ( ! $adding_to_cart ) {
 				return false;
-			}
+			}				
 
 			// If the $product_id was in fact a variation ID, update the variables.
 			if ( $adding_to_cart->is_type( 'variation' ) ) {
@@ -331,8 +338,7 @@ class Woo_Free_Product_Sample_Public {
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample']  = isset( $_REQUEST['simple-add-to-cart'] ) ? sanitize_text_field( $_REQUEST['simple-add-to-cart'] ) : sanitize_text_field( $_REQUEST['variable-add-to-cart'] );
 			$cart_item['sample_price'] = self::wfps_price();			
-		}
-			
+		}			
 		return $cart_item; 
 	}	
 
