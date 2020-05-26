@@ -158,14 +158,6 @@ class Woo_Free_Product_Sample_Public {
 		$was_added_to_cart = false;
 		$adding_to_cart    = wc_get_product( $product_id );
 
-		// $real_shipping_class_id = $adding_to_cart->get_shipping_class_id();
-		// $shipping_class_id 		= get_post_meta( $product_id, 'wfps_shipping_class', true );
-		// if( isset($shipping_class_id) && !empty($shipping_class_id) && $shipping_class_id != -1 ) {
-		// 	update_post_meta( $product_id, 'wfps_real_shipping_class', $real_shipping_class_id );
-		// 	$adding_to_cart->set_shipping_class_id( $shipping_class_id ); // Set the shipping class ID 
-		// 	$adding_to_cart->save(); // Save the product data to database
-		// }
-
 		if ( ! $adding_to_cart ) {
 			return;
 		}
