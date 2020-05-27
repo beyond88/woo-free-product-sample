@@ -40,6 +40,13 @@ class Woo_Free_Product_Sample_Settings {
                 'placeholder'   => __( 'Set button label', 'woo-free-product-sample' ),
             ),
             array(
+                'name'          => 'disable_limit_per_order',
+                'label'         => __( 'Disable Maximum Limit', 'woo-free-product-sample' ),
+                'type'          => 'checkbox',
+                'class'         => 'widefat',
+                'description'   => __( 'Disable maximum order limit validation', 'woo-free-product-sample' ),
+            ),            
+            array(
                 'name'          => 'limit_per_order',
                 'label'         => __( 'Maximum Limit Type', 'woo-free-product-sample' ),
                 'type'          => 'select',
