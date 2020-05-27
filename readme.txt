@@ -28,12 +28,18 @@ The easy way to handle free product sample for WooCommerce. Promote your busines
 * Display the button for simple and variable product both.
 * Capability for individual product.
 
-== Pro Features (UPCOMING) ==
+== Pro Features ==
 * Display the button for global
+* Display the button for the shop and archive pages
 * Exclude products capability if don't need
-* Set custom price for sample products
+* Set custom price for the sample products
 * Set shipping class & tax rule for the sample products
-* Set custom SKU for sample products
+* Manage custom stock quantity for the sample
+
+== Pro Features (UPCOMING) ==
+* Conditional price
+* Bulk discount
+* Custom SKU for the sample 
 
 == Screenshots ==
 
@@ -41,9 +47,9 @@ The easy way to handle free product sample for WooCommerce. Promote your busines
 2.Display Order Free Sample button in Product Detail Page.
 3.Display Order Free Sample button in Product Detail Page.
 4.Added Product as Free Sample in Cart Page.
-5.Display in Checkout Page.
-6.Display in Order Receive Page.
-7.Display in Order Detail Page. 
+5.Display in the Checkout Page.
+6.Display in the Order Receive Page.
+7.Display in the Order Detail Page. 
 
 == Frequently Asked Questions ==
 
@@ -121,3 +127,6 @@ Update code for maximum order validation
 
 = 2.0.8 =
 Comment out print_r
+
+= 2.0.9 =
+Added disable functionality of the maximum order limit validation
