@@ -168,7 +168,7 @@ class Woo_Free_Product_Sample_Admin {
 	 * @return   void
 	 */	
 	public function get_license_status() {
-		$status = get_option( 'wfps-pro-license-status' );
+		$status = get_option( 'woo-free-product-sample-pro-license-status' );
 		if ( ! $status ) {
 			// User hasn't saved the license to settings yet. No use making the call.
 			return false;
@@ -183,7 +183,7 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    array
 	 * @return   void
 	 */	
-	public function wfps_request_support_ticket( $data ) {
+	public function wfps_request_support_ticket() {
 
 		$status = $this->get_license_status();
 		$html = '';

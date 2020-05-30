@@ -3,7 +3,7 @@
     <h1><?php echo WFPS_PLUGIN_NAME; ?></h1>
     <?php settings_errors(); ?>
     <?php 
-        $status 		 = $this->get_license_status();        
+        $status 		 = $this->get_license_status();      
         $activation_info = get_option( $this->_activation ); ?>
     <div id="poststuff">
         <div class="metabox-holder columns-2">
@@ -138,7 +138,7 @@
                         <div class="support">
                             <h3><?php esc_html_e( 'Dedicated Support Team', 'woo-free-product-sample' ); ?></h3>
                             <p><?php esc_html_e( 'We are available round the clock for any support.', 'woo-free-product-sample' ); ?></p>
-                            <?php echo apply_filters( 'request_support_ticket', $activation_info ); ?>                            
+                            <?php echo apply_filters( 'request_support_ticket', '' ); ?>                            
                         </div>
 
                     </div>
