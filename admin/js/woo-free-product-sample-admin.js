@@ -14,7 +14,6 @@ jQuery(function ($) {
         $(".wfps-enable-area").show();
     }   
         
-    // is_checked         = $( this ).is( ':checked' );
     if( $('#disable_limit_per_order').is( ':checked' ) ) {
         $('.limit_per_order_area').hide();
         $('.max_qty_per_order_area').hide();
