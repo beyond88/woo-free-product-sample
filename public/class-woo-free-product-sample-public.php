@@ -448,10 +448,7 @@ class Woo_Free_Product_Sample_Public {
 				
 				if( 'product' == $notice_type ) {
 
-					if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) &&
-						( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && 
-						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
-					) {
+					if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) && ( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
 						if( get_locale() == 'ja' ) {
 							wc_add_notice( esc_html__( 'この商品を注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
 						} else {
@@ -462,23 +459,67 @@ class Woo_Free_Product_Sample_Public {
 
 				} else if( 'all' == $notice_type ) {
 
-					if( ( isset( $val['free_sample'] ) ) &&
-						( $setting_options['max_qty_per_order'] <= $this->wfps_cart_total() ) && 
-						( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) )
-					) {
+					if( ( isset( $val['free_sample'] ) ) && ( $setting_options['max_qty_per_order'] <= $this->wfps_cart_total() ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
 						if( get_locale() == 'ja' ) {
 							wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
 						} else {
 							wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
 						}						
 						exit( wp_redirect( get_permalink($product_id) ) );						
-					}	
+					}
+
 				}
 			endforeach; 
 		endif; 
 		return $valid;
 
 	}
+
+	/**
+	 * Show validation message in the cart page for maximum order
+	 * 
+	 * @since      2.0.0
+	 * @param      boolean, array, array, int 
+	 */
+	public function wfps_cart_update_limit_order( $passed, $cart_item_key, $values, $updated_quantity ) {
+
+		global $woocommerce;
+		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
+		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : null;
+		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
+
+		if( ! isset( $disable_limit ) ) :
+
+			if( 'product' == $notice_type ) {
+
+				if( ( $values['free_sample'] == $values['product_id'] ) && ( $setting_options['max_qty_per_order'] < $updated_quantity ) ) {			
+				
+					$product = wc_get_product( $values['product_id'] );				
+					
+					if( get_locale() == "ja" ) {
+						wc_add_notice( esc_html__( '注文できます '.$product->get_name().' 最大 '.$setting_options['max_qty_per_order'].'  注文ごと。', 'woo-free-product-sample' ), 'error' );
+					} else {
+						wc_add_notice( esc_html__( 'You can order '.$product->get_name().' maximum  '.$setting_options['max_qty_per_order'].'  per order.', 'woo-free-product-sample' ), 'error' );
+					}
+					
+					$passed = false;
+				}
+
+			} else if( 'all' == $notice_type ) {
+
+				if( ( isset( $values['free_sample'] ) ) && ( $setting_options['max_qty_per_order'] <= $this->wfps_cart_total() ) ) {
+					if( get_locale() == 'ja' ) {
+						wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
+					} else {
+						wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+					}					
+				}
+			}
+
+		endif; 
+		return $passed;
+
+	}	
 
 	public function wfps_cart_total( ) {
 
@@ -490,8 +531,8 @@ class Woo_Free_Product_Sample_Public {
 			}
 		}
 		return $total;		
-	}
 
+	}		
 
 	/**
 	 * Sample product added in the cart message
@@ -573,51 +614,6 @@ class Woo_Free_Product_Sample_Public {
 		}
 		
 		return $price;
-	}
-
-	/**
-	 * Show validation message in the cart page for maximum order
-	 * 
-	 * @since      2.0.0
-	 * @param      boolean, array, array, int 
-	 */
-	public function wfps_cart_update_limit_order( $passed, $cart_item_key, $values, $updated_quantity ) {
-
-		$setting_options	= wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
-		if( ($values['free_sample'] == $values['product_id']) &&
-			$setting_options['max_qty_per_order'] < $updated_quantity
-		  ){			
-			$product = wc_get_product( $values['product_id'] );
-			if( get_locale() == "ja" ) {
-				wc_add_notice( esc_html__( '注文できます '.$product->get_name().' 最大 '.$setting_options['max_qty_per_order'].'  注文ごと。', 'woo-free-product-sample' ), 'error' );
-			} else {
-				wc_add_notice( esc_html__( 'You can order '.$product->get_name().' maximum  '.$setting_options['max_qty_per_order'].'  per order.', 'woo-free-product-sample' ), 'error' );
-			}
-			
-			$passed = false;
-		}
-
-		return $passed;
-
-	}
-
-
-	public function wfps_update_shipping_class( $order_id ) {
-
-		$order 		= wc_get_order( $order_id );		
-		$items 		= $order->get_items(); 
-
-		foreach ( $items as $item ) {
-			$product_id 		 = version_compare( WC_VERSION, '3.0', '<' ) ? $item['product_id'] : $item->get_product_id();
-			$real_shipping_class = get_post_meta( $product_id, 'wfps_real_shipping_class', true );
-			if( isset($real_shipping_class) && !empty($real_shipping_class) ){
-				$product 		     = wc_get_product( $product_id );
-				$product->set_shipping_class_id( $real_shipping_class ); // Set the shipping class ID 
-				$product->save(); // Save the product data to database
-				delete_post_meta( $product_id, 'wfps_real_shipping_class' );
-			}			
-		}
-
 	}	
 
 }

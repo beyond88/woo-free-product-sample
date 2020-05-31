@@ -55,7 +55,9 @@ class Woo_Free_Product_Sample_Settings {
                 'default'       => array(
                     'product'   => 'Product',
                     'all'       => 'Order',
-                )
+                ),
+				'style'			=> 'class="limit_per_order_area"',
+				'position'		=> 'tr'                
             ),            
 			array(
                 'name'          => 'max_qty_per_order',
@@ -64,7 +66,8 @@ class Woo_Free_Product_Sample_Settings {
                 'class'         => 'widefat',
                 'description'   => __( 'Maximum Quantity Per Order', 'woo-free-product-sample' ),
                 'placeholder'   => 5,
-                
+				'style'			=> 'class="max_qty_per_order_area"',
+				'position'		=> 'tr'                
             ),            
 		);
 

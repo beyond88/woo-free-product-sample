@@ -187,7 +187,12 @@ table.wp-list-table .column-wfps_forms {
 }
 
 .wfps_settings .wfps_inside p.submit{
-    margin-left: 26px;
+    text-align: right;
+    margin-right: 26px;
+}
+
+.wfps_settings .wfps_inside .form-table td{
+    padding-right: 25px;
 }
 
 .wfps_settings .postbox {
