@@ -15,32 +15,57 @@ The easy way to handle free product sample for WooCommerce. Promote your busines
 
 == Description ==
 
-= FREE PRODUCT SAMPLE FOR WOOCOMMERCE PLUGIN FOR WORDPRESS =
+= FREE PRODUCT SAMPLE FOR WOOCOMMERCE PLUGIN =
 
 👉 Official Demo Link: [Official Demo](https://thewpnext.com/demo/woo-free-product-sample)
 👉 Learn More About PRO: [Pro Version](https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/)
 
 = POWERED BY WooCommerce =
 
-[Free Product Sample for WooCommerce](https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce) plugin is the right choice to offer to order as free sample product to customer in specific date duration, powered by WooCommerce.
+The easy way to handle free product sample. [Free Product Sample for WooCommerce](https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce) does one thing, and it does it well. It lets you order product as a product sample.
 
-== Key Features ==
-* Display a button in the product details page to order free sample product
-* Display the button for simple and variable product both.
-* Capability for individual product.
+
+## 🛍️ Supercharge Your business with the Free Proudct Sample for WooCommerce.
+
+Capture compelling and real customer by giving capability to order a product sample. 
+
+**🔥 Free Sample Order Button:** Free Sample button will display beside Add to Cart button. Capability to order a product as a sample.
+
+**🔥 Button for Simple and Variable Product both:** Give access to order variable product as a sample.
+
 
 == Pro Features ==
-* Display the button for global
-* Display the button for the shop and archive pages
-* Exclude products capability if don't need
-* Set custom price for the sample products
-* Set shipping class & tax rule for the sample products
-* Manage custom stock quantity for the sample
+
+**🔥 Sample Price:** Allows you to set sample price for a sample product.
+
+**🔥 Shop and Archive Page:** It allows you to set the button for the shop and archive pages.
+
+**🔥 Disable Capability for Some Products:** It allows you to disable the button for some products. 
+
+**🔥 Shipping & Tax class:** It allows you to set shipping & tax class for the sample products.
+
+**🔥 Manage Custom Stock:** It allows you to manage custom stock for the sample products. So this will not messup with the original products stock.
+
 
 == Pro Features (UPCOMING) ==
-* Conditional price
-* Bulk discount
-* Custom SKU for the sample 
+
+**🔥 Conditonal Price:** Allows you to set conditional price for the sample products.
+
+
+## 🚀 Backed By A Trusted Team ##
+
+This Free Product Sample for WooCommerce plugin is brought to you by the team behind [TheWPNext](https://thewpnext.com/), a dedicated platform for WordPress, trusted by lots of happy users.
+
+## 👨‍💻 DOCUMENTATION AND SUPPORT ##
+
+- For documentation and tutorials go to our [Documentation](https://thewpnext.com/docs/)
+- If you have any more questions, visit our support on the Plugin’s [Forum](https://thewpnext.com/support/)
+- For more information about features, FAQs and documentation, check out our website at [TheWPNext](https://thewpnext.com/)
+
+## 💙 Loved This Plugin’s? ##
+
+- Rate us on WordPress
+
 
 == Screenshots ==
 
@@ -131,3 +156,6 @@ Comment out print_r
 
 = 2.0.9 =
 Added disable functionality of the maximum order limit validation
+
+= 2.1.0 =
+Fix pro lisence issue
