@@ -121,10 +121,10 @@ class Woo_Free_Product_Sample_Public {
 
 		switch ( self::wfps_product_type() ) {
 			case "simple":
-				$button = '<button type="submit" name="simple-add-to-cart" value="'.get_the_ID().'" class="button alt woo-free-sample-button">'.$this->wfps_button_text().'</button>';
+				$button = '<button type="submit" name="simple-add-to-cart" value="'.get_the_ID().'" class="woo-free-sample-button">'.$this->wfps_button_text().'</button>';
 				break;
 			case "variable":
-				$button = '<button type="submit" name="variable-add-to-cart" value="'.get_the_ID().'" class="button alt woo-free-sample-button">'.$this->wfps_button_text().'</button>';
+				$button = '<button type="submit" name="variable-add-to-cart" value="'.get_the_ID().'" class="woo-free-sample-button">'.$this->wfps_button_text().'</button>';
 				break;			
 			default:
 				$button = '';
@@ -483,7 +483,6 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	public function wfps_cart_update_limit_order( $passed, $cart_item_key, $values, $updated_quantity ) {
 
-		global $woocommerce;
 		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
 		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : null;
 		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;

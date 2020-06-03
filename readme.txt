@@ -159,3 +159,6 @@ Added disable functionality of the maximum order limit validation
 
 = 2.1.0 =
 Fix pro lisence issue
+
+= 2.1.1 =
+Fix maximum order quantity in the cart page
