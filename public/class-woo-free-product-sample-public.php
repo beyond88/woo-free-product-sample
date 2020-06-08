@@ -613,6 +613,7 @@ class Woo_Free_Product_Sample_Public {
 		}
 		
 		return $price;
-	}	
+	}
+
 
 }
