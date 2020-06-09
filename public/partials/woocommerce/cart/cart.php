@@ -133,6 +133,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 						</td>
 					</tr>
 					<?php
+					echo "<pre>";
+					print_r($cart_item);
+					echo "</pre>";
 				}
 			}
 			?>

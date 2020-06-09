@@ -329,7 +329,9 @@ class Woo_Free_Product_Sample_Public {
 
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample']  = isset( $_REQUEST['simple-add-to-cart'] ) ? sanitize_text_field( $_REQUEST['simple-add-to-cart'] ) : sanitize_text_field( $_REQUEST['variable-add-to-cart'] );
-			$cart_item['sample_price'] = self::wfps_price();			
+			$cart_item['sample_price'] = self::wfps_price();
+			$cart_item['line_subtotal']= self::wfps_price();
+			$cart_item['line_total']   = self::wfps_price();				
 		}			
 		return $cart_item; 
 	}	
@@ -343,8 +345,9 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_get_cart_items_from_session( $cart_item, $values ) {
 	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
-			$cart_item['free_sample'] = isset( $values['simple-add-to-cart'] ) ? $values['simple-add-to-cart'] : $values['variable-add-to-cart'];
-			$cart_item['price'] 	  = self::wfps_price();
+			$cart_item['free_sample'] 		= isset( $values['simple-add-to-cart'] ) ? $values['simple-add-to-cart'] : $values['variable-add-to-cart'];
+			$cart_item['line_subtotal'] 	= self::wfps_price();
+			$cart_item['line_total'] 	  	= self::wfps_price();	
 		}    
 
 		return $cart_item;
@@ -424,7 +427,7 @@ class Woo_Free_Product_Sample_Public {
 	
 		foreach ( $cart->get_cart() as $key => $value ) {
 			if( isset( $value["sample_price"] ) ) {
-				$value['data']->set_price($value["sample_price"]);
+				$value['data']->set_price($value["sample_price"]);				
 			}				
 
 		}   
@@ -613,6 +616,27 @@ class Woo_Free_Product_Sample_Public {
 		}
 		
 		return $price;
+	}
+
+	
+	public function add_custom_price( $cart_object ) {
+	
+		if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+			return;
+	
+		if ( did_action( 'woocommerce_calculate_totals' ) >= 2 )
+			return;			
+		$cart_object->subtotal *= 12;
+	}
+	
+	public function wfps_item_subtotal( $subtotal, $cart_item, $cart_item_key ) {
+		
+		if( isset($cart_item['sample_price']) ) {
+			$newsubtotal = wc_price( $cart_item['sample_price'] * $cart_item['quantity'] ); 		 
+			$subtotal = $newsubtotal; 			
+		}
+		 
+		return $subtotal;
 	}
 
 
