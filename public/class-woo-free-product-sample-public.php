@@ -120,7 +120,7 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_button() {
 
 		global $product;
-		if ( ! $product->is_in_stock() ) {
+		if ( $product->is_in_stock() ) {
 
 			switch ( self::wfps_product_type() ) {
 				case "simple":
