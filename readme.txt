@@ -162,3 +162,6 @@ Fix pro lisence issue
 
 = 2.1.1 =
 Fix maximum order quantity in the cart page
+
+= 2.1.2 =
+Check product stock and display
