@@ -135,7 +135,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<?php
 				}
 			}
-
 			?>
 
 			<?php do_action( 'woocommerce_cart_contents' ); ?>

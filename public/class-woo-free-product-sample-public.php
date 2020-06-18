@@ -119,20 +119,24 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	public function wfps_button() {
 
-		switch ( self::wfps_product_type() ) {
-			case "simple":
-				$button = '<button type="submit" name="simple-add-to-cart" value="'.get_the_ID().'" class="woo-free-sample-button">'.$this->wfps_button_text().'</button>';
-				break;
-			case "variable":
-				$button = '<button type="submit" name="variable-add-to-cart" value="'.get_the_ID().'" class="woo-free-sample-button">'.$this->wfps_button_text().'</button>';
-				break;			
-			default:
-				$button = '';
-		} 
-		echo apply_filters( 
-					'woo_free_product_sample_button',
-					$button
-				);
+		global $product;
+		if ( ! $product->is_in_stock() ) {
+
+			switch ( self::wfps_product_type() ) {
+				case "simple":
+					$button = '<button type="submit" name="simple-add-to-cart" value="'.get_the_ID().'" class="woo-free-sample-button">'.$this->wfps_button_text().'</button>';
+					break;
+				case "variable":
+					$button = '<button type="submit" name="variable-add-to-cart" value="'.get_the_ID().'" class="woo-free-sample-button">'.$this->wfps_button_text().'</button>';
+					break;			
+				default:
+					$button = '';
+			} 
+			echo apply_filters( 
+						'woo_free_product_sample_button',
+						$button
+					);								
+		}
 
 	}	
 
