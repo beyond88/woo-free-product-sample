@@ -617,17 +617,6 @@ class Woo_Free_Product_Sample_Public {
 		
 		return $price;
 	}
-
-	
-	public function add_custom_price( $cart_object ) {
-	
-		if ( is_admin() && ! defined( 'DOING_AJAX' ) )
-			return;
-	
-		if ( did_action( 'woocommerce_calculate_totals' ) >= 2 )
-			return;			
-		$cart_object->subtotal *= 12;
-	}
 	
 	public function wfps_item_subtotal( $subtotal, $cart_item, $cart_item_key ) {
 		
@@ -638,6 +627,5 @@ class Woo_Free_Product_Sample_Public {
 		 
 		return $subtotal;
 	}
-
-
+	
 }
