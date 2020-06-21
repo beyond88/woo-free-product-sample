@@ -87,6 +87,18 @@ Yes, it will work with WooCommerce Measurement Price Calculator plugin.
 
 Yes, it will work with any standard WordPress theme.
 
+= Does it work whole store? =
+
+Yes, it will work for whole store.
+
+= Does it work work for individual product? =
+
+Yes, it will work for individual product.
+
+= Can it set sample for every single products? =
+
+Yes, it can set sample price for every single product.
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.
