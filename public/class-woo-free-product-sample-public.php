@@ -78,8 +78,9 @@ class Woo_Free_Product_Sample_Public {
 	 * @since    2.0.0
 	 * @param    none
 	 */
-	public static function wfps_price() {
-		return apply_filters( 'woo_free_product_sample_price', 0.00 );
+	public static function wfps_price( $product_id ) {	
+		//update_option( 'current_id', $product_id );	
+		return apply_filters( 'woo_free_product_sample_price', 0.00, $product_id );
 	}
 	
 	/**
@@ -333,9 +334,10 @@ class Woo_Free_Product_Sample_Public {
 
 		if( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample']  = isset( $_REQUEST['simple-add-to-cart'] ) ? sanitize_text_field( $_REQUEST['simple-add-to-cart'] ) : sanitize_text_field( $_REQUEST['variable-add-to-cart'] );
-			$cart_item['sample_price'] = self::wfps_price();
-			$cart_item['line_subtotal']= self::wfps_price();
-			$cart_item['line_total']   = self::wfps_price();				
+			$product_id = isset( $_REQUEST['simple-add-to-cart'] ) ? sanitize_text_field( $_REQUEST['simple-add-to-cart'] ) : sanitize_text_field( $_REQUEST['variable-add-to-cart'] );
+			$cart_item['sample_price'] = self::wfps_price( $product_id );
+			$cart_item['line_subtotal']= self::wfps_price( $product_id );
+			$cart_item['line_total']   = self::wfps_price( $product_id );				
 		}			
 		return $cart_item; 
 	}	
@@ -350,8 +352,9 @@ class Woo_Free_Product_Sample_Public {
 	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
 			$cart_item['free_sample'] 		= isset( $values['simple-add-to-cart'] ) ? $values['simple-add-to-cart'] : $values['variable-add-to-cart'];
-			$cart_item['line_subtotal'] 	= self::wfps_price();
-			$cart_item['line_total'] 	  	= self::wfps_price();	
+			$product_id 					= isset( $_REQUEST['simple-add-to-cart'] ) ? sanitize_text_field( $_REQUEST['simple-add-to-cart'] ) : sanitize_text_field( $_REQUEST['variable-add-to-cart'] );
+			$cart_item['line_subtotal'] 	= self::wfps_price( $product_id );
+			$cart_item['line_total'] 	  	= self::wfps_price( $product_id );	
 		}    
 
 		return $cart_item;
@@ -587,7 +590,7 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_alter_item_name ( $product_name, $cart_item, $cart_item_key ) {
 
 		$product 			= $cart_item['data']; // Get the WC_Product Object
-		$sample_price 		= self::wfps_price();
+		$sample_price 		= self::wfps_price( $cart_item['product_id'] );
 		$sample_price 		= str_replace( ",",".", $sample_price );
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $sample_price == $prod_price ) {
@@ -610,7 +613,8 @@ class Woo_Free_Product_Sample_Public {
 	 */
     public function wfps_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
-		$sample_price 		= self::wfps_price();
+		$product 			= $cart_item['data']; // Get the WC_Product Object
+		$sample_price 		= self::wfps_price( $cart_item['product_id'] );
 		$set_price 			= str_replace( ",", ".", $sample_price );
 		if( isset( $cart_item['sample_price'] ) ) {
 			$item_price 	= str_replace( ",", ".", $cart_item['sample_price'] );	
@@ -624,7 +628,7 @@ class Woo_Free_Product_Sample_Public {
 	
 	public function wfps_item_subtotal( $subtotal, $cart_item, $cart_item_key ) {
 		
-		if( isset($cart_item['sample_price']) ) {
+		if( isset( $cart_item['sample_price'] ) ) {
 			$newsubtotal = wc_price( $cart_item['sample_price'] * $cart_item['quantity'] ); 		 
 			$subtotal = $newsubtotal; 			
 		}
