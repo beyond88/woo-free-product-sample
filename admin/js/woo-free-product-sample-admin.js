@@ -28,6 +28,12 @@ jQuery(function ($) {
             $('.max_qty_per_order_area').show();
         }   
     });
+
+    $('body').on('submit', 'form.cart', function (e) {
+        if(document.getElementById('button').clicked == true){
+            alert("Hi");
+        }
+    });
     
 });
 

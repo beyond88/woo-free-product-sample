@@ -44,6 +44,8 @@ define( 'WFPS_PUBLIC_PATH', WFPS_ROOT_DIR_PATH . 'public/' );
 define( 'WFPS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WFPS_PLUGIN_NAME', 'Free Product Sample for WooCommerce' );
 
+include WFPS_ROOT_DIR_PATH . 'includes/woo-free-product-sample-functions.php';
+
 /**
  * Free Product Sample for WooCommerce Start.
  *

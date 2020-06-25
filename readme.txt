@@ -49,7 +49,9 @@ Capture compelling and real customer by giving capability to order a product sam
 
 == Pro Features (UPCOMING) ==
 
-**🔥 Conditonal Price:** Allows you to set conditional price for the sample products.
+**🎉 Conditonal Price:** Allows you to set conditional price for the sample products.
+
+**🎉 User role based Price:** Allows you to set user role based sample price.
 
 
 ## 🚀 Backed By A Trusted Team ##
@@ -91,11 +93,11 @@ Yes, it will work with any standard WordPress theme.
 
 Yes, it will work for whole store.
 
-= Does it work work for individual product? =
+= Does it work for individual product? =
 
 Yes, it will work for individual product.
 
-= Can it set sample for every single products? =
+= Can it set sample price for every single products? =
 
 Yes, it can set sample price for every single product.
 
