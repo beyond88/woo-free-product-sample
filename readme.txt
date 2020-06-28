@@ -71,13 +71,11 @@ This Free Product Sample for WooCommerce plugin is brought to you by the team be
 
 == Screenshots ==
 
-1.Free Product Sample Setting Tab.
-2.Display Order Free Sample button in Product Detail Page.
-3.Display Order Free Sample button in Product Detail Page.
-4.Added Product as Free Sample in Cart Page.
-5.Display in the Checkout Page.
-6.Display in the Order Receive Page.
-7.Display in the Order Detail Page. 
+1.Free Product Sample Setting Menu.
+2.Display Order Free Sample button in the Product Detail Page.
+3.Added Product as Free Sample in the Cart Page.
+4.Display in the Checkout Page.
+5.Display in the Order Receive Page.
 
 == Frequently Asked Questions ==
 
