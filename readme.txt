@@ -27,9 +27,11 @@ The easy way to handle free product sample. [Free Product Sample for WooCommerce
 
 ## 🛍️ Supercharge Your business with the Free Proudct Sample for WooCommerce.
 
-Capture compelling and real customer by giving capability to order a product sample. 
+Capture compelling and real customer by giving capability to show default quantity.
 
-**🔥 Free Sample Order Button:** Free Sample button will display beside Add to Cart button. Capability to order a product as a sample.
+## 3 WAYS TO SET DEFAULT QUANTITIES
+
+**🔥 Set a global, storewide WooCommerce default quantity
 
 **🔥 Button for Simple and Variable Product both:** Give access to order variable product as a sample.
 

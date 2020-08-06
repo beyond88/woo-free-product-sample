@@ -79,7 +79,6 @@ class Woo_Free_Product_Sample_Public {
 	 * @param    none
 	 */
 	public static function wfps_price( $product_id ) {	
-		//update_option( 'current_id', $product_id );	
 		return apply_filters( 'woo_free_product_sample_price', 0.00, $product_id );
 	}
 	
@@ -450,7 +449,7 @@ class Woo_Free_Product_Sample_Public {
 	
 		global $woocommerce;
 		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
-		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : null;
+		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : 'all';
 		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
 
 		if( ! isset( $disable_limit ) ) :
@@ -494,7 +493,7 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_cart_update_limit_order( $passed, $cart_item_key, $values, $updated_quantity ) {
 
 		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
-		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : null;
+		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : 'all';
 		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
 
 		if( ! isset( $disable_limit ) ) :
@@ -609,7 +608,7 @@ class Woo_Free_Product_Sample_Public {
 	 * Set sample price instead real price
 	 * 
 	 * @since      2.0.0
-	 * @param      int, array, array 
+	 * @param      float, array, array 
 	 */
     public function wfps_cart_item_price_filter( $price, $cart_item, $cart_item_key ) {
 	
@@ -625,7 +624,13 @@ class Woo_Free_Product_Sample_Public {
 		
 		return $price;
 	}
-	
+
+	/**
+	 * Set subtotal
+	 * 
+	 * @since      2.0.0
+	 * @param      float, array, array 
+	 */	
 	public function wfps_item_subtotal( $subtotal, $cart_item, $cart_item_key ) {
 		
 		if( isset( $cart_item['sample_price'] ) ) {
