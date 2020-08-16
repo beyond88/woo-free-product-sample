@@ -520,7 +520,8 @@ class Woo_Free_Product_Sample_Public {
 						wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
 					} else {
 						wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
-					}					
+					}	
+					$passed = false;				
 				}
 			}
 
