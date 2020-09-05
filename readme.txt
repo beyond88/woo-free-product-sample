@@ -179,3 +179,6 @@ Fix maximum order quantity in the cart page
 
 = 2.1.2 =
 Check product stock and display
+
+= 2.1.3 =
+Add message menu for to display validation notice
