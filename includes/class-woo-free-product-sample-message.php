@@ -14,7 +14,7 @@
 
 class Woo_Free_Product_Sample_Message {
 
-/**
+	/**
 	 * The option of this plugin.
 	 *
 	 * @since    2.0.0
