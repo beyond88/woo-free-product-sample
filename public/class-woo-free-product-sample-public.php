@@ -22,61 +22,13 @@ class Woo_Free_Product_Sample_Public {
 	 * @access   private
 	 * @var      string $version 
 	 */
-	private $version;
-
-	/**
-	 * The option of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */
-	public $_optionName  = 'woo_free_product_sample_settings';
-
-	/**
-	 * The option message of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public $_optionNameMessage  = 'woo_free_product_sample_message';	
+	private $version;		
 	
 	/**
-	 * The option group of this plugin.
-	 *
 	 * @since    2.0.0
-	 * @param    string 
+	 * @access   public 
+	 * @var      integer $_total 
 	 */	
-	public $_optionGroup = 'woo-free-product-sample-options-group';
-
-	/**
-	 * The option message group of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public $_optionGroupMessage = 'woo-free-product-sample-options-message';	
-	
-	/**
-	 * The default option of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    array 
-	 */	
-	public $_defaultOptions = array(
-		'button_label'          => 'Order a Sample',
-		'max_qty_per_order'		=> 5 
-	);
-
-	/**
-	 * The default option of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    array 
-	 */	
-	public $_defaultMessageOptions = array(
-		'qty_validation'      	   => ''	
-	);	
-	
 	public $_total = 1;
 
 	/**
@@ -417,62 +369,6 @@ class Woo_Free_Product_Sample_Public {
 	}
 
 	/**
-	 * Display validation message when order a product sample 
-	 *
-	 * @since      2.0.0
-	 * @param      int, array 
-	 */		
-	public function wfps_set_limit_per_order( $valid, $product_id ) {
-	
-		global $woocommerce;
-		$setting_options   = \Woo_Free_Product_Sample_Helper::wfps_settings();
-		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : 'all';
-		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;		
-
-		if( ! isset( $disable_limit ) ) :
-			foreach( $woocommerce->cart->get_cart() as $key => $val ) :
-
-				$message = \Woo_Free_Product_Sample_Message::validation_notice( $product_id );				
-				
-				if( 'product' == $notice_type ) {
-
-					if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) && ( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
-						if( get_locale() == 'ja' ) {
-							wc_add_notice( esc_html__( 'この商品を注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
-						} else {
-							
-							wc_add_notice( sprintf(
-								__( '%1$s.', 'woo-free-product-sample' ),
-								$message
-							), 'error');
-						}						
-						exit( wp_redirect( get_permalink($product_id) ) );						
-					}	
-
-				} else if( 'all' == $notice_type ) {
-
-					if( ( isset( $val['free_sample'] ) ) && ( $setting_options['max_qty_per_order'] <= Woo_Free_Product_Sample_Helper::wfps_cart_total() ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
-						if( get_locale() == 'ja' ) {
-							wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
-						} else {
-							
-							wc_add_notice( sprintf(
-								__( '%1$s.', 'woo-free-product-sample' ),
-								$message
-							), 'error');
-
-						}						
-						exit( wp_redirect( get_permalink($product_id) ) );						
-					}
-
-				}
-			endforeach; 
-		endif; 
-		return $valid;
-
-	}
-
-	/**
 	 * Show validation message in the cart page for maximum order
 	 * 
 	 * @since      2.0.0
@@ -481,7 +377,6 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_cart_update_limit_order( $passed, $cart_item_key, $values, $updated_quantity ) {
 
 		$product 		   = wc_get_product( $values['product_id'] );	
-
 		$setting_options   = \Woo_Free_Product_Sample_Helper::wfps_settings();
 		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : 'all';
 		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
@@ -502,8 +397,7 @@ class Woo_Free_Product_Sample_Public {
 							__( '%1$s.', 'woo-free-product-sample' ),
 							$message
 						), 'error');
-
-						wc_add_notice( esc_html__( 'You can order '.$product->get_name().' maximum  '.$setting_options['max_qty_per_order'].'  per order.', 'woo-free-product-sample' ), 'error' );
+						
 					}
 					
 					$passed = false;
