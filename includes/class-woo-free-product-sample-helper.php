@@ -65,8 +65,18 @@ class Woo_Free_Product_Sample_Helper {
 	 */	
 	public static $_defaultMessageOptions = array(
 		'qty_validation'      	   => ''	
-	);    
+	);
 
+	/**
+	 * Check product is in stock
+	 * 
+	 * @since    2.0.0
+	 * @param    none
+	 */	
+	public static function wfps_settings() {
+		return wp_parse_args( get_option(self::$_optionName), self::$_defaultOptions );
+	}	
+	
 	/**
 	 * Check product is in stock
 	 * 
@@ -76,7 +86,59 @@ class Woo_Free_Product_Sample_Helper {
 	public static function wfps_is_in_stock() {
         global $product;
         return $product->is_in_stock(); 
-	}    
+	}
+	
+	/**
+	 * Check product already is in cart
+	 * 
+	 * @since    2.0.0
+	 * @param    none
+	 */	
+	public static function wfps_check_sample_is_in_cart( $product_id ) { 
+
+		global $woocommerce;
+		$setting_options   = self::wfps_settings();
+		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
+		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : 'all';
+
+		if( isset( $disable_limit ) ) {
+			return TRUE;
+		}  else {
+			foreach( $woocommerce->cart->get_cart() as $key => $val ) {
+				if( 'product' == $notice_type ) {
+					if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) && ( $setting_options['max_qty_per_order'] <= $val['quantity'] ) ) {
+						return FALSE;
+					}
+				} else if( 'all' == $notice_type ) {
+					if( ( isset( $val['free_sample'] ) ) && ( $setting_options['max_qty_per_order'] <= self::wfps_cart_total() ) ) {
+						return FALSE;
+					}
+				} 
+			}	
+		} 
+		
+		return TRUE; 
+	}
+
+	/**
+	 * Check product quantity is in cart
+	 * 
+	 * @since    2.0.0
+	 * @param    none
+	 */	
+	public static function wfps_cart_total( ) {
+
+		global $woocommerce;
+		$total = 0;
+		foreach( $woocommerce->cart->get_cart() as $key => $val ) {
+			if( isset( $val['free_sample'] ) ) {				
+				$total += $val['quantity'];
+			}
+		}
+		return $total;		
+
+	}		
+
 
 	/**
 	 * Check product type in product details page
@@ -124,9 +186,19 @@ class Woo_Free_Product_Sample_Helper {
 	 * @param    none
 	 */	
 	public static function wfps_button_text() {
-		$setting_options   = wp_parse_args( get_option(self::$_optionName), self::$_defaultOptions );
+		$setting_options   = self::wfps_settings();
 		return isset( $setting_options['button_label'] ) ? esc_html__( $setting_options['button_label'], 'woo-free-product-sample' ) : esc_html__( 'Order a Free Sample', 'woo-free-product-sample' );
-	}    
+	}
+	
+	/**
+	 * Return sample price
+	 * 
+	 * @since    2.0.0
+	 * @param    none
+	 */
+	public static function wfps_price( $product_id ) {	
+		return apply_filters( 'woo_free_product_sample_price', 0.00, $product_id );
+	}
 
 
 }
