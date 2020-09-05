@@ -126,7 +126,7 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_action( 'plugins_loaded', $plugin_admin, 'wfps_set_default_options' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'wfps_settings_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'wfps_menu_register_settings' );
-		$this->loader->add_filter( 'request_support_ticket', $plugin_admin, 'wfps_request_support_ticket' );
+
 	}
 
 	/**

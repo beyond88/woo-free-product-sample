@@ -58,12 +58,9 @@
 
                         </div>
                         <!-- .postbox -->
-                        
- 
+            
                     </div>
-                    <div class="sidebar">
-                    </div>
-
+                    <div class="sidebar"></div>
                 </div>
                 <!-- .meta-box-sortables .ui-sortable -->
 
