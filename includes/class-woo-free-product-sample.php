@@ -83,7 +83,13 @@ class Woo_Free_Product_Sample {
 		 * The class responsible for defining settings options responsibility
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/includes/class-woo-free-product-sample-settings.php';		
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/includes/class-woo-free-product-sample-settings.php';	
+		
+		/**
+		 * The class responsible for defining message options responsibility
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-free-product-sample-message.php';		
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
