@@ -99,8 +99,11 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    string, string 
 	 */
 	public function __construct( $plugin_name, $version ) {
+
 		$this->plugin_name 	= $plugin_name;
 		$this->version 		= $version;
+		
+		add_filter('plugin_row_meta', array($this, 'plugin_meta_links'), 10, 2);
 	}	
 
 	/**
@@ -229,6 +232,29 @@ class Woo_Free_Product_Sample_Admin {
 
 		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-message.php';
 
+	}
+
+	/**
+	 * Add links to plugin's description in plugins table
+	 *
+	 * @since    2.0.0
+	 * @param    none
+	 * @return   void
+	 */
+	public function plugin_meta_links($links, $file){
+		if ($file !== plugin_basename(WFPS_FILE)) {
+			return $links;
+		}
+
+		$support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/woo-free-product-sample/" title="' . __('Get help', 'woo-free-product-sample') . '">' . __('Support', 'woo-free-product-sample') . '</a>';
+		$home_link = '<a target="_blank" href="https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/" title="' . __('Plugin Homepage', 'woo-free-product-sample') . '">' . __('Plugin Homepage', 'woo-free-product-sample') . '</a>';
+		$rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/woo-free-product-sample/reviews/#new-post" title="' . __('Rate the plugin', 'woo-free-product-sample') . '">' . __('Rate the plugin ★★★★★', 'woo-free-product-sample') . '</a>';
+
+		$links[] = $support_link;
+		$links[] = $home_link;
+		$links[] = $rate_link;
+
+		return $links;
 	}
 
 }
