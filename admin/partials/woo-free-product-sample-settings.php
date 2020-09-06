@@ -7,7 +7,6 @@
         $activation_info = get_option( $this->_activation ); ?>
     <div id="poststuff">
         <div class="metabox-holder columns-2">
-            <!-- main content -->
             <div id="post-body-content">
                 <div class="meta-box-sortables ui-sortable" style="position:relative">
                     <div class="wfps_settings_outer_left">
@@ -20,11 +19,8 @@
 									?>
 									<table class="form-table">
 										<tbody>
-
-											<?php
-												foreach( $settings as  $key => $value ) :
-											?>
-											
+											<?php foreach( $settings as  $key => $value ) : ?>
+												
 											<tr <?php if( isset( $value['position'] ) ) { echo  $value['style']; } ?>>
 												<th scope="row">
 													<label for="<?php echo $value['name']; ?>">
@@ -54,28 +50,13 @@
 									<?php submit_button(); ?>
 								</form>
                             </div>
-                            <!-- .inside -->
-
                         </div>
-                        <!-- .postbox -->
-            
                     </div>
                     <div class="sidebar"></div>
                 </div>
-                <!-- .meta-box-sortables .ui-sortable -->
-
             </div>
-            <!-- post-body-content -->
-
-
-            <!-- #postbox-container-1 .postbox-container -->
-
         </div>
-        <!-- #post-body .metabox-holder .columns-2 -->
         <div id="post-body" class="metabox-holder columns-2"></div>
-
         <br class="clear">
     </div>
-    <!-- #poststuff -->
-
-</div> <!-- .wrap -->
+</div> 

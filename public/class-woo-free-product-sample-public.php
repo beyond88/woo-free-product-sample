@@ -380,7 +380,6 @@ class Woo_Free_Product_Sample_Public {
 		$setting_options   = \Woo_Free_Product_Sample_Helper::wfps_settings();
 		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : 'all';
 		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
-
 		$message 		   = \Woo_Free_Product_Sample_Message::validation_notice( $product->get_id() );
 
 		if( ! isset( $disable_limit ) ) :
@@ -478,8 +477,7 @@ class Woo_Free_Product_Sample_Public {
 				$product_name   = esc_html__( 'サンプル - ', 'woo-free-product-sample' ).$product_name;		
 			} else {
 				$product_name   = esc_html__( 'Sample - ', 'woo-free-product-sample' ).$product_name;
-			}
-			
+			}			
 		}
 
 		return $product_name;
