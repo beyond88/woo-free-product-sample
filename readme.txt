@@ -3,7 +3,7 @@ Contributors: thewpnext, hossain88
 Donate Link: http://thewpnext.com
 Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce
 Requires at least: 4.4
-Tested up to: 5.4.1
+Tested up to: 5.5.1
 WC requires at least: 3.1
 WC tested up to: 4.1.0
 Requires PHP: 5.6
@@ -27,9 +27,11 @@ The easy way to handle free product sample. [Free Product Sample for WooCommerce
 
 ## 🛍️ Supercharge Your business with the Free Proudct Sample for WooCommerce.
 
-Capture compelling and real customer by giving capability to order a product sample. 
+Capture compelling and real customer by giving capability to show default quantity.
 
-**🔥 Free Sample Order Button:** Free Sample button will display beside Add to Cart button. Capability to order a product as a sample.
+## 3 WAYS TO SET DEFAULT QUANTITIES
+
+**🔥 Set a global, storewide WooCommerce default quantity
 
 **🔥 Button for Simple and Variable Product both:** Give access to order variable product as a sample.
 
@@ -49,7 +51,9 @@ Capture compelling and real customer by giving capability to order a product sam
 
 == Pro Features (UPCOMING) ==
 
-**🔥 Conditonal Price:** Allows you to set conditional price for the sample products.
+**🎉 Conditonal Price:** Allows you to set conditional price for the sample products.
+
+**🎉 User role based Price:** Allows you to set user role based sample price.
 
 
 ## 🚀 Backed By A Trusted Team ##
@@ -69,13 +73,11 @@ This Free Product Sample for WooCommerce plugin is brought to you by the team be
 
 == Screenshots ==
 
-1.Free Product Sample Setting Tab.
-2.Display Order Free Sample button in Product Detail Page.
-3.Display Order Free Sample button in Product Detail Page.
-4.Added Product as Free Sample in Cart Page.
-5.Display in the Checkout Page.
-6.Display in the Order Receive Page.
-7.Display in the Order Detail Page. 
+1.Free Product Sample Setting Menu.
+2.Display Order Free Sample button in the Product Detail Page.
+3.Added Product as Free Sample in the Cart Page.
+4.Display in the Checkout Page.
+5.Display in the Order Receive Page.
 
 == Frequently Asked Questions ==
 
@@ -86,6 +88,18 @@ Yes, it will work with WooCommerce Measurement Price Calculator plugin.
 = Does it work with any WordPress theme? =
 
 Yes, it will work with any standard WordPress theme.
+
+= Does it work whole store? =
+
+Yes, it will work for whole store.
+
+= Does it work for individual product? =
+
+Yes, it will work for individual product.
+
+= Can it set sample price for every single products? =
+
+Yes, it can set sample price for every single product.
 
 == Installation ==
 
@@ -165,3 +179,6 @@ Fix maximum order quantity in the cart page
 
 = 2.1.2 =
 Check product stock and display
+
+= 2.1.3 =
+Add message menu for to display validation notice
