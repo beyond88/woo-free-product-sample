@@ -8,7 +8,7 @@
  * Plugin Name:       Free Product Sample for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woo-free-product-sample
  * Description:       Display an add to cart button in the product detail page to order product as free sample.  
- * Version:           2.1.2
+ * Version:           2.1.3
  * Author:            TheWPNext
  * Author URI:        https://www.thewpnext.com
  * License:           GPL-2.0+
@@ -17,7 +17,7 @@
  * Domain Path:       /languages
  * Requires PHP:      5.6
  * Requires at least: 4.4
- * Tested up to:      5.4.1
+ * Tested up to:      5.5.1
  *
  * WC requires at least: 3.1
  * WC tested up to:   4.1.0 
@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'WFPS_VERSION', '2.1.2' );
+define( 'WFPS_VERSION', '2.1.3' );
 define( 'WFPS_MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'WFPS_MINIMUM_WP_VERSION', '4.4' );
 define( 'WFPS_MINIMUM_WC_VERSION', '3.0.9' );
@@ -345,56 +345,3 @@ class Woo_Free_Product_Sample_Start {
 
 // fire it up!
 Woo_Free_Product_Sample_Start::instance();
-
-
-// remove the filter 
-add_filter( 'woocommerce_cart_redirect_after_error', '__return_false'); 
-
-add_action( 'woocommerce_add_to_cart_validation', 'restrict_only_one_item_in_cart' );
-
- function restrict_only_one_item_in_cart($cart_item_data) {
-
-   global $woocommerce;
-   $item_count = $woocommerce->cart->cart_contents_count;
-
-   if($item_count > 1)
-   {
-      //WE WILL EXECUTE JAVASCRIPT BELOW INSTEAD
-      return false;
-   }
-
-   return $cart_item_data;
-}
-
-// The Jquery script
-add_action( 'wp_footer', 'cart_full' );
-function cart_full() {
-    ?>
-    <script src="https://unpkg.com/sweetalert2@7.20.1/dist/sweetalert2.all.js"></script>
-    <script type="text/javascript">
-    jQuery( function($){
-        // The Ajax function
-        $(document.body).on('added_to_cart', function() {
-            console.log('event');
-            $.ajax({
-                type: 'POST',
-                url: wc_add_to_cart_params.ajax_url,
-                data: {
-                    'action': 'checking_cart_items',
-                    'added' : 'yes'
-                },
-                success: function (response) {
-                    if( response >= 20 ){
-                        swal(
-                            'Youve added the max items!',
-                            'Change Your box',
-                            'error'
-                        );
-                    }
-                }
-            });
-        });
-    });
-    </script>
-    <?php
-}
