@@ -29,11 +29,7 @@ The easy way to handle free product sample. [Free Product Sample for WooCommerce
 
 Capture compelling and real customer by giving capability to show default quantity.
 
-## 3 WAYS TO SET DEFAULT QUANTITIES
-
-**🔥 Set a global, storewide WooCommerce default quantity
-
-**🔥 Button for Simple and Variable Product both:** Give access to order variable product as a sample.
+🔥 Button for Simple and Variable Product both: Give access to order variable product as a sample.
 
 
 == Pro Features ==
