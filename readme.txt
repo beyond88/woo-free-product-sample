@@ -178,3 +178,6 @@ Check product stock and display
 
 = 2.1.3 =
 Add message menu for to display validation notice
+
+= 2.1.4 =
+Added add to cart validation
