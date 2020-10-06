@@ -409,7 +409,7 @@ class Woo_Free_Product_Sample_Public {
 
 				} else if( 'all' == $notice_type ) {
 
-					if( ( isset( $val['free_sample'] ) ) && ( $setting_options['max_qty_per_order'] <= $this->wfps_cart_total() ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
+					if( ( isset( $val['free_sample'] ) ) && ( $setting_options['max_qty_per_order'] <= \Woo_Free_Product_Sample_Helper::wfps_cart_total() ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
 						if( get_locale() == 'ja' ) {
 							wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
 						} else {
