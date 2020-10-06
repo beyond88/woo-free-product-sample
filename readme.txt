@@ -181,3 +181,7 @@ Add message menu for to display validation notice
 
 = 2.1.4 =
 Added add to cart validation
+
+= 2.1.5 =
+Added WooCommerce Measurement Price Calculator Compability, fix php errors
+
