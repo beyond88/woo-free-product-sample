@@ -377,7 +377,7 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_set_limit_per_order( $valid, $product_id ) {
 	
 		global $woocommerce;
-		$setting_options   = wp_parse_args( get_option($this->_optionName), $this->_defaultOptions );
+		$setting_options   = \Woo_Free_Product_Sample_Helper::wfps_settings();
 		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : null;
 		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
 
