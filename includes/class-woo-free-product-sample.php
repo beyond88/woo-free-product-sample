@@ -50,7 +50,7 @@ class Woo_Free_Product_Sample {
 		if ( defined( 'WFPS_VERSION' ) ) {
 			$this->version = WFPS_VERSION;
 		} else {
-			$this->version = '2.1.4';
+			$this->version = '2.1.5';
 		}
 		$this->plugin_name = 'woo-free-product-sample';
 
@@ -149,7 +149,7 @@ class Woo_Free_Product_Sample {
 	private function define_public_hooks() {
 
 		$plugin_public = new Woo_Free_Product_Sample_Public( $this->get_plugin_name(), $this->get_version() );
-
+		$this->loader->add_action( 'woocommerce_init', $plugin_public, 'init' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'wfps_enqueue_styles' );
 		$this->loader->add_filter( 'plugins_loaded', $plugin_public, 'wfps_price' );	
 		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public, 'wfps_button', 5 );	

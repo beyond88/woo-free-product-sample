@@ -40,6 +40,7 @@ class Woo_Free_Product_Sample_Public {
 
 		$this->plugin_name 	= $plugin_name;
 		$this->version 		= $version;	
+
 	}
 
 	/**
@@ -49,6 +50,17 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_enqueue_styles() {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-free-product-sample-public.css', array(), $this->version, 'all' );
 	}
+
+	/**
+	 *
+	 * @since    2.1.4
+	 */
+	public function init() {
+		// filter for Measurement Price Calculator plugin override overriding
+		if (in_array('woocommerce-measurement-price-calculator/woocommerce-measurement-price-calculator.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+			add_filter('wc_measurement_price_calculator_add_to_cart_validation', array($this, 'wfps_measurement_price_calculator_add_to_cart_validation'), 10, 4 );
+		}
+	}	
 
 	/**
 	 * Display sample button
@@ -564,5 +576,21 @@ class Woo_Free_Product_Sample_Public {
 		 
 		return $subtotal;
 	}
+
+	/**
+	 * Check Measurement Price Calculation Validation
+	 * 
+	 * @since      2.0.0
+	 * @param      boolean, integer, integer, array 
+	 */		
+	function wfps_measurement_price_calculator_add_to_cart_validation ($valid, $product_id, $quantity, $measurements){
+		global $woocommerce;
+		$validation = $valid;
+		if ( $_REQUEST['simple-add-to-cart'] || $_REQUEST['variable-add-to-cart'] ) {
+			$woocommerce->session->set( 'wc_notices', null );
+			$validation = true;
+		}
+		return $validation;
+	}	
 	
 }
