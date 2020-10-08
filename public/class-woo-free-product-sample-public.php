@@ -40,6 +40,7 @@ class Woo_Free_Product_Sample_Public {
 
 		$this->plugin_name 	= $plugin_name;
 		$this->version 		= $version;	
+
 	}
 
 	/**
@@ -49,6 +50,17 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_enqueue_styles() {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-free-product-sample-public.css', array(), $this->version, 'all' );
 	}
+
+	/**
+	 *
+	 * @since    2.1.4
+	 */
+	public function init() {
+		// filter for Measurement Price Calculator plugin override overriding
+		if (in_array('woocommerce-measurement-price-calculator/woocommerce-measurement-price-calculator.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+			add_filter('wc_measurement_price_calculator_add_to_cart_validation', array($this, 'wfps_measurement_price_calculator_add_to_cart_validation'), 10, 4 );
+		}
+	}	
 
 	/**
 	 * Display sample button
@@ -368,6 +380,51 @@ class Woo_Free_Product_Sample_Public {
 		}   
 	}
 
+/**
+	 * Display validation message when order a product sample 
+	 *
+	 * @since      2.0.0
+	 * @param      int, array 
+	 */		
+	public function wfps_set_limit_per_order( $valid, $product_id ) {
+	
+		global $woocommerce;
+		$setting_options   = \Woo_Free_Product_Sample_Helper::wfps_settings();
+		$notice_type 	   = isset( $setting_options['limit_per_order'] ) ? $setting_options['limit_per_order'] : null;
+		$disable_limit 	   = isset( $setting_options['disable_limit_per_order'] ) ? $setting_options['disable_limit_per_order'] : null;
+
+		if( ! isset( $disable_limit ) ) :
+			foreach( $woocommerce->cart->get_cart() as $key => $val ) :
+				
+				if( 'product' == $notice_type ) {
+
+					if( ( isset( $val['free_sample'] ) && $product_id == $val['free_sample'] ) && ( $setting_options['max_qty_per_order'] <= $val['quantity'] ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
+						if( get_locale() == 'ja' ) {
+							wc_add_notice( esc_html__( 'この商品を注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
+						} else {
+							wc_add_notice( esc_html__( 'You can order this product '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						}						
+						exit( wp_redirect( get_permalink($product_id) ) );						
+					}	
+
+				} else if( 'all' == $notice_type ) {
+
+					if( ( isset( $val['free_sample'] ) ) && ( $setting_options['max_qty_per_order'] <= \Woo_Free_Product_Sample_Helper::wfps_cart_total() ) && ( isset( $_REQUEST['simple-add-to-cart'] ) || isset( $_REQUEST['variable-add-to-cart'] ) ) ) {
+						if( get_locale() == 'ja' ) {
+							wc_add_notice( esc_html__( 'サンプル商品を最大で注文できます '.$setting_options['max_qty_per_order'].' 注文あたりの数量。', 'woo-free-product-sample' ), 'error' );
+						} else {
+							wc_add_notice( esc_html__( 'You can order sample product maximum '.$setting_options['max_qty_per_order'].' quantity per order.', 'woo-free-product-sample' ), 'error' );
+						}						
+						exit( wp_redirect( get_permalink($product_id) ) );						
+					}
+
+				}
+			endforeach; 
+		endif; 
+		return $valid;
+
+	}	
+
 	/**
 	 * Show validation message in the cart page for maximum order
 	 * 
@@ -519,5 +576,21 @@ class Woo_Free_Product_Sample_Public {
 		 
 		return $subtotal;
 	}
+
+	/**
+	 * Check Measurement Price Calculation Validation
+	 * 
+	 * @since      2.0.0
+	 * @param      boolean, integer, integer, array 
+	 */		
+	function wfps_measurement_price_calculator_add_to_cart_validation ($valid, $product_id, $quantity, $measurements){
+		global $woocommerce;
+		$validation = $valid;
+		if ( $_REQUEST['simple-add-to-cart'] || $_REQUEST['variable-add-to-cart'] ) {
+			$woocommerce->session->set( 'wc_notices', null );
+			$validation = true;
+		}
+		return $validation;
+	}	
 	
 }

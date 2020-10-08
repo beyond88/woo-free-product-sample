@@ -50,7 +50,7 @@ class Woo_Free_Product_Sample {
 		if ( defined( 'WFPS_VERSION' ) ) {
 			$this->version = WFPS_VERSION;
 		} else {
-			$this->version = '2.1.3';
+			$this->version = '2.1.6';
 		}
 		$this->plugin_name = 'woo-free-product-sample';
 
@@ -149,7 +149,7 @@ class Woo_Free_Product_Sample {
 	private function define_public_hooks() {
 
 		$plugin_public = new Woo_Free_Product_Sample_Public( $this->get_plugin_name(), $this->get_version() );
-
+		$this->loader->add_action( 'woocommerce_init', $plugin_public, 'init' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'wfps_enqueue_styles' );
 		$this->loader->add_filter( 'plugins_loaded', $plugin_public, 'wfps_price' );	
 		$this->loader->add_action( 'woocommerce_after_add_to_cart_button', $plugin_public, 'wfps_button', 5 );	
@@ -157,6 +157,7 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'wfps_apply_sample_price_to_cart_item', 10 );			
 		$this->loader->add_filter( 'woocommerce_add_cart_item_data', $plugin_public, 'wfps_store_id', 10, 2 );
 		$this->loader->add_filter( 'wc_add_to_cart_message_html', $plugin_public, 'wfps_add_to_cart_message', 99, 4 );
+		$this->loader->add_filter( 'woocommerce_add_to_cart_validation', $plugin_public, 'wfps_set_limit_per_order', 99, 4 );
 		$this->loader->add_filter( 'woocommerce_get_cart_item_from_session', $plugin_public, 'wfps_get_cart_items_from_session', 10, 2 );
 		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'wfps_save_posted_data_into_order', 10, 2 );
 		$this->loader->add_filter( 'woocommerce_locate_template', $plugin_public, 'wfps_set_locate_template', 10, 3 );	
