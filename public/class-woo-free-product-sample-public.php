@@ -56,10 +56,24 @@ class Woo_Free_Product_Sample_Public {
 	 * @since    2.1.4
 	 */
 	public function init() {
+		
 		// filter for Measurement Price Calculator plugin override overriding
 		if (in_array('woocommerce-measurement-price-calculator/woocommerce-measurement-price-calculator.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 			add_filter('wc_measurement_price_calculator_add_to_cart_validation', array($this, 'wfps_measurement_price_calculator_add_to_cart_validation'), 10, 4 );
 		}
+
+		// filter for Minimum/Maximum plugin override overriding
+		if (in_array('woocommerce-min-max-quantities/min-max-quantities.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+			add_filter('wc_min_max_quantity_minimum_allowed_quantity', array( $this, 'wfps_minimum_quantity'), 10, 4 );
+			add_filter('wc_min_max_quantity_maximum_allowed_quantity', array( $this, 'wfps_maximum_quantity'), 10, 4 );
+			add_filter('wc_min_max_quantity_group_of_quantity', array( $this, 'wfps_group_of_quantity'), 10, 4 );
+		}
+
+		// filter for WooCommerce Chained Products plugin override overriding
+		if (in_array('woocommerce-chained-products/woocommerce-chained-products.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+			add_action( 'wc_after_chained_add_to_cart', array( $this, 'wfps_remove_chained_products' ), 20, 6 );
+		}
+
 	}	
 
 	/**
@@ -583,7 +597,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      2.0.0
 	 * @param      boolean, integer, integer, array 
 	 */		
-	function wfps_measurement_price_calculator_add_to_cart_validation ($valid, $product_id, $quantity, $measurements){
+	public function wfps_measurement_price_calculator_add_to_cart_validation ($valid, $product_id, $quantity, $measurements){
 		global $woocommerce;
 		$validation = $valid;
 		if ( $_REQUEST['simple-add-to-cart'] || $_REQUEST['variable-add-to-cart'] ) {
@@ -591,6 +605,65 @@ class Woo_Free_Product_Sample_Public {
 			$validation = true;
 		}
 		return $validation;
+	}
+	
+	/**
+	 * Filter for Minimum/Maximum plugin overriding
+	 * 
+	 * @since      2.0.0
+	 * @param      integer, integer, integer, array, array 
+	 */		
+	public function wfps_minimum_quantity($minimum_quantity, $checking_id, $cart_item_key, $values){
+		if ( $_REQUEST['simple-add-to-cart'] || $_REQUEST['variable-add-to-cart'] )
+			$minimum_quantity = 1;
+		return $minimum_quantity;
+	}
+
+	/**
+	 * Filter for Minimum/Maximum plugin overriding
+	 * 
+	 * @since      2.0.0
+	 * @param      integer, integer, integer, array, array 
+	 */		
+	public function wfps_maximum_quantity($maximum_quantity, $checking_id, $cart_item_key, $values){
+		if ( $_REQUEST['simple-add-to-cart'] || $_REQUEST['variable-add-to-cart'] )
+			$maximum_quantity = 1;
+		return $maximum_quantity;
+	}
+
+	/**
+	 * Filter for Minimum/Maximum plugin overriding
+	 * 
+	 * @since      2.0.0
+	 * @param      integer, integer, integer, array, array 
+	 */		
+	public function wfps_group_of_quantity($group_of_quantity, $checking_id, $cart_item_key, $values){
+		if ( $_REQUEST['simple-add-to-cart'] || $_REQUEST['variable-add-to-cart'] ) 
+			$group_of_quantity = 1;
+		return $group_of_quantity;
+	}
+	
+	/**
+	 * Filter for Minimum/Maximum plugin overriding
+	 * 
+	 * @since      2.0.0
+	 * @param      integer, integer, integer, array, array 
+	 */		
+	public function wfps_remove_chained_products ($chained_parent_id, $quantity, $chained_variation_id, $chained_variation_data, $chained_cart_item_data, $cart_item_key){
+		global $woocommerce;
+		$cart = $woocommerce->cart->get_cart();
+		$main_is_sample = $cart[$cart_item_key]['sample'];
+		if ($main_is_sample) {
+			$main_product_id = $cart[$cart_item_key]['product_id'];
+			if ( !get_post_meta($main_product_id, 'sample_chained_enambled', true) ) {
+				foreach ($cart as $cart_key => $cart_item) {
+					if ($cart_item['product_id'] == $chained_parent_id) {
+						$woocommerce->cart->remove_cart_item($cart_key);
+						break;
+					}
+				}
+			}
+		}
 	}	
 	
 }
