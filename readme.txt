@@ -81,6 +81,14 @@ This Free Product Sample for WooCommerce plugin is brought to you by the team be
 
 Yes, it will work with WooCommerce Measurement Price Calculator plugin.
 
+= Does it work with WooCommerce Min/Max Quantities plugin? =
+
+Yes, it will work with WooCommerce Min/Max Quantities plugin.
+
+= Does it work with Dokan plugin? =
+
+Yes, it will work with Dokan.
+
 = Does it work with any WordPress theme? =
 
 Yes, it will work with any standard WordPress theme.
