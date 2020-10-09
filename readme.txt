@@ -184,3 +184,9 @@ Added add to cart validation
 
 = 2.1.5 =
 Fix cart total checking
+
+= 2.1.6 =
+Fix cart total checking
+
+= 2.1.7 =
+Added WooCommerce Min/Max Quantity plugin compatibility
