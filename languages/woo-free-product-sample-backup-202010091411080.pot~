@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Language: \n"
-"POT-Creation-Date: 2020-08-29 14:02+0000\n"
+"POT-Creation-Date: 2020-09-05 18:39+0000\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/"
@@ -19,52 +19,43 @@ msgstr ""
 msgid "Get Pro"
 msgstr ""
 
-#: admin/class-woo-free-product-sample-admin.php:112
-#: admin/class-woo-free-product-sample-admin.php:113
-msgid "Product Sample"
-msgstr ""
-
-#: admin/class-woo-free-product-sample-admin.php:191
-msgid "Submit a topic"
-msgstr ""
-
-#: admin/class-woo-free-product-sample-admin.php:193
-msgid "Submit a ticket"
-msgstr ""
-
-#: public/class-woo-free-product-sample-public.php:93
+#: includes/class-woo-free-product-sample-helper.php:190
 msgid "Order a Free Sample"
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:462
-#: public/class-woo-free-product-sample-public.php:473
-#: public/class-woo-free-product-sample-public.php:520
-msgid " 注文あたりの数量。"
+#: admin/class-woo-free-product-sample-admin.php:133
+#: admin/class-woo-free-product-sample-admin.php:134
+msgid "Product Sample"
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:464
-#: public/class-woo-free-product-sample-public.php:475
-#: public/class-woo-free-product-sample-public.php:522
-msgid " quantity per order."
+#: admin/class-woo-free-product-sample-admin.php:147
+#: admin/class-woo-free-product-sample-admin.php:148
+msgid "Message"
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:508
+#: public/class-woo-free-product-sample-public.php:393
 msgid "  注文ごと。"
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:510
-msgid "  per order."
+#: public/class-woo-free-product-sample-public.php:397
+#: public/class-woo-free-product-sample-public.php:413
+#, php-format
+msgid "%1$s."
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:561
-#: public/class-woo-free-product-sample-public.php:598
+#: public/class-woo-free-product-sample-public.php:410
+msgid " 注文あたりの数量。"
+msgstr ""
+
+#: public/class-woo-free-product-sample-public.php:441
+#: public/class-woo-free-product-sample-public.php:478
 #: public/partials/woocommerce/order/order-details-item.php:43
 #: public/partials/woocommerce/cart/mini-cart.php:64
 msgid "サンプル - "
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:563
-#: public/class-woo-free-product-sample-public.php:600
+#: public/class-woo-free-product-sample-public.php:443
+#: public/class-woo-free-product-sample-public.php:480
 #: public/partials/woocommerce/order/order-details-item.php:45
 #: public/partials/woocommerce/cart/mini-cart.php:66
 msgid "Sample - "
@@ -95,6 +86,14 @@ msgstr ""
 #: admin/includes/class-woo-free-product-sample-settings.php:64
 #: admin/includes/class-woo-free-product-sample-settings.php:67
 msgid "Maximum Quantity Per Order"
+msgstr ""
+
+#: admin/partials/woo-free-product-sample-message.php:23
+msgid "Maximum quantity message"
+msgstr ""
+
+#: admin/partials/woo-free-product-sample-message.php:29
+msgid "{product} and {qty} for dynamic content."
 msgstr ""
 
 #: admin/includes/fields/multi-select.php:3
