@@ -380,7 +380,7 @@ class Woo_Free_Product_Sample_Public {
 		}   
 	}
 
-/**
+	/**
 	 * Display validation message when order a product sample 
 	 *
 	 * @since      2.0.0
