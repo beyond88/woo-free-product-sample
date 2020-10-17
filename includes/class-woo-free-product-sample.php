@@ -50,7 +50,7 @@ class Woo_Free_Product_Sample {
 		if ( defined( 'WFPS_VERSION' ) ) {
 			$this->version = WFPS_VERSION;
 		} else {
-			$this->version = '2.1.7';
+			$this->version = '2.1.8';
 		}
 		$this->plugin_name = 'woo-free-product-sample';
 
@@ -164,7 +164,13 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_filter( 'woocommerce_cart_item_name', $plugin_public, 'wfps_alter_item_name', 10, 3 );	
 		$this->loader->add_filter( 'woocommerce_cart_item_price', $plugin_public, 'wfps_cart_item_price_filter', 10, 3 );
 		$this->loader->add_filter( 'woocommerce_update_cart_validation', $plugin_public, 'wfps_cart_update_limit_order', 10, 4 );		
-		$this->loader->add_filter( 'woocommerce_cart_item_subtotal',  $plugin_public, 'wfps_item_subtotal', 99, 3 );		
+		$this->loader->add_filter( 'woocommerce_cart_item_subtotal',  $plugin_public, 'wfps_item_subtotal', 99, 3 );
+		
+		// filter for Minimum/Maximum plugin override overriding
+		$this->loader->add_action( 'woocommerce_before_template_part', $plugin_public, 'check_cart_items' );
+		$this->loader->add_action( 'woocommerce_check_cart_items', $plugin_public, 'check_cart_items' );
+		$this->loader->add_filter( 'wc_min_max_quantity_minmax_do_not_count', $plugin_public, 'wfps_cart_exclude', 10, 4 );
+		$this->loader->add_filter( 'wc_min_max_quantity_minmax_cart_exclude', $plugin_public, 'wfps_cart_exclude', 10, 4 );
 
 	}
 

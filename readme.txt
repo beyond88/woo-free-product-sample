@@ -197,4 +197,7 @@ Fix cart total checking
 Fix cart total checking
 
 = 2.1.7 =
-Added WooCommerce Min/Max Quantity plugin compatibility
+Added WooCommerce Min/Max Quanties plugin compatibility
+
+= 2.1.8 =
+Fix WooCommerce Min/Max Quanties issue for cart, and checkout page 
