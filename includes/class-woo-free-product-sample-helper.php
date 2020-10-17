@@ -12,6 +12,8 @@
  * @author     hossain88 <muhin.cse.diu@gmail.com> 
  */
 
+namespace Inc; 
+
 class Woo_Free_Product_Sample_Helper {
 
 /**
