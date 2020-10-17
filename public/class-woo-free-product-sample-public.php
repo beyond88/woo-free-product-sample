@@ -39,8 +39,7 @@ class Woo_Free_Product_Sample_Public {
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name 	= $plugin_name;
-		$this->version 		= $version;	
-
+		$this->version 		= $version;
 	}
 
 	/**
@@ -66,7 +65,8 @@ class Woo_Free_Product_Sample_Public {
 		if (in_array('woocommerce-min-max-quantities/min-max-quantities.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 			add_filter('wc_min_max_quantity_minimum_allowed_quantity', array( $this, 'wfps_minimum_quantity'), 10, 4 );
 			add_filter('wc_min_max_quantity_maximum_allowed_quantity', array( $this, 'wfps_maximum_quantity'), 10, 4 );
-			add_filter('wc_min_max_quantity_group_of_quantity', array( $this, 'wfps_group_of_quantity'), 10, 4 );
+			add_filter('wc_min_max_quantity_group_of_quantity', array( $this, 'wfps_group_of_quantity'), 10, 4 );			
+			// Check items.			
 		}
 
 		// filter for WooCommerce Chained Products plugin override overriding
@@ -664,6 +664,48 @@ class Woo_Free_Product_Sample_Public {
 				}
 			}
 		}
-	}	
+	}
+	
+	/**
+	 * Check WooCommerce min/max quantities validation message
+	 * 
+	 * @since      2.0.0
+	 * @param      array 
+	 */	
+	public function check_cart_items() {
+		if ( class_exists('WC_Min_Max_Quantities') ) {
+			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+				if($values['free_sample'] == $values['product_id']) {
+					wc_clear_notices();
+				}
+			}
+		}
+	}
+
+	/**
+	 * Check WooCommerce min/max quantities validation message
+	 * 
+	 * @since      2.0.0
+	 * @param      array 
+	 */	
+	public function wfps_cart_exclude( $exclude, $checking_id, $cart_item_key, $values ) {
+		if ( class_exists('WC_Min_Max_Quantities') ) {
+			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+				if($values['free_sample'] == $values['product_id']) {
+					return 'yes';
+				}
+			}
+		}
+	}
+
+	public function wfps_cart_do_not_count( $exclude, $checking_id, $cart_item_key, $values ){
+		if ( class_exists('WC_Min_Max_Quantities') ) {
+			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+				if($values['free_sample'] == $values['product_id']) {
+					return true;
+				}
+			}
+		}
+	}
 	
 }
