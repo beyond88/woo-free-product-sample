@@ -201,3 +201,6 @@ Added WooCommerce Min/Max Quanties plugin compatibility
 
 = 2.1.8 =
 Fix WooCommerce Min/Max Quanties issue for cart, and checkout page 
+
+= 2.1.9 =
+Add composer functionality 
