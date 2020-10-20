@@ -204,3 +204,6 @@ Fix WooCommerce Min/Max Quanties issue for cart, and checkout page
 
 = 2.1.9 =
 Add composer functionality 
+
+= 2.1.10 =
+Added composer files
