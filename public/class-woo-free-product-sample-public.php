@@ -307,8 +307,8 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_get_cart_items_from_session( $cart_item, $values ) {
 	
 		if ( isset( $values['simple-add-to-cart'] ) || isset( $values['variable-add-to-cart'] ) ) {
-			$cart_item['free_sample'] 		= isset( $values['simple-add-to-cart'] ) ? $values['simple-add-to-cart'] : $values['variable-add-to-cart'];
 			$product_id 					= isset( $_REQUEST['simple-add-to-cart'] ) ? sanitize_text_field( $_REQUEST['simple-add-to-cart'] ) : sanitize_text_field( $_REQUEST['variable-add-to-cart'] );
+			$cart_item['free_sample'] 		= isset( $values['simple-add-to-cart'] ) ? $values['simple-add-to-cart'] : $values['variable-add-to-cart'];			
 			$cart_item['line_subtotal'] 	= Woo_Free_Product_Sample_Helper::wfps_price( $product_id );
 			$cart_item['line_total'] 	  	= Woo_Free_Product_Sample_Helper::wfps_price( $product_id );	
 		}    
@@ -390,8 +390,10 @@ class Woo_Free_Product_Sample_Public {
 	
 		foreach ( $cart->get_cart() as $key => $value ) {
 			if( isset( $value["sample_price"] ) ) {
-				$value['data']->set_price($value["sample_price"]);				
-			}				
+				//$value['data']->set_price($value["sample_price"]);	
+				$product = $value['data'];
+				method_exists( $product, 'set_price' ) ? $product->set_price( $value["sample_price"] ) : $product->price = $value["sample_price"];			
+			}			
 
 		}   
 	}
@@ -569,9 +571,9 @@ class Woo_Free_Product_Sample_Public {
 		$set_price 			= str_replace( ",", ".", $sample_price );
 		if( isset( $cart_item['sample_price'] ) ) {
 			$item_price 	= str_replace( ",", ".", $cart_item['sample_price'] );	
-			if( $item_price == $set_price ) {
-				$price      = wc_price( $item_price );		
-			}
+			//if( $item_price == $set_price ) {
+				$price      = wc_price( $set_price );		
+			//}
 		}
 		
 		return $price;
@@ -695,16 +697,6 @@ class Woo_Free_Product_Sample_Public {
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
 				if($values['free_sample'] == $values['product_id']) {
 					return 'yes';
-				}
-			}
-		}
-	}
-
-	public function wfps_cart_do_not_count( $exclude, $checking_id, $cart_item_key, $values ){
-		if ( class_exists('WC_Min_Max_Quantities') ) {
-			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
-				if($values['free_sample'] == $values['product_id']) {
-					return true;
 				}
 			}
 		}
