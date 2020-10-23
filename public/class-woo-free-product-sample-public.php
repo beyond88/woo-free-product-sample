@@ -325,8 +325,11 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_save_posted_data_into_order( $itemID, $values ) {
 
 		if ( isset( $values['free_sample'] ) ) {
-			wc_add_order_item_meta( $itemID, 'PRODUCT_TYPE', 'Sample' );
-			wc_add_order_item_meta( $itemID, 'SAMPLE_PRICE', $values['sample_price'] );
+			$product_type 	= __( 'PRODUCT_TYPE', 'woo-free-product-sample' );
+			$sample_price 	= __( 'SAMPLE_PRICE', 'woo-free-product-sample' );
+			$sample 		= __( 'Sample', 'woo-free-product-sample' );
+			wc_add_order_item_meta( $itemID, $product_type, $sample );
+			wc_add_order_item_meta( $itemID, $sample_price, $values['sample_price'] );
 		}
 		
 	}
