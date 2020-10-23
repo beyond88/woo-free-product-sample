@@ -207,3 +207,6 @@ Add composer functionality
 
 = 2.1.10 =
 Added composer files
+
+= 2.1.11 =
+Update language file
