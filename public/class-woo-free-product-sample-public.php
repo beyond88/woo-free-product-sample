@@ -42,6 +42,9 @@ class Woo_Free_Product_Sample_Public {
 
 		$this->plugin_name 	= $plugin_name;
 		$this->version 		= $version;
+
+		// add_filter('woocommerce_product_get_price', array($this, 'get_product_price'), 100, 2 );
+		// add_filter('woocommerce_product_get_regular_price', array($this, 'get_product_price'), 100, 2 );
 	}
 
 	/**
@@ -570,10 +573,7 @@ class Woo_Free_Product_Sample_Public {
 		$sample_price 		= Woo_Free_Product_Sample_Helper::wfps_price( $cart_item['product_id'] );
 		$set_price 			= str_replace( ",", ".", $sample_price );
 		if( isset( $cart_item['sample_price'] ) ) {
-			$item_price 	= str_replace( ",", ".", $cart_item['sample_price'] );	
-			//if( $item_price == $set_price ) {
-				$price      = wc_price( $set_price );		
-			//}
+			$price         = wc_price( $set_price );
 		}
 		
 		return $price;
@@ -676,7 +676,7 @@ class Woo_Free_Product_Sample_Public {
 	 * @since      2.0.0
 	 * @param      array 
 	 */	
-	public function check_cart_items() {
+	public function wfps_check_cart_items() {
 		if ( class_exists('WC_Min_Max_Quantities') ) {
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
 				if($values['free_sample'] == $values['product_id']) {
@@ -700,6 +700,27 @@ class Woo_Free_Product_Sample_Public {
 				}
 			}
 		}
+	}
+
+	// AWPD Prodcut Price After Discount
+	public function get_product_price( $price, $product ) {
+		if ( is_admin() ) {
+            return $price;
+        } else if( $price != '' ) {  		          
+            return $price;
+        } else {
+            return $price;
+        }
+	}
+
+	public function wfps_custom_cart_item_prices( $cart_data, $cart_item_key ) {
+		
+		$sample_price = Woo_Free_Product_Sample_Helper::wfps_price( $cart_item['product_id'] );
+	
+		// Set and register the new calculated price
+		$cart_data['data']->set_price( $sample_price );
+	
+		return $cart_data;
 	}
 	
 }

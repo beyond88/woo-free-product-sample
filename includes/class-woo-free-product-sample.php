@@ -167,10 +167,11 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_filter( 'woocommerce_cart_item_subtotal',  $plugin_public, 'wfps_item_subtotal', 99, 3 );
 		
 		// filter for Minimum/Maximum plugin override overriding
-		$this->loader->add_action( 'woocommerce_before_template_part', $plugin_public, 'check_cart_items' );
-		$this->loader->add_action( 'woocommerce_check_cart_items', $plugin_public, 'check_cart_items' );
+		$this->loader->add_action( 'woocommerce_before_template_part', $plugin_public, 'wfps_check_cart_items' );
+		$this->loader->add_action( 'woocommerce_check_cart_items', $plugin_public, 'wfps_check_cart_items' );
 		$this->loader->add_filter( 'wc_min_max_quantity_minmax_do_not_count', $plugin_public, 'wfps_cart_exclude', 10, 4 );
 		$this->loader->add_filter( 'wc_min_max_quantity_minmax_cart_exclude', $plugin_public, 'wfps_cart_exclude', 10, 4 );
+		$this->loader->add_filter( 'woocommerce_add_cart_item', $plugin_public, 'wfps_custom_cart_item_prices', 20, 2 );
 
 	}
 
