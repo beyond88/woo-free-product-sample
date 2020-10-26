@@ -325,15 +325,19 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_save_posted_data_into_order( $itemID, $values ) {
 
 		if ( isset( $values['free_sample'] ) ) {
-			$product_type 	= __( 'PRODUCT_TYPE', 'woo-free-product-sample' );
-			$sample_price 	= __( 'SAMPLE_PRICE', 'woo-free-product-sample' );
 			$sample 		= __( 'Sample', 'woo-free-product-sample' );
-			wc_add_order_item_meta( $itemID, $product_type, $sample );
-			wc_add_order_item_meta( $itemID, $sample_price, $values['sample_price'] );
+			if( get_locale() == 'de_DE' ){
+				wc_add_order_item_meta( $itemID, 'Produkt', 'MUSTERBESTELLUNG' );
+				wc_add_order_item_meta( $itemID, 'Preis', 'Wir übernehmen die Kosten für Sie!' );
+			} else {
+				wc_add_order_item_meta( $itemID, 'PRODUCT_TYPE', $sample );
+				wc_add_order_item_meta( $itemID, 'SAMPLE_PRICE', $values["sample_price"] );
+			}
+			
 		}
 		
 	}
-
+	
 	/**
 	 * Return plugin directory
 	 *
