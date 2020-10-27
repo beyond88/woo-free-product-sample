@@ -210,3 +210,6 @@ Added composer files
 
 = 2.1.11 =
 Update language file
+
+= 2.1.12 =
+Fix variable product validation
