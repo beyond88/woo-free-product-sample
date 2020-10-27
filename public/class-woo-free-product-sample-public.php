@@ -106,8 +106,8 @@ class Woo_Free_Product_Sample_Public {
 	public static function wfps_add_to_cart_action( $url = false ) {
 
 		if ( 
-			! isset( $_REQUEST['simple-add-to-cart'] ) || 
-			! is_numeric( wp_unslash( $_REQUEST['simple-add-to-cart'] ) )
+			( ! isset( $_REQUEST['simple-add-to-cart'] ) || ! is_numeric( wp_unslash( $_REQUEST['simple-add-to-cart'] ) ) ) || 
+			( ! isset( $_REQUEST['variable-add-to-cart'] ) || ! is_numeric( wp_unslash( $_REQUEST['variable-add-to-cart'] ) ) )
 		)			 
 		{
 			return;
