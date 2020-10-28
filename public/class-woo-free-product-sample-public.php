@@ -678,13 +678,16 @@ class Woo_Free_Product_Sample_Public {
 	 * @param      array 
 	 */	
 	public function wfps_check_cart_items() {
-		if ( class_exists('WC_Min_Max_Quantities') ) {
-			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
-				if($values['free_sample'] == $values['product_id']) {
-					wc_clear_notices();
+		if( ! is_admin() ) {
+			if ( class_exists('WC_Min_Max_Quantities') && WC()->cart->get_cart_contents_count() != 0 ) {			
+				foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+					if($values['free_sample'] == $values['product_id']) {
+						wc_clear_notices();
+					}
 				}
 			}
 		}
+
 	}
 
 	/**
