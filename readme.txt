@@ -213,3 +213,6 @@ Update language file
 
 = 2.1.12 =
 Fix variable product validation
+
+= 2.1.13 =
+Fix variable product validation
