@@ -151,7 +151,7 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	private static function wfps_add_to_cart_handler_simple( $product_id ) {
 
-		$quantity          = 1; // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
+		$quantity          = Woo_Free_Product_Sample_Helper::wfps_sample_qty(); // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
 		$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );	
 
 		if ( $passed_validation && false !== WC()->cart->add_to_cart( $product_id, $quantity ) ) {
@@ -393,8 +393,7 @@ class Woo_Free_Product_Sample_Public {
 		return;	
 	
 		foreach ( $cart->get_cart() as $key => $value ) {
-			if( isset( $value["sample_price"] ) ) {
-				//$value['data']->set_price($value["sample_price"]);	
+			if( isset( $value["sample_price"] ) ) {	
 				$product = $value['data'];
 				method_exists( $product, 'set_price' ) ? $product->set_price( $value["sample_price"] ) : $product->price = $value["sample_price"];			
 			}			

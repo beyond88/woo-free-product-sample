@@ -202,5 +202,14 @@ class Woo_Free_Product_Sample_Helper {
 		return apply_filters( 'woo_free_product_sample_price', 0.00, $product_id );
 	}
 
+	public static function wfps_sample_qty() {
+
+		if ( class_exists( 'SPQ_Smart_Product_Quantity' ) ) {
+			return empty( $_REQUEST['quantity'] ) ? 1 : wc_stock_amount( wp_unslash( $_REQUEST['quantity'] ) ); 
+		}
+		
+		return 1;
+	}
+
 
 }
