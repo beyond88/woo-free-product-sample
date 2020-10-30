@@ -216,3 +216,6 @@ Fix variable product validation
 
 = 2.1.13 =
 Fix variable product validation
+
+= 2.1.14 =
+Added Smart Product Quantity compatibility 
