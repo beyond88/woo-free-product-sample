@@ -50,7 +50,7 @@ class Woo_Free_Product_Sample {
 		if ( defined( 'WFPS_VERSION' ) ) {
 			$this->version = WFPS_VERSION;
 		} else {
-			$this->version = '2.1.10';
+			$this->version = '2.1.14';
 		}
 		$this->plugin_name = 'woo-free-product-sample';
 
