@@ -2,60 +2,99 @@
 msgid ""
 msgstr ""
 "Language: \n"
-"POT-Creation-Date: 2020-09-05 18:39+0000\n"
+"POT-Creation-Date: 2020-10-23 15:50+0000\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: woo-free-product-sample.php:88
+#: woo-free-product-sample.php:92
 msgid "Settings"
 msgstr ""
 
-#: woo-free-product-sample.php:89
+#: woo-free-product-sample.php:93
 msgid "Docs"
 msgstr ""
 
-#: woo-free-product-sample.php:91
+#: woo-free-product-sample.php:95
 msgid "Get Pro"
 msgstr ""
 
-#: includes/class-woo-free-product-sample-helper.php:190
+#: includes/class-woo-free-product-sample-helper.php:192
 msgid "Order a Free Sample"
 msgstr ""
 
-#: admin/class-woo-free-product-sample-admin.php:133
-#: admin/class-woo-free-product-sample-admin.php:134
+#: admin/class-woo-free-product-sample-admin.php:136
+#: admin/class-woo-free-product-sample-admin.php:137
 msgid "Product Sample"
 msgstr ""
 
-#: admin/class-woo-free-product-sample-admin.php:147
-#: admin/class-woo-free-product-sample-admin.php:148
+#: admin/class-woo-free-product-sample-admin.php:150
+#: admin/class-woo-free-product-sample-admin.php:151
 msgid "Message"
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:393
+#: admin/class-woo-free-product-sample-admin.php:249
+msgid "Get help"
+msgstr ""
+
+#: admin/class-woo-free-product-sample-admin.php:249
+msgid "Support"
+msgstr ""
+
+#: admin/class-woo-free-product-sample-admin.php:250
+msgid "Plugin Homepage"
+msgstr ""
+
+#: admin/class-woo-free-product-sample-admin.php:251
+msgid "Rate the plugin"
+msgstr ""
+
+#: admin/class-woo-free-product-sample-admin.php:251
+msgid "Rate the plugin ★★★★★"
+msgstr ""
+
+#: public/class-woo-free-product-sample-public.php:328
+msgid "PRODUCT_TYPE"
+msgstr ""
+
+#: public/class-woo-free-product-sample-public.php:329
+msgid "SAMPLE_PRICE"
+msgstr ""
+
+#: public/class-woo-free-product-sample-public.php:330
+msgid "Sample"
+msgstr ""
+
+#: public/class-woo-free-product-sample-public.php:424
+#: public/class-woo-free-product-sample-public.php:435
+#: public/class-woo-free-product-sample-public.php:487
+msgid " 注文あたりの数量。"
+msgstr ""
+
+#: public/class-woo-free-product-sample-public.php:426
+#: public/class-woo-free-product-sample-public.php:437
+msgid " quantity per order."
+msgstr ""
+
+#: public/class-woo-free-product-sample-public.php:470
 msgid "  注文ごと。"
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:397
-#: public/class-woo-free-product-sample-public.php:413
+#: public/class-woo-free-product-sample-public.php:474
+#: public/class-woo-free-product-sample-public.php:490
 #, php-format
 msgid "%1$s."
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:410
-msgid " 注文あたりの数量。"
-msgstr ""
-
-#: public/class-woo-free-product-sample-public.php:441
-#: public/class-woo-free-product-sample-public.php:478
+#: public/class-woo-free-product-sample-public.php:518
+#: public/class-woo-free-product-sample-public.php:555
 #: public/partials/woocommerce/order/order-details-item.php:43
 #: public/partials/woocommerce/cart/mini-cart.php:64
 msgid "サンプル - "
 msgstr ""
 
-#: public/class-woo-free-product-sample-public.php:443
-#: public/class-woo-free-product-sample-public.php:480
+#: public/class-woo-free-product-sample-public.php:520
+#: public/class-woo-free-product-sample-public.php:557
 #: public/partials/woocommerce/order/order-details-item.php:45
 #: public/partials/woocommerce/cart/mini-cart.php:66
 msgid "Sample - "
@@ -94,6 +133,20 @@ msgstr ""
 
 #: admin/partials/woo-free-product-sample-message.php:29
 msgid "{product} and {qty} for dynamic content."
+msgstr ""
+
+#: admin/includes/fields/double-repeater.php:10
+#: admin/includes/fields/double-repeater.php:19
+msgid "Quantity"
+msgstr ""
+
+#: admin/includes/fields/double-repeater.php:11
+#: admin/includes/fields/double-repeater.php:20
+msgid "Price"
+msgstr ""
+
+#: admin/includes/fields/double-repeater.php:34
+msgid "Add Sample Price"
 msgstr ""
 
 #: admin/includes/fields/multi-select.php:3

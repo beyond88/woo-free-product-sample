@@ -105,10 +105,7 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	public static function wfps_add_to_cart_action( $url = false ) {
 
-		if ( 
-			! isset( $_REQUEST['simple-add-to-cart'] ) || 
-			! is_numeric( wp_unslash( $_REQUEST['simple-add-to-cart'] ) )
-		)			 
+		if ( ! isset( $_REQUEST['simple-add-to-cart'] ) || ! is_numeric( wp_unslash( $_REQUEST['simple-add-to-cart'] ) ) )			 
 		{
 			return;
 		}
@@ -154,7 +151,7 @@ class Woo_Free_Product_Sample_Public {
 	 */
 	private static function wfps_add_to_cart_handler_simple( $product_id ) {
 
-		$quantity          = 1; // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
+		$quantity          = Woo_Free_Product_Sample_Helper::wfps_sample_qty(); // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
 		$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );	
 
 		if ( $passed_validation && false !== WC()->cart->add_to_cart( $product_id, $quantity ) ) {
@@ -325,12 +322,19 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_save_posted_data_into_order( $itemID, $values ) {
 
 		if ( isset( $values['free_sample'] ) ) {
-			wc_add_order_item_meta( $itemID, 'PRODUCT_TYPE', 'Sample' );
-			wc_add_order_item_meta( $itemID, 'SAMPLE_PRICE', $values['sample_price'] );
+			$sample 		= __( 'Sample', 'woo-free-product-sample' );
+			if( get_locale() == 'de_DE' ){
+				wc_add_order_item_meta( $itemID, 'Produkt', 'MUSTERBESTELLUNG' );
+				wc_add_order_item_meta( $itemID, 'Preis', 'Wir übernehmen die Kosten für Sie!' );
+			} else {
+				wc_add_order_item_meta( $itemID, 'PRODUCT_TYPE', $sample );
+				wc_add_order_item_meta( $itemID, 'SAMPLE_PRICE', $values["sample_price"] );
+			}
+			
 		}
 		
 	}
-
+	
 	/**
 	 * Return plugin directory
 	 *
@@ -389,8 +393,7 @@ class Woo_Free_Product_Sample_Public {
 		return;	
 	
 		foreach ( $cart->get_cart() as $key => $value ) {
-			if( isset( $value["sample_price"] ) ) {
-				//$value['data']->set_price($value["sample_price"]);	
+			if( isset( $value["sample_price"] ) ) {	
 				$product = $value['data'];
 				method_exists( $product, 'set_price' ) ? $product->set_price( $value["sample_price"] ) : $product->price = $value["sample_price"];			
 			}			
@@ -674,13 +677,16 @@ class Woo_Free_Product_Sample_Public {
 	 * @param      array 
 	 */	
 	public function wfps_check_cart_items() {
-		if ( class_exists('WC_Min_Max_Quantities') ) {
-			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
-				if($values['free_sample'] == $values['product_id']) {
-					wc_clear_notices();
+		if( ! is_admin() ) {
+			if ( class_exists('WC_Min_Max_Quantities') && WC()->cart->get_cart_contents_count() != 0 ) {			
+				foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+					if($values['free_sample'] == $values['product_id']) {
+						wc_clear_notices();
+					}
 				}
 			}
 		}
+
 	}
 
 	/**
