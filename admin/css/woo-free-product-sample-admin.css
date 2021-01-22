@@ -158,7 +158,6 @@ input:checked + .slider:before {
     border-radius: 5px;
     padding: 20px 15px;
     display: flex;
-    margin-top: 30px;
 }
 
 .wfps_header_left h1{
