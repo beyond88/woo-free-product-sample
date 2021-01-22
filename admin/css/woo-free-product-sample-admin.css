@@ -97,7 +97,7 @@ input:checked + .slider:before {
     font-size: 18px;
     background-color: #fff;
     padding: 20px 54px;
-    border-radius: 4px;
+    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 
@@ -117,7 +117,8 @@ input:checked + .slider:before {
 .wfps_builder_tab{
     display: none;
     background-color: #fff;
-    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    border-radius: 5px;
 }
 
 .wfps_builder_tab h2{
@@ -155,8 +156,10 @@ input:checked + .slider:before {
 /*----- Start Header------*/
 .wfps_settings_header{
     background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
     border-radius: 5px;
     padding: 20px 15px;
+    margin-top: 20px;
     display: flex;
 }
 
@@ -312,7 +315,7 @@ input:checked + .slider:before {
     flex: 3;
     padding: 10px;
     margin-top: 83px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: url("../img/wfps-sidebar-bg.png");
     background-repeat: no-repeat;
     justify-content: center;
@@ -622,7 +625,7 @@ table.wp-list-table .column-wfps_forms {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 34px;
     font-weight: bold;
-    color: #394b65;
+    color: #40d469;
 }
 
 .wfps_settings .premium .premium_left .price{
@@ -698,7 +701,7 @@ table.wp-list-table .column-wfps_forms {
 .wfps_settings .premium .premium_right:before {
     position: absolute;
     background-color: #fff;
-    background-image: url(../img/bg_premium.png);
+    /* background-image: url(../img/bg_premium.png); */
     background-repeat: no-repeat;
     background-position:left;
     content: '';
@@ -738,7 +741,7 @@ table.wp-list-table .column-wfps_forms {
 
 .wfps_settings .premium .premium_right_nobg li,
 .wfps_settings .premium .premium_right li {
-    background-image: url(../img/wfps-tick.png);
+    background-image: url(../img/wfps-tick-fill.png);
     background-repeat: no-repeat;
     background-position:top left;
     padding-left: 30px;
@@ -1204,4 +1207,8 @@ table.wp-list-table .column-wfps_forms {
 
 .product-sample_page_woo-free-product-sample-license .regular-text{
     width: 37em;
+}
+
+.product-sample_page_woo-free-product-sample-license .wfps_settings .wfps_inside{
+    padding-bottom: 20px;
 }
