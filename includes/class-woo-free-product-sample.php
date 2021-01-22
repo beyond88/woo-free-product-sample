@@ -58,6 +58,7 @@ class Woo_Free_Product_Sample {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		add_action( 'admin_init', array( $this, 'redirect' ) );
 	}
 
 	/**
@@ -173,6 +174,23 @@ class Woo_Free_Product_Sample {
 		$this->loader->add_filter( 'wc_min_max_quantity_minmax_cart_exclude', $plugin_public, 'wfps_cart_exclude', 10, 4 );
 
 	}
+
+	/**
+     * Redirect to setting page when WooCommerce plugin is activated
+     */
+    public function redirect() {
+        // Bail if no activation transient is set.
+        if ( ! get_transient( '_wfps_plugin_activation' ) ) {
+            return;
+        }
+        // Delete the activation transient.
+        delete_transient( '_wfps_plugin_activation' );
+
+		wp_safe_redirect( add_query_arg( array(
+			'page'		=> 'woo-free-product-sample'
+		), admin_url( 'admin.php' ) ) );
+		
+    }	
 
 	/**
 	 *

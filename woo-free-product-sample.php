@@ -152,6 +152,7 @@ class Woo_Free_Product_Sample_Start {
 		
 		} else {
 
+			set_transient( '_wfps_plugin_activation', true, 30 );
 			/**
 			* Reqrite the rules on activation.
 			*/
