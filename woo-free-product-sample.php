@@ -30,10 +30,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if( file_exists( dirname(__FILE__) . 'vendor/autoload.php' ) ){
-	require_once dirname(__FILE__) . 'vendor/autoload.php';
-}
-
 define( 'WFPS_VERSION', '2.1.16' );
 define( 'WFPS_MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'WFPS_MINIMUM_WP_VERSION', '4.4' );
