@@ -225,3 +225,6 @@ Added new staning admin layout
 
 = 2.1.16 =
 Fix sidebar missing
+
+= 2.1.17 =
+Refactor code, fix design issue
