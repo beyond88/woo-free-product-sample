@@ -1,6 +1,6 @@
 <?php
 /**
- * @link              https://www.thewpnext.com
+ * @link              https://thenextwp.co
  * @since             1.0.0
  * @package           Woo_Free_Product_Sample
  *
@@ -8,16 +8,16 @@
  * Plugin Name:       Free Product Sample for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woo-free-product-sample
  * Description:       Display an add to cart button in the product detail page to order product as free sample.  
- * Version:           2.1.14
- * Author:            TheWPNext
- * Author URI:        https://www.thewpnext.com
+ * Version:           2.1.16
+ * Author:            Mohiuddin Abdul Kader
+ * Author URI:        https://thenextwp.co
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woo-free-product-sample
  * Domain Path:       /languages
  * Requires PHP:      5.6
  * Requires at least: 4.4
- * Tested up to:      5.5.1
+ * Tested up to:      5.6
  *
  * WC requires at least: 3.1
  * WC tested up to:   4.1.0 
@@ -34,7 +34,7 @@ if( file_exists( dirname(__FILE__) . 'vendor/autoload.php' ) ){
 	require_once dirname(__FILE__) . 'vendor/autoload.php';
 }
 
-define( 'WFPS_VERSION', '2.1.14' );
+define( 'WFPS_VERSION', '2.1.16' );
 define( 'WFPS_MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'WFPS_MINIMUM_WP_VERSION', '4.4' );
 define( 'WFPS_MINIMUM_WC_VERSION', '3.0.9' );
@@ -90,9 +90,9 @@ class Woo_Free_Product_Sample_Start {
 	 */
     public function wfps_plugin_action_links( $links ) {		
 		$links[] = '<a href="' . admin_url( 'admin.php?page=woo-free-product-sample' ) . '">' . __( 'Settings', 'woo-free-product-sample' ) . '</a>';
-		$links[] = '<a href="https://www.thewpnext.com/docs/">' . __( 'Docs', 'woo-free-product-sample' ) . '</a>';
+		$links[] = '<a href="https://thenextwp.co/docs/">' . __( 'Docs', 'woo-free-product-sample' ) . '</a>';
 		if( !class_exists('Woo_Free_Product_Sample_Pro') ) {
-			$links[] = '<a href="https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/" style="color: #d30c5c;font-weight: bold;">' . __( 'Get Pro', 'woo-free-product-sample' ) . '</a>';
+			$links[] = '<a href="https://thenextwp.co/downloads/free-product-sample-for-woocommerce/" style="color: #d30c5c;font-weight: bold;">' . __( 'Get Pro', 'woo-free-product-sample' ) . '</a>';
 		}
         return $links;
     }	

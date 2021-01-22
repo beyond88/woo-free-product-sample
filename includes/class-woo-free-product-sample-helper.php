@@ -4,15 +4,13 @@
  * The file that defines the core plugin class
  *
  *
- * @link       https://www.thewpnext.com/
+ * @link       https://thenextwp.co/
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample
  * @subpackage Woo_Free_Product_Sample/includes
  * @author     hossain88 <muhin.cse.diu@gmail.com> 
  */
-
-namespace Inc; 
 
 class Woo_Free_Product_Sample_Helper {
 
@@ -23,14 +21,6 @@ class Woo_Free_Product_Sample_Helper {
 	 * @param    string 
 	 */
 	public static $_optionName  = 'woo_free_product_sample_settings';
-
-	/**
-	 * The option message of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public static $_optionNameMessage  = 'woo_free_product_sample_message';	
 	
 	/**
 	 * The option group of this plugin.
@@ -39,14 +29,6 @@ class Woo_Free_Product_Sample_Helper {
 	 * @param    string 
 	 */	
 	public static $_optionGroup = 'woo-free-product-sample-options-group';
-
-	/**
-	 * The option message group of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public static $_optionGroupMessage = 'woo-free-product-sample-options-message';	
 	
 	/**
 	 * The default option of this plugin.
@@ -56,17 +38,8 @@ class Woo_Free_Product_Sample_Helper {
 	 */	
 	public static $_defaultOptions = array(
 		'button_label'          => 'Order a Sample',
-		'max_qty_per_order'		=> 5 
-	);
-
-	/**
-	 * The default option of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    array 
-	 */	
-	public static $_defaultMessageOptions = array(
-		'qty_validation'      	   => ''	
+		'max_qty_per_order'		=> 5,
+		'maximum_qty_message'	=> '' 
 	);
 
 	/**
@@ -202,6 +175,13 @@ class Woo_Free_Product_Sample_Helper {
 		return apply_filters( 'woo_free_product_sample_price', 0.00, $product_id );
 	}
 
+	/**
+	 * Sample Qty
+	 *
+	 * @since    1.0.0
+	 * @param    none
+     * @return   void
+	 */		
 	public static function wfps_sample_qty() {
 
 		if ( class_exists( 'SPQ_Smart_Product_Quantity' ) ) {
@@ -210,6 +190,114 @@ class Woo_Free_Product_Sample_Helper {
 		
 		return 1;
 	}
+
+	/**
+	 * Retrieve all products in the store
+	 *
+	 * @since    1.0.0
+	 * @param    none
+     * @return   array
+	 */	
+	public static function wfps_products() {
+		
+		global $wpdb;
+		$table 	= $wpdb->prefix . 'posts'; 
+		$sql 	= $wpdb->prepare("SELECT ID, `post_title` FROM $table WHERE `post_type` = %s AND `post_status`= 'publish' ORDER BY post_title", 'product');
+		$data 	= [];
+		$data 	= $wpdb->get_results($sql, ARRAY_A);
+		return $data;
+
+	}
+
+	/**
+	 * Retrieve all categories of the products
+	 *
+	 * @since    1.0.0
+	 * @param    none
+     * @return   array
+	 */	
+	public static function wfps_categories() {
+
+		$orderby 	= 'name';
+		$order 		= 'asc';
+		$hide_empty = false ;
+		$cat_args 	= array(
+			'orderby'    => $orderby,
+			'order'      => $order,
+			'hide_empty' => $hide_empty,
+		);
+
+		$data 		= array();
+		$categories = get_terms( 'product_cat', $cat_args );
+		$inc 		= 0;
+		foreach( $categories as $cat ) {
+			$data[$inc]['ID']  		   = $cat->term_id;
+			$data[$inc]['post_title']  = $cat->name;
+			$inc++;
+		}
+		return $data;
+
+    }
+    
+    /**
+	 * Get all shipping classes
+	 *
+	 * @since    1.0.0
+	 * @param    none
+     * @return   void
+	 */	
+	public static function wfps_shipping_class() {
+
+		$data 		= array();
+		$data[-1] 	= __( 'No Shipping Class', 'woo-free-product-sample-pro' );
+		$shipping_classes = get_terms( array( 'taxonomy' => 'product_shipping_class', 'hide_empty' => false ) );
+		foreach( $shipping_classes as $sc ) {
+			$data[$sc->term_id]  = $sc->name;
+		}
+		return $data; 
+
+	}
+
+	/**
+	 * Get all tax classes
+	 *
+	 * @since    1.0.0
+	 * @param    none
+     * @return   void
+	 */	
+	public static function wfps_tax_class() {
+
+		$data 		= array();
+		$options = array(
+			'' => __( 'Standard', 'woocommerce' ),
+		);
+
+		$tax_classes = \WC_Tax::get_tax_classes();
+
+		if ( ! empty( $tax_classes ) ) {
+			foreach ( $tax_classes as $class ) {
+				$options[ sanitize_title( $class ) ] = esc_html( $class );
+			}
+		}
+
+		foreach ( $options as $key => $value ) {
+			$data[$key] = $value;
+		}
+		return $data; 
+
+	}
+	
+	/**
+	 * Get pro plugin exists
+	 *
+	 * @since    1.0.0
+	 * @param    none
+     * @return   void
+	 */	
+	public static function is_pro()
+    {
+        return class_exists('Woo_Free_Product_Sample_Pro');
+    }	
 
 
 }

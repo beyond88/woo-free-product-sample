@@ -4,7 +4,7 @@
  * The file that defines the core plugin class
  *
  *
- * @link       https://www.thewpnext.com/
+ * @link       https://thenextwp.co/
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample
@@ -21,14 +21,6 @@ class Woo_Free_Product_Sample_Message {
 	 * @param    string 
 	 */
 	public static $_optionName  = 'woo_free_product_sample_settings';
-
-	/**
-	 * The option message of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public static $_optionNameMessage  = 'woo_free_product_sample_message';	
 	
 	/**
 	 * The option group of this plugin.
@@ -37,14 +29,6 @@ class Woo_Free_Product_Sample_Message {
 	 * @param    string 
 	 */	
 	public static $_optionGroup = 'woo-free-product-sample-options-group';
-
-	/**
-	 * The option message group of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public static $_optionGroupMessage = 'woo-free-product-sample-options-message';	
 	
 	/**
 	 * The default option of this plugin.
@@ -53,18 +37,9 @@ class Woo_Free_Product_Sample_Message {
 	 * @param    array 
 	 */	
 	public static $_defaultOptions = array(
-		'button_label'          => 'Order a Sample',
-		'max_qty_per_order'		=> 5 
-	);
-
-	/**
-	 * The default option of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    array 
-	 */	
-	public static $_defaultMessageOptions = array(
-		'qty_validation'      	   => ''	
+		'button_label'          	=> 'Order a Sample',
+		'max_qty_per_order'			=> 5, 
+		'maximum_qty_message'      	=> ''
 	);
 
 	/**
@@ -76,10 +51,8 @@ class Woo_Free_Product_Sample_Message {
     public static function validation_notice( $product_id ){
 
         $final_msg         = '';
-        $setting_options   = wp_parse_args( get_option(self::$_optionName), self::$_defaultOptions );
-      
-		$setting_message   = wp_parse_args( get_option(self::$_optionNameMessage), self::$_defaultMessageOptions );
-        $message 		   = isset( $setting_message['qty_validation'] ) ? $setting_message['qty_validation'] : '';  
+		$setting_options   = wp_parse_args( get_option(self::$_optionName), self::$_defaultOptions );
+		$message 		   = isset( $setting_options['maximum_qty_message'] ) ? $setting_options['maximum_qty_message'] : '';
         
         $product		   = wc_get_product( $product_id );
         $searchVal         = array("{product}", "{qty}");

@@ -1,5 +1,5 @@
 
-<select class="<?php echo esc_attr( $value['class'] ); ?>" id="<?php echo $value['name']; ?>" name="<?php echo $this->_optionName."[".$value['name']."]"; ?>[]" multiple="multiple">
+<select class="<?php echo esc_attr( $value['class'] ); ?>" id="<?php echo $value['name']; ?>" name="<?php echo $this->_optionName."[".$value['name']."]"; ?>[]" <?php if( isset($value['is_pro']) && $value['is_pro'] == true && !\Woo_Free_Product_Sample_Helper::is_pro()) { ?>disabled<?php } ?> multiple="multiple">
     <option value=""><?php esc_html_e( 'All', 'woo-free-product-sample' ); ?></option>
     <?php 
 

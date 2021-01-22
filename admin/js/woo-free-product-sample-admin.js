@@ -37,5 +37,15 @@ jQuery(function ($) {
             $('.max_qty_per_order_area').show();
         }   
     });
+
+    $(document).ready(function(){
+        $('.wfps_tab').click(function(){
+            $(".wfps_builder_tab").removeClass('wfps-tab-active');
+            $(".wfps_builder_tab[data-id='"+$(this).attr('data-id')+"']").addClass("wfps-tab-active");
+            $("#wfps_builder_id").val($(this).attr('data-id'));            
+            $(".wfps_tab").removeClass('wfps_tab_active');
+            $(this).parent().find(".wfps_tab").addClass('wfps_tab_active');
+        });
+    });    
     
 });

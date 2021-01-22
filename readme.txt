@@ -1,9 +1,9 @@
 === Free Product Sample for WooCommerce ===
-Contributors: thewpnext, hossain88
-Donate Link: http://thewpnext.com
+Contributors: hossain88
+Donate Link: http://thenextwp.co
 Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce
 Requires at least: 4.4
-Tested up to: 5.5.1
+Tested up to: 5.6
 WC requires at least: 3.1
 WC tested up to: 4.1.0
 Requires PHP: 5.6
@@ -17,12 +17,12 @@ The easy way to handle free product sample for WooCommerce. Promote your busines
 
 = FREE PRODUCT SAMPLE FOR WOOCOMMERCE PLUGIN =
 
-👉 Official Demo Link: [Official Demo](https://thewpnext.com/demo/woo-free-product-sample)
-👉 Learn More About PRO: [Pro Version](https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/)
+👉 Official Demo Link: [Official Demo](https://demo.thenextwp.co/woo-free-product-sample)
+👉 Learn More About PRO: [Pro Version](https://www.thenextwp.co/downloads/free-product-sample-for-woocommerce/)
 
 = POWERED BY WooCommerce =
 
-The easy way to handle free product sample. [Free Product Sample for WooCommerce](https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce) does one thing, and it does it well. It lets you order product as a product sample.
+The easy way to handle free product sample. [Free Product Sample for WooCommerce](https://www.thenextwp.co/downloads/free-product-sample-for-woocommerce) does one thing, and it does it well. It lets you order product as a product sample.
 
 
 ## 🛍️ Supercharge Your business with the Free Proudct Sample for WooCommerce.
@@ -54,13 +54,13 @@ Capture compelling and real customer by giving capability to show default quanti
 
 ## 🚀 Backed By A Trusted Team ##
 
-This Free Product Sample for WooCommerce plugin is brought to you by the team behind [TheWPNext](https://thewpnext.com/), a dedicated platform for WordPress, trusted by lots of happy users.
+This Free Product Sample for WooCommerce plugin is brought to you by the team behind [TheNextWP](https://thenextwp.co/), a dedicated platform for WordPress, trusted by lots of happy users.
 
 ## 👨‍💻 DOCUMENTATION AND SUPPORT ##
 
-- For documentation and tutorials go to our [Documentation](https://thewpnext.com/docs/)
-- If you have any more questions, visit our support on the Plugin’s [Forum](https://thewpnext.com/support/)
-- For more information about features, FAQs and documentation, check out our website at [TheWPNext](https://thewpnext.com/)
+- For documentation and tutorials go to our [Documentation](https://thenextwp.co/docs/)
+- If you have any more questions, visit our support on the Plugin’s [Forum](https://thenextwp.co/support/)
+- For more information about features, FAQs and documentation, check out our website at [TheNextWP](https://thenextwp.co/)
 
 ## 💙 Loved This Plugin’s? ##
 
@@ -219,3 +219,9 @@ Fix variable product validation
 
 = 2.1.14 =
 Added Smart Product Quantity compatibility 
+
+= 2.1.15 =
+Added new staning admin layout
+
+= 2.1.16 =
+Fix sidebar missing

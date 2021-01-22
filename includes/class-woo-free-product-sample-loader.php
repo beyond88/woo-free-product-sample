@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://www.thewpnext.com/
+ * @link       https://thenextwp.co/
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample

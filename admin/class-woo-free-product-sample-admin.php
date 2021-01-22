@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.thewpnext.com/
+ * @link       https://thenextwp.co/
  * @since      1.0.0
  *
  * @package    Woo_Free_Product_Sample
@@ -38,14 +38,6 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    string 
 	 */
 	public $_optionName  = 'woo_free_product_sample_settings';
-
-	/**
-	 * The option message of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public $_optionNameMessage  = 'woo_free_product_sample_message';
 		
 	/**
 	 * The option group of this plugin.
@@ -54,14 +46,6 @@ class Woo_Free_Product_Sample_Admin {
 	 * @param    string 
 	 */	
 	public $_optionGroup = 'woo-free-product-sample-options-group';
-
-	/**
-	 * The option message group of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    string 
-	 */	
-	public $_optionGroupMessage = 'woo-free-product-sample-options-message';
 	
 	/**
 	 * The default option of this plugin.
@@ -72,16 +56,6 @@ class Woo_Free_Product_Sample_Admin {
 	public $_defaultOptions = array(
 		'button_label'      	=> 'Order a Sample',
 		'max_qty_per_order'		=> 5
-	);
-
-	/**
-	 * The default option of this plugin.
-	 *
-	 * @since    2.0.0
-	 * @param    array 
-	 */	
-	public $_defaultMessageOptions = array(
-		'qty_validation'      	   => ''	
 	);	
 
 	/**
@@ -145,15 +119,6 @@ class Woo_Free_Product_Sample_Admin {
 			60
 		);
 
-		add_submenu_page( 
-			'woo-free-product-sample', 
-			__('Message', 'woo-free-product-sample'), 
-			__('Message', 'woo-free-product-sample'),  
-			'manage_options',
-			'woo-free-product-sample-message', 
-			array( $this, 'wfps_messages' )
-		); 
-
 	}
 	
 	/**
@@ -169,7 +134,7 @@ class Woo_Free_Product_Sample_Admin {
 			return;
 		}
 
-		$settings = Woo_Free_Product_Sample_Settings::wfps_setting_fields();
+		$settings = Woo_Free_Product_Sample_Settings::wfps_setting_fields();		
 		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-settings.php';
 
 	}	
@@ -184,9 +149,6 @@ class Woo_Free_Product_Sample_Admin {
 
 		add_option( $this->_optionName, $this->_defaultOptions );	
 		register_setting( $this->_optionGroup, $this->_optionName );
-
-		add_option( $this->_optionNameMessage, $this->_optionGroupMessage );
-		register_setting( $this->_optionGroupMessage, $this->_optionNameMessage );
 		
 	}
 
@@ -217,24 +179,6 @@ class Woo_Free_Product_Sample_Admin {
 	}
 
 	/**
-	 * Set custom message for validation
-	 * 
-	 * @since    2.0.0
-	 * @param    none
-	 * @return   void
-	 */	
-	public function wfps_messages() {
-
-		$current_user = wp_get_current_user();
-		if( ! in_array('administrator', $current_user->roles) ) {
-			return;
-		}
-
-		return include  WFPS_ADMIN_DIR_PATH . 'partials/woo-free-product-sample-message.php';
-
-	}
-
-	/**
 	 * Add links to plugin's description in plugins table
 	 *
 	 * @since    2.0.0
@@ -247,7 +191,7 @@ class Woo_Free_Product_Sample_Admin {
 		}
 
 		$support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/woo-free-product-sample/" title="' . __('Get help', 'woo-free-product-sample') . '">' . __('Support', 'woo-free-product-sample') . '</a>';
-		$home_link = '<a target="_blank" href="https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce/" title="' . __('Plugin Homepage', 'woo-free-product-sample') . '">' . __('Plugin Homepage', 'woo-free-product-sample') . '</a>';
+		$home_link = '<a target="_blank" href="https://thenextwp.co/downloads/free-product-sample-for-woocommerce/" title="' . __('Plugin Homepage', 'woo-free-product-sample') . '">' . __('Plugin Homepage', 'woo-free-product-sample') . '</a>';
 		$rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/woo-free-product-sample/reviews/#new-post" title="' . __('Rate the plugin', 'woo-free-product-sample') . '">' . __('Rate the plugin ★★★★★', 'woo-free-product-sample') . '</a>';
 
 		$links[] = $support_link;

@@ -1,3 +1,416 @@
+/*------------------------------------------------------
+                Start New Style
+--------------------------------------------------------*/
+/*-----Start checkbox------*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    border-radius:100%;
+}
+
+.switch input {display:none;}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius:20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius:20px;
+}
+
+input:checked + .slider {
+    background-color: #437dfe;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #437dfe;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+/*------End checkbox*/
+
+/*------Start select option-----*/
+
+.wfps_settings{
+    padding: 15px;
+}
+
+.wfps_settings .wfps_inside select{
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    margin-top: 0;
+    font-size: 15px;
+    color: #576880;
+    padding: 5px 15px;
+}
+
+.wfps_settings .wfps_inside .widefat{
+    width: 50%;
+}
+
+/*------End select option-----*/
+
+.wfps_setting_tab_menu{
+    margin: 20px 0;
+    margin-bottom: 35px;
+}
+
+.wfps_setting_tab_menu ul{
+    margin: 0;
+    padding: 0;
+}
+
+.wfps_setting_tab_menu ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.wfps_setting_tab_menu ul li a{
+    text-decoration: none;
+    color: #576880;
+    font-size: 18px;
+    background-color: #fff;
+    padding: 20px 54px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.wfps_setting_tab_menu ul li a.wfps_tab_active{
+    background-image: linear-gradient(to right, #3cb2ff, #485afd);
+    color: #ffffff;
+}
+
+.wfps_setting_tab_menu ul li a svg{
+    fill: #576880;
+}
+
+.wfps_setting_tab_menu ul li a.wfps_tab_active svg{
+    fill: #fff;
+}
+
+.wfps_builder_tab{
+    display: none;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.wfps_builder_tab h2{
+    color: rgba(0,0,0,.7);
+}
+
+.wfps_builder_tab p{
+    color: rgba(0,0,0,0.6);
+    text-align: justify;
+}
+
+.wfps-tab-active{
+    display: block;
+}
+
+/*----- Start Common------*/
+.wfps_version_blue{
+    color: #485AFD;
+    font-weight: 600;
+}
+
+.wfps_version_red{
+    color: #f86482;
+    font-weight: 600;
+}
+
+.wfpe_button{
+    background-color: #fff;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 5px;
+}
+
+/*----- End Common------*/
+/*----- Start Header------*/
+.wfps_settings_header{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 15px;
+    display: flex;
+    margin-top: 30px;
+}
+
+.wfps_header_left h1{
+    color: #424c5e;
+}
+
+.wfps_header_left h1 span{
+    font-weight: bold;
+}
+
+.wfps_header_right{
+    text-align: right;
+}
+
+.wfps_header_left,
+.wfps_header_right{
+    flex: 1 1 auto;
+}
+
+/*----- End Header------*/
+
+/*-------Start setting content-----*/
+.wfps_setting_content{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 991px) {
+    .wfps_setting_content {
+        flex-direction: column !important;
+        align-items:center;
+        }
+        .wfps_setting_row {
+        flex-direction: column;
+        }
+        .wfps_setting_block {
+        margin-top: 40px;
+        }
+        .wfps_setting_right {
+        background-size: 100% !important;
+        margin-right: 5px;
+            width:90% !important;
+        }
+        .wfps_setting_form_wrapper {
+        margin-right: 0px;
+    }
+
+}
+
+.wfps_setting_tab_heading h2{
+    color: #394b65;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    padding: 30px 25px;
+    margin: 0;
+}
+
+/*-------Start setting form wrapper------*/
+.wfps_setting_form_wrapper{
+    flex: 6;
+    margin-right: 30px;
+    border-radius: 10px;
+}
+
+.wfps_setting_form_wrapper p.submit{
+    text-align: right;
+    margin-right: 25px;
+}
+
+.wfps_setting_form_wrapper .poststuff{
+    padding-top: 0;
+    min-width: 763px;
+}
+
+.wfps_setting_form_wrapper .metabox-holder{
+    padding-top: 0 !important;
+}
+
+.wfps_setting_form_wrapper .postbox{
+    border: 0;
+}
+
+/*-------End setting form wrapper------*/
+
+/*-----Start license tab-----*/
+.wfps_setting_form_license_tab{
+    padding-bottom: 140px;
+}
+
+.wfps_setting_form_license_tab_list{
+    font-size: 17px;
+    color: #576880;
+    margin-bottom: 60px;
+}
+
+.wfps_setting_form_license_tab_list ul{
+    list-style-image: url("../img/wfps-manage-license.png");
+    list-style-position: inside;
+    margin: 15px 40px 0 40px;
+}
+
+.wfps_setting_form_license_tab_list ul li{
+    line-height: 35px;
+}
+
+.wfps_setting_form_license_tab_list ul li a{
+    color: #437dfe;
+    text-decoration: underline;
+}
+
+.wfps_setting_form_license_key form{
+    position: relative;
+    overflow: hidden;
+}
+
+.wfps_setting_form_license_key_field{
+    width: 18%;
+    float: left;
+}
+
+.wfps_setting_form_license_key_field h3{
+    text-align: center;
+}
+
+.wfps_setting_form_license_key_button{
+    width: 75%;
+    float: left;
+}
+
+.wfps_setting_form_license_key_button .active_license_txt{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.wfps_setting_form_license_key_button .active_license_btn{
+    font-size: 15px;
+    color: #fff;
+    padding: 18px 40px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #3cb2ff, #485afd);
+    float: right;
+}
+
+/*-----End license tab-----*/
+/*-------Start right sidebar------*/
+.wfps_setting_right{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex: 3;
+    padding: 10px;
+    margin-top: 83px;
+    border-radius: 10px;
+    background: url("../img/wfps-sidebar-bg.png");
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+.wfps_setting_right_rocket{
+    margin: 30% auto;
+    text-align: center;
+}
+
+.wfps_setting_right_rocket img{
+    margin-bottom: 30px;
+}
+
+.wfps_setting_right_rocket a{
+    font-size: 16px;
+    color: #576880;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+/*-------End right sidebar------*/
+/*-------Start Footer--------*/
+.wfps_setting_documentation{
+    background-color: #fff;
+    padding: 50px 40px;
+    /* border-radius: 10px; */
+}
+
+.wfps_setting_row{
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.wfps_setting_block{
+    box-shadow: 0 0 20px 0 #f2f2f2;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-basis: 25%;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.wfps_setting_block_header{
+    display: flex;
+    align-items: center;
+}
+
+.wfps_setting_block_header .wfps_setting_block_header_icon img{
+    width: 35px;
+}
+
+.wfps_setting_block_header h4{
+    font-size: 18px;
+    color: #394b65;
+    margin: 0 15px;
+}
+
+.wfps_setting_documentation .wfps_setting_block_content p{
+    font-size: 13px;
+    color: #7d8da3;
+    line-height: 1.5;
+}
+
+.wfps_setting_documentation .wfps_setting_block_content a{
+    font-size: 16px;
+    color: #437dfe;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 30px;
+}
+
+.wfps_setting_documentation .wfps_documentation a{
+    color: #51dd77;
+}
+
+.wfps_setting_documentation .wfps_report_bug a{
+    color: #518bff;
+}
+
+.wfps_setting_documentation .wfps_contact_us a{
+    color: #f99696;
+}
+
+.wfps_setting_documentation .wfps_make_review a{
+    color: #a551b3;
+}
+/*-------End Footer--------*/
+/*-------End setting content-----*/
+
+/*------------------------------------------------------
+                End New Style
+--------------------------------------------------------*/
+
 #wfps_editor .form-wrap label {
     display: inline-block; 
 }
@@ -130,16 +543,14 @@ table.wp-list-table .column-wfps_forms {
 
 .wfps_settings .wfps_inside {
     margin-top: 0;
-    padding: 10px;
 }
 
-.wfps_settings .wfps_settings_outer_left {
-    float: left;
-    width: 74%;
+.postbox table.form-table{
+    margin-top: 0;
 }
 
 .wfps_settings .wfps_inside .form_table {
-    padding:25px;
+    padding:25px;    
 }
 
 .wfps_settings .wfps_inside .form_table p {
@@ -148,6 +559,7 @@ table.wp-list-table .column-wfps_forms {
 
 .wfps_settings .wfps_inside .form-table th {
     padding: 20px 10px 20px 26px;
+    color: #3b4a5c;
 }
 
 .wfps_settings .wfps_inside .form_table .form_table_left .group_heading {
@@ -193,10 +605,7 @@ table.wp-list-table .column-wfps_forms {
 
 .wfps_settings .wfps_inside .form-table td{
     padding-right: 25px;
-}
-
-.wfps_settings .postbox {
-    border: none;
+    position: relative;
 }
 
 .wfps_settings .premium {
@@ -207,19 +616,22 @@ table.wp-list-table .column-wfps_forms {
     width: 40%;
     float: left;
     padding-left:30px;
-    padding-top: 75px;
+    padding-top: 20px;
 }
 
 .wfps_settings .premium .premium_left h1 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 34;
+    font-size: 34px;
     font-weight: bold;
+    color: #394b65;
 }
+
 .wfps_settings .premium .premium_left .price{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
     padding-bottom: 10px;
 }
+
 .wfps_settings .premium .premium_left .tagline {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -227,6 +639,7 @@ table.wp-list-table .column-wfps_forms {
     padding-bottom: 10px;
     position: relative;
     z-index: 5;
+    color: #394b65;
 }
 
 .wfps_settings .premium .premium_left a {
@@ -307,12 +720,12 @@ table.wp-list-table .column-wfps_forms {
 .wfps_settings .premium .outer a:hover,
 .wfps_settings .premium .outer a:visited,
 .wfps_settings .premium .outer a:active{
-    color: #fff;
+    color: #37a6dd;
 }
 
 .wfps_settings .premium .premium_right_nobg h4,
 .wfps_settings .premium .premium_right h4 {
-    color: #ffffff;
+    color: #394b65;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: bold;
@@ -326,12 +739,12 @@ table.wp-list-table .column-wfps_forms {
 
 .wfps_settings .premium .premium_right_nobg li,
 .wfps_settings .premium .premium_right li {
-    background-image: url(../img/tick.png);
+    background-image: url(../img/wfps-tick.png);
     background-repeat: no-repeat;
     background-position:top left;
     padding-left: 30px;
     padding-bottom: 15px;
-    color: #ffffff;
+    color: #394b65;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: normal;
@@ -413,7 +826,7 @@ table.wp-list-table .column-wfps_forms {
 
 .wfps_settings .sidebar .sidebar_bottom li {
     background-color:#fff;
-    background-image: url(../img/kcit.png);
+    background-image: url(../img/wfps-tick-fill.png);
     background-repeat: no-repeat;
     background-position: top left;
     padding-bottom: 18px;
@@ -486,38 +899,38 @@ table.wp-list-table .column-wfps_forms {
     box-sizing: border-box;
 }
 
-.wfps_settings .wfps_inside input[type="text"] {
+.wfps_settings input[type="text"],
+.wfps_settings input[type="number"]{
     border-radius: 4px;
+    border: 1px solid #ddd;
     box-shadow: none;
-    height:35px;
-    padding-top: 0;
     margin-top: 0;
+    font-size: 15px;
+    color: #576880;
+    padding: 5px 15px;
 }
 
 .wfps-license-activation-btn,
 .wfps_settings .button {
-    background: #3454F5;
-    border: #3454F5;
-    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right, #3cb2ff, #485afd);
     font-size: 15px;
-    height: 35px;
-    width: 125px;
-    color: #fff
-
+    color: #fff;
+    padding: 12px 40px;
+    border: 1px solid #fff;
+    border-radius: 5px;
 }
 
 .wfps_settings .wfps-license-deactivation-btn{
     background-color: rgba(186,110,120,.5);
-    width: 145px !important;
-}
-
-.wfps_settings .wfps-license-deactivation-btn:hover{
-    background-color: rgba(186,110,120,1) !important;
+    width: auto;
 }
 
 .wfps-license-activation-btn, 
-.wfps_settings .button:hover {
+.wfps_settings .button:hover,
+.wfps_settings .button:focus,
+.wfps_settings .button:active {
     background: rgb(51, 80, 228);
+    border-color: rgb(51, 80, 228);
     color: #fff;
 }
 
@@ -615,7 +1028,8 @@ table.wp-list-table .column-wfps_forms {
 .woo-free-product-sample-form-desc{
     font-size: 13px;
     line-height: 1.5;
-    margin: 0.3em 0;
+    margin: 0.5em 0;
+    color: #394b65;
 }
 
 @keyframes fadeInUp {
@@ -665,16 +1079,56 @@ table.wp-list-table .column-wfps_forms {
         margin-left: 0px;
         padding-left: 10px;
     }
+
     .post-type-wfps_pt_forms #wpfooter #footer-left,
     .post-type-wfps_pt_forms #wpfooter #footer-upgrade {
         display: none;
     }
+
     .wfps_upgrade .wfps_upgrade_left {
         width: 80%;
     }
+
     .wfps_upgrade .wfps_upgrade_right {
         width: 20%;
     }
+
+    .wfps_setting_form_wrapper{
+        margin-right: 0px;
+    }
+
+    .wfps_settings_header{
+        display: flow-root;
+    }
+
+    .wfps_header_right{
+        text-align: left;
+    }
+
+    .wfps_setting_content{
+        margin-top: 0;
+    }
+
+    .wfps_setting_tab_menu{
+        margin-bottom: 20px;
+    }
+
+    .wfps_settings .wfps_inside .form-table th{
+        padding: 20px 10px 20px 20px;
+    }
+
+    .wfps_settings .wfps_inside .form-table td{
+        padding: 0px 10px 10px 18px;
+    }
+
+    .woo-free-product-sample-form-desc{
+        margin: 0.5em 2px;
+    }
+
+    .wfps_setting_right{
+        margin-top: 83px;
+    }
+
 }
 @media screen and (max-width: 600px) {
     .wfps_settings .premium .premium_left {
@@ -692,7 +1146,6 @@ table.wp-list-table .column-wfps_forms {
         width:100%;
         background-position:-150px 0px;
         background-image: url(../img/width600.jpg);
-
     }
 
     .wfps_settings .support {
@@ -719,4 +1172,37 @@ table.wp-list-table .column-wfps_forms {
         right: 0px;
         margin-top: 20px;
     }
+
+    .wfps_setting_tab_menu ul li{
+        padding: 20px 0px;
+    }
+}
+
+.wfps-pro-label {
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    width: 40px;
+    background-image: linear-gradient(to right, #3cb2ff, #485afd);
+    font-weight: 600;
+    line-height: 20px;
+    padding: 2px 4px;
+    height: 20px;
+    border-radius: 4px;
+    margin-left: 5px;
+    margin-top: -2px;
+    position: absolute;
+}
+
+.product-sample_page_woo-free-product-sample-license .wfps_settings input[type="text"]{
+    height: 58px;
+}
+
+.product-sample_page_woo-free-product-sample-license .wfps_setting_form_wrapper{
+    margin-right: 0;
+}
+
+.product-sample_page_woo-free-product-sample-license .regular-text{
+    width: 37em;
 }

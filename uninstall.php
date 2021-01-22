@@ -3,7 +3,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @link       https://www.thewpnext.com/
+ * @link       https://thenextwp.co/
  * @since      2.0.0
  *
  * @package    Woo_Free_Product_Sample
