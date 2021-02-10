@@ -2,7 +2,7 @@
 /**
  * @link              https://thenextwp.co
  * @since             1.0.0
- * @package           Woo_Free_Product_Sample
+ * @package           Woo_Free_Product_Sample 
  *
  * @wordpress-plugin
  * Plugin Name:       Free Product Sample for WooCommerce
