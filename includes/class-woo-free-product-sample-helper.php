@@ -182,7 +182,7 @@ class Woo_Free_Product_Sample_Helper {
 	 * @param    none
      * @return   void
 	 */		
-	public static function wfps_sample_qty() { 
+	public static function wfps_sample_qty() {  
 
 		if ( class_exists( 'SPQ_Smart_Product_Quantity' ) ) {
 			return empty( $_REQUEST['quantity'] ) ? 1 : wc_stock_amount( wp_unslash( $_REQUEST['quantity'] ) ); 
