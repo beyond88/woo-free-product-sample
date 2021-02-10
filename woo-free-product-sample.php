@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'WFPS_VERSION', '2.1.17' );
+define( 'WFPS_VERSION', '2.1.17' ); 
 define( 'WFPS_MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'WFPS_MINIMUM_WP_VERSION', '4.4' );
 define( 'WFPS_MINIMUM_WC_VERSION', '3.0.9' );
