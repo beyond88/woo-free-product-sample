@@ -228,3 +228,6 @@ Fix sidebar missing
 
 = 2.1.17 =
 Refactor code, fix design issue
+
+= 2.1.18 =
+Remove Add to cart button common class
