@@ -12,7 +12,7 @@
  * @author     hossain88 <muhin.cse.diu@gmail.com> 
  */
 
-class Woo_Free_Product_Sample_Helper {
+class Woo_Free_Product_Sample_Helper { 
 
 /**
 	 * The option of this plugin.
