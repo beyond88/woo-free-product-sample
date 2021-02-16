@@ -27,7 +27,7 @@ The easy way to handle free product sample. [Free Product Sample for WooCommerce
 
 ## 🛍️ Supercharge Your business with the Free Proudct Sample for WooCommerce.
 
-Capture compelling and real customer by giving capability to show default quantity.
+Capture compelling and real customer by giving capability to order product sample.
 
 **🔥 Button for Simple and Variable Product both:** Give access to order variable product as a sample.
 
@@ -38,9 +38,9 @@ Capture compelling and real customer by giving capability to show default quanti
 
 **🔥 Shop and Archive Page:** It allows you to set the button for the shop and archive pages.
 
-**🔥 Disable Capability for Some Products:** It allows you to disable the button for some products. 
+**🔥 Disable Capability on Particular Products and Categories:** It allows you to disable the button on particular products and categories. 
 
-**🔥 Shipping & Tax class:** It allows you to set shipping & tax class for the sample products.
+**🔥 Shipping & Tax class:** It allows you to set shipping & tax classes for the sample products.
 
 **🔥 Manage Custom Stock:** It allows you to manage custom stock for the sample products. So this will not messup with the original products stock.
 
@@ -58,13 +58,13 @@ This Free Product Sample for WooCommerce plugin is brought to you by the team be
 
 ## 👨‍💻 DOCUMENTATION AND SUPPORT ##
 
-- For documentation and tutorials go to our [Documentation](https://thenextwp.co/docs/)
-- If you have any more questions, visit our support on the Plugin’s [Forum](https://thenextwp.co/support/)
-- For more information about features, FAQs and documentation, check out our website at [TheNextWP](https://thenextwp.co/)
+- 👨‍💻 [Contact Our Support](https://thenextwp.co/support/)
+- 📜 [Check Documentation](https://thenextwp.co/docs/)
+
 
 ## 💙 Loved This Plugin’s? ##
 
-- Rate us on WordPress
+- Rate us on [WordPress](https://wordpress.org/support/plugin/woo-free-product-sample/reviews/#new-post)
 
 
 == Screenshots ==
