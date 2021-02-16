@@ -65,7 +65,7 @@ This Free Product Sample for WooCommerce plugin is brought to you by the team be
 ## 💙 Loved This Plugin’s? ##
 
 - Rate us on [WordPress](https://wordpress.org/support/plugin/woo-free-product-sample/reviews/#new-post)
-
+- Learn from our tutorials on [Youtube Channel](https://www.youtube.com/channel/UC4rNc3CvL51AxdhaUsYSm4g)
 
 == Screenshots ==
 
