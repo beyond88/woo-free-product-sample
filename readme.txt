@@ -1,5 +1,5 @@
 === Free Product Sample for WooCommerce ===
-Contributors: hossain88
+Contributors: thenextwp, hossain88
 Donate Link: http://thenextwp.co
 Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce
 Requires at least: 4.4
@@ -62,7 +62,7 @@ This Free Product Sample for WooCommerce plugin is brought to you by the team be
 - 📜 [Check Documentation](https://thenextwp.co/docs/)
 
 
-## 💙 Loved This Plugin’s? ##
+## 💙 Loved This Plugin? ##
 
 - Rate us on [WordPress](https://wordpress.org/support/plugin/woo-free-product-sample/reviews/#new-post)
 - Learn from our tutorials on [Youtube Channel](https://www.youtube.com/channel/UC4rNc3CvL51AxdhaUsYSm4g)
