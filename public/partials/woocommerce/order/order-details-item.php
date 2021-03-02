@@ -40,9 +40,9 @@ $setting_options = wp_parse_args(get_option('woo_free_product_sample_settings'),
 				}
 			if( 1 == $get_free ) {
 				if( get_locale() == "ja" ) {
-					$sample =  esc_html__( 'サンプル - ', 'woo-free-product-sample' );
+					$sample = __( 'サンプル - ', 'woo-free-product-sample' );
 				} else {
-					$sample =  esc_html__( 'Sample - ', 'woo-free-product-sample' );
+					$sample = __( 'Sample', 'woo-free-product-sample' ).' - ';
 				}				
 			echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">'.$sample.' (%s)</a>', $product_permalink, $item->get_name() ) : $item->get_name(), $item, $is_visible );
 			} else {

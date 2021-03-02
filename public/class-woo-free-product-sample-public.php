@@ -219,7 +219,7 @@ class Woo_Free_Product_Sample_Public {
 
 			// Do we have a variation ID?
 			if ( empty( $variation_id ) ) {
-				throw new Exception( __( 'Please choose product options&hellip;', 'woocommerce' ) );
+				throw new Exception( __( 'Please choose product options&hellip;', 'woo-free-product-sample' ) );
 			}
 
 			// Check the data we have is valid.
@@ -250,7 +250,7 @@ class Woo_Free_Product_Sample_Public {
 						$variations[ $attribute_key ] = $value;
 					} else {
 						/* translators: %s: Attribute name. */
-						throw new Exception( sprintf( __( 'Invalid value posted for %s', 'woocommerce' ), wc_attribute_label( $attribute['name'] ) ) );
+						throw new Exception( sprintf( __( 'Invalid value posted for %s', 'woo-free-product-sample' ), wc_attribute_label( $attribute['name'] ) ) );
 					}
 				} elseif ( '' === $valid_value ) {
 					$missing_attributes[] = wc_attribute_label( $attribute['name'] );
@@ -258,7 +258,7 @@ class Woo_Free_Product_Sample_Public {
 			}
 			if ( ! empty( $missing_attributes ) ) {
 				/* translators: %s: Attribute name. */
-				throw new Exception( sprintf( _n( '%s is a required field', '%s are required fields', count( $missing_attributes ), 'woocommerce' ), wc_format_list_of_items( $missing_attributes ) ) );
+				throw new Exception( sprintf( _n( '%s is a required field', '%s are required fields', count( $missing_attributes ), 'woo-free-product-sample' ), wc_format_list_of_items( $missing_attributes ) ) );
 			}
 		} catch ( Exception $e ) {
 			wc_add_notice( $e->getMessage(), 'error' );
@@ -514,21 +514,21 @@ class Woo_Free_Product_Sample_Public {
 			$titles = array();
 			foreach ( $products as $product_id => $qty ) {
 				if( get_locale() == "ja" ) {
-					$sample =  esc_html__( 'サンプル - ', 'woo-free-product-sample' );
+					$sample = __( 'サンプル - ', 'woo-free-product-sample' );
 				} else {
-					$sample =  esc_html__( 'Sample - ', 'woo-free-product-sample' );
+					$sample = __( 'Sample', 'woo-free-product-sample' ).' - ';
 				}
 				
-				$titles[] = apply_filters( 'woocommerce_add_to_cart_qty_html', ( $qty > 1 ? absint( $qty ) . ' &times; ' : '' ), $product_id ) . apply_filters( 'woocommerce_add_to_cart_item_name_in_quotes', sprintf( _x( '&ldquo;%s&rdquo;', 'Item name in quotes', 'woocommerce' ), strip_tags( $sample . get_the_title( $product_id ) ) ), $product_id );
+				$titles[] = apply_filters( 'woocommerce_add_to_cart_qty_html', ( $qty > 1 ? absint( $qty ) . ' &times; ' : '' ), $product_id ) . apply_filters( 'woocommerce_add_to_cart_item_name_in_quotes', sprintf( _x( '&ldquo;%s&rdquo;', 'Item name in quotes', 'woo-free-product-sample' ), strip_tags( $sample . get_the_title( $product_id ) ) ), $product_id );
 				$count   += $qty;
 			}
 			
 			$titles = array_filter( $titles );
 			/* translators: %s: product name */
-			$added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', $count, 'woocommerce' ), wc_format_list_of_items( $titles ) );		
+			$added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', $count, 'woo-free-product-sample' ), wc_format_list_of_items( $titles ) );		
 	
 			// Output success messages.
-			$message = sprintf( '<a href="%s" tabindex="1" class="button wc-forward">%s</a> %s', esc_url( wc_get_cart_url() ), esc_html__( 'View cart', 'woocommerce' ), esc_html( $added_text ) );
+			$message = sprintf( '<a href="%s" tabindex="1" class="button wc-forward">%s</a> %s', esc_url( wc_get_cart_url() ), esc_html__( 'View cart', 'woo-free-product-sample' ), esc_html( $added_text ) );
 			return $message;
 	
 		} 
@@ -551,9 +551,9 @@ class Woo_Free_Product_Sample_Public {
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $sample_price == $prod_price ) {
 			if( get_locale() == 'ja' ) {
-				$product_name   = esc_html__( 'サンプル - ', 'woo-free-product-sample' ).$product_name;		
+				$product_name   = __( 'サンプル - ', 'woo-free-product-sample' ).$product_name;		
 			} else {
-				$product_name   = esc_html__( 'Sample - ', 'woo-free-product-sample' ).$product_name;
+				$product_name   = __( 'Sample', 'woo-free-product-sample' ).' - '.$product_name;
 			}			
 		}
 
