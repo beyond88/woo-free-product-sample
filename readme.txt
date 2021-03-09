@@ -1,5 +1,5 @@
 === Free Product Sample for WooCommerce ===
-Contributors: thenextwp, hossain88
+Contributors: thenextwp
 Donate Link: http://thenextwp.co
 Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce
 Requires at least: 4.4
