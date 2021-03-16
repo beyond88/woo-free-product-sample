@@ -3,9 +3,9 @@ Contributors: thenextwp
 Donate Link: http://thenextwp.co
 Tags: free, product, sample, free-sample, free-product-sample, free-sample-product, woocommerce, dokan, e-commerce, ecommerce
 Requires at least: 4.4
-Tested up to: 5.6
+Tested up to: 5.7
 WC requires at least: 3.1
-WC tested up to: 4.1.0
+WC tested up to: 5.1.0
 Requires PHP: 5.6
 Stable tag: 3.0.1
 License: GPLv2 or later
@@ -231,3 +231,6 @@ Refactor code, fix design issue
 
 = 2.1.18 =
 Remove Add to cart button common class
+
+= 2.1.19 =
+Remove admin privilege for setting page
