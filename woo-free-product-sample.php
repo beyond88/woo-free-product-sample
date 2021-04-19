@@ -338,7 +338,7 @@ class Woo_Free_Product_Sample_Start {
 			self::$instance = new self();
 		}
 
-		return self::$instance;
+		return self::$instance; 
 	}
 
 }
