@@ -679,7 +679,7 @@ class Woo_Free_Product_Sample_Public {
 		if( ! is_admin() ) {
 			if ( class_exists('WC_Min_Max_Quantities') && WC()->cart->get_cart_contents_count() != 0 ) {			
 				foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
-					if($values['free_sample'] == $values['product_id']) {
+					if(isset($values['free_sample']) && $values['free_sample'] == $values['product_id']) {
 						wc_clear_notices();
 					}
 				}
@@ -697,7 +697,7 @@ class Woo_Free_Product_Sample_Public {
 	public function wfps_cart_exclude( $exclude, $checking_id, $cart_item_key, $values ) {
 		if ( class_exists('WC_Min_Max_Quantities') ) {
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
-				if($values['free_sample'] == $values['product_id']) {
+				if(isset($values['free_sample']) && $values['free_sample'] == $values['product_id']) {
 					return 'yes';
 				}
 			}
