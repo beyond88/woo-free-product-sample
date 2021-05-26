@@ -237,3 +237,6 @@ Remove admin privilege for setting page
 
 = 2.1.20 =
 Fix non-numerice value when add to cart
+
+= 2.1.21 =
+German language compatible
