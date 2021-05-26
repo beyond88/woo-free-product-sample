@@ -515,6 +515,8 @@ class Woo_Free_Product_Sample_Public {
 			foreach ( $products as $product_id => $qty ) {
 				if( get_locale() == "ja" ) {
 					$sample =  esc_html__( 'サンプル - ', 'woo-free-product-sample' );
+				} else if( get_locale() == 'de_DE' ) {
+					$sample =  esc_html__( 'Testzugang - ', 'woo-free-product-sample' );					
 				} else {
 					$sample =  esc_html__( 'Sample - ', 'woo-free-product-sample' );
 				}
@@ -551,7 +553,9 @@ class Woo_Free_Product_Sample_Public {
 		$prod_price 		= str_replace( ",",".", $product->get_price() );	
 		if( $sample_price == $prod_price ) {
 			if( get_locale() == 'ja' ) {
-				$product_name   = esc_html__( 'サンプル - ', 'woo-free-product-sample' ).$product_name;		
+				$product_name   = esc_html__( 'サンプル - ', 'woo-free-product-sample' ).$product_name;	
+			} else if( get_locale() == 'de_DE' ) {
+				$product_name   = esc_html__( 'Testzugang - ', 'woo-free-product-sample' ).$product_name;						
 			} else {
 				$product_name   = esc_html__( 'Sample - ', 'woo-free-product-sample' ).$product_name;
 			}			

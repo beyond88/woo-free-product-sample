@@ -171,7 +171,7 @@ class Woo_Free_Product_Sample_Helper {
 	 * @since    2.0.0
 	 * @param    none
 	 */
-	public static function wfps_price( $product_id ) {	
+	public static function wfps_price( $product_id ) {		
 		return apply_filters( 'woo_free_product_sample_price', 0.00, $product_id );
 	}
 

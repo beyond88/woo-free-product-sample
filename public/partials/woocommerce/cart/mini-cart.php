@@ -62,6 +62,8 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 							if( get_locale() == "ja" ) {
 								$sample =  esc_html__( 'サンプル - ', 'woo-free-product-sample' );
+							} else if( get_locale() == 'de_DE' ) {
+								$sample =  esc_html__( 'Testzugang - ', 'woo-free-product-sample' );								
 							} else {
 								$sample =  esc_html__( 'Sample - ', 'woo-free-product-sample' );
 							}
